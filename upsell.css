@@ -1,0 +1,438 @@
+.hide {
+  display: none !important;
+}
+
+.upsell-page {
+  background:
+    radial-gradient(circle at top, rgba(166, 32, 44, 0.24), transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(210, 176, 122, 0.14), transparent 18%),
+    radial-gradient(circle at 18% 76%, rgba(66, 245, 140, 0.06), transparent 18%),
+    linear-gradient(180deg, #10070b 0%, #090508 44%, #040304 100%);
+}
+
+.upsell-shell {
+  width: min(920px, calc(100% - 1rem));
+  padding-top: max(1.1rem, env(safe-area-inset-top));
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+}
+
+.upsell-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.upsell-topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.upsell-topbar__logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #fff7f1;
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.24);
+}
+
+.upsell-topbar__eyebrow,
+.upsell-hero__eyebrow,
+.upsell-offer__eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.upsell-topbar__title {
+  margin: 0.2rem 0 0;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+}
+
+.upsell-topbar__note {
+  margin: 0;
+  color: var(--text-faint);
+  line-height: 1.6;
+  text-align: right;
+}
+
+.upsell-vsl {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.upsell-hero,
+.upsell-offer {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 18%),
+    linear-gradient(135deg, rgba(35, 12, 19, 0.92), rgba(9, 5, 8, 0.98));
+  box-shadow: 0 32px 84px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+.upsell-hero::after,
+.upsell-offer::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 29px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.upsell-hero {
+  display: grid;
+  gap: 1rem;
+  padding: 1.35rem;
+}
+
+.upsell-hero__headline {
+  margin: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  line-height: 1.02;
+  color: var(--text);
+}
+
+.upsell-hero__highlight {
+  background: linear-gradient(135deg, rgba(207, 171, 114, 1), rgba(242, 156, 191, 0.96));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.upsell-hero__subheadline {
+  margin: -0.15rem auto 0;
+  max-width: 40ch;
+  text-align: center;
+  color: var(--text-soft);
+  line-height: 1.68;
+}
+
+.upsell-video-shell__frame {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 20%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.upsell-video-embed {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 24% 14%, rgba(242, 156, 191, 0.12), transparent 24%),
+    radial-gradient(circle at 80% 18%, rgba(210, 176, 122, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(8, 4, 7, 0.66), rgba(8, 4, 7, 0.2)),
+    linear-gradient(135deg, rgba(23, 10, 17, 0.96), rgba(57, 20, 37, 0.84));
+}
+
+.upsell-video-embed__inner {
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+}
+
+.upsell-video-embed vturb-smartplayer,
+.upsell-video-embed iframe,
+.upsell-video-embed video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+}
+
+.upsell-offer__text,
+.upsell-offer__note,
+.upsell-trust-card span,
+.upsell-faq__item p {
+  margin: 0.45rem 0 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.upsell-offer {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.upsell-offer__top {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.upsell-offer__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+  line-height: 1.03;
+  color: var(--text);
+}
+
+.upsell-offer__title span {
+  color: var(--rose);
+}
+
+.upsell-action-stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.button-default {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.7rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+  user-select: none;
+}
+
+.button-default:hover {
+  transform: translateY(-1px);
+}
+
+.button-default:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.82);
+  outline-offset: 3px;
+}
+
+.button-accept {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  background:
+    linear-gradient(135deg, #30ff88 0%, #0bdc73 48%, #06b85b 100%);
+  color: #042212;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 0 18px rgba(48, 255, 136, 0.62),
+    0 0 42px rgba(21, 226, 113, 0.35),
+    0 20px 40px rgba(6, 184, 91, 0.3);
+  animation: upsellPulse 1.7s ease-in-out infinite;
+}
+
+.button-accept::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.24) 45%, transparent 75%);
+  transform: translateX(-140%);
+  animation: ctaSweep 2.8s ease-in-out infinite;
+}
+
+.button-deny {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-soft);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18rem;
+}
+
+.upsell-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.upsell-trust-card {
+  padding: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.upsell-trust-card strong,
+.upsell-faq__title {
+  color: var(--text);
+}
+
+.upsell-faq__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+}
+
+.upsell-faq__items {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.9rem;
+}
+
+.upsell-faq__item {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.upsell-faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1rem 1.05rem;
+  min-height: 3.4rem;
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.upsell-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.upsell-faq__item p {
+  padding: 0 1rem 1rem;
+}
+
+.upsell-offer__note {
+  color: var(--text-faint);
+  font-size: 0.88rem;
+}
+
+@keyframes upsellPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 18px rgba(48, 255, 136, 0.62),
+      0 0 42px rgba(21, 226, 113, 0.35),
+      0 20px 40px rgba(6, 184, 91, 0.3);
+  }
+
+  50% {
+    transform: scale(1.03);
+    box-shadow:
+      0 0 22px rgba(68, 255, 152, 0.78),
+      0 0 60px rgba(22, 239, 129, 0.52),
+      0 24px 46px rgba(8, 198, 99, 0.38);
+  }
+}
+
+@media (max-width: 720px) {
+  .upsell-shell {
+    width: min(100%, calc(100% - 0.9rem));
+    padding-top: max(0.9rem, env(safe-area-inset-top));
+  }
+
+  .upsell-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .upsell-topbar__note {
+    text-align: left;
+  }
+
+  .upsell-hero,
+  .upsell-offer {
+    border-radius: 24px;
+  }
+
+  .upsell-hero {
+    padding: 1rem;
+  }
+
+  .upsell-hero__headline {
+    font-size: clamp(1.55rem, 8vw, 2.1rem);
+  }
+
+  .upsell-hero__subheadline {
+    font-size: 0.94rem;
+  }
+
+  .upsell-video-shell__frame {
+    padding: 0.75rem;
+    border-radius: 24px;
+  }
+
+  .upsell-video-embed {
+    border-radius: 18px;
+  }
+
+  .upsell-video-embed__inner {
+    max-width: 100%;
+  }
+
+  .upsell-offer {
+    padding: 1rem;
+  }
+
+  .upsell-offer__title {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .upsell-trust-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .button-default {
+    min-height: 3.4rem;
+    padding: 0.95rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upsell-shell {
+    width: min(100%, calc(100% - 0.65rem));
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+
+  .upsell-topbar__logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .upsell-trust-card strong {
+    font-size: 0.95rem;
+  }
+
+  .upsell-offer__text,
+  .upsell-faq__item p,
+  .upsell-trust-card span,
+  .upsell-offer__note {
+    font-size: 0.92rem;
+  }
+
+  .button-default {
+    min-height: 3.2rem;
+    font-size: 0.94rem;
+  }
+}

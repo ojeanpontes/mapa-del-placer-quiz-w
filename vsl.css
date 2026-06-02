@@ -1,0 +1,357 @@
+.sales-shell,
+.legal-shell {
+  width: min(1120px, calc(100% - 1rem));
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+}
+
+.sales-topbar,
+.sales-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(16px);
+}
+
+.sales-topbar {
+  padding: 0.85rem;
+}
+
+.sales-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.sales-brand__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sales-nav,
+.sales-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.sales-nav a,
+.sales-footer a,
+.sales-final a,
+.legal-card a {
+  color: var(--gold);
+}
+
+.sales-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+
+.sales-hero__copy,
+.sales-summary,
+.sales-section,
+.sales-final,
+.legal-card {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 18%),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.sales-hero__copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(1.3rem, 4vw, 3rem);
+}
+
+.sales-eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sales-hero h1,
+.sales-section h2,
+.sales-final h2,
+.legal-card h1,
+.legal-card h2 {
+  margin: 0;
+  font-family: var(--serif);
+  line-height: 0.98;
+  color: var(--text);
+}
+
+.sales-hero h1 {
+  max-width: 12ch;
+  font-size: clamp(2.75rem, 7vw, 5.7rem);
+}
+
+.sales-hero__lead,
+.sales-section p,
+.sales-final p,
+.legal-card p,
+.legal-card li {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.sales-hero__lead {
+  max-width: 58ch;
+  margin: 1.25rem 0 0;
+  font-size: 1.04rem;
+}
+
+.sales-actions {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.sales-button {
+  display: inline-grid;
+  place-items: center;
+  min-height: 3.5rem;
+  padding: 0.95rem 1.25rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #30ff88 0%, #0bdc73 48%, #06b85b 100%);
+  color: #042212;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  box-shadow:
+    0 0 18px rgba(48, 255, 136, 0.52),
+    0 20px 40px rgba(6, 184, 91, 0.24);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.sales-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 22px rgba(68, 255, 152, 0.62),
+    0 24px 44px rgba(8, 198, 99, 0.3);
+}
+
+.sales-button--wide {
+  width: 100%;
+}
+
+.sales-actions__note,
+.sales-final p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.sales-summary {
+  overflow: hidden;
+}
+
+.sales-summary__image {
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+
+.sales-summary__body {
+  padding: 1.25rem;
+}
+
+.sales-summary__tag {
+  display: inline-flex;
+  margin-bottom: 0.75rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sales-summary h2,
+.sales-card h3,
+.compliance-box strong {
+  margin: 0;
+  color: var(--text);
+}
+
+.sales-summary ul,
+.compliance-box ul,
+.legal-card ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.sales-section,
+.sales-final,
+.legal-card {
+  margin-top: 1rem;
+  padding: clamp(1.15rem, 3vw, 2rem);
+}
+
+.sales-section__head {
+  max-width: 720px;
+  margin-bottom: 1rem;
+}
+
+.sales-section h2,
+.sales-final h2,
+.legal-card h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.sales-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.sales-card,
+.compliance-box {
+  padding: 1rem;
+  border: 1px solid rgba(207, 171, 114, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.sales-card__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: rgba(207, 171, 114, 0.15);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.sales-card h3 {
+  margin-top: 0.8rem;
+  font-family: var(--serif);
+  font-size: 1.24rem;
+}
+
+.sales-card p {
+  margin: 0.55rem 0 0;
+  font-size: 0.95rem;
+}
+
+.sales-section--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.sales-faq {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sales-faq details {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.sales-faq summary {
+  cursor: pointer;
+  padding: 1rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.sales-faq p {
+  margin: 0;
+  padding: 0 1rem 1rem;
+}
+
+.sales-final {
+  display: grid;
+  gap: 0.85rem;
+  text-align: center;
+}
+
+.sales-footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  color: var(--text-soft);
+}
+
+.legal-shell {
+  max-width: 920px;
+}
+
+.legal-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.legal-card h2 {
+  margin-top: 0.65rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.legal-card p {
+  margin: 0;
+}
+
+@media (max-width: 840px) {
+  .sales-topbar,
+  .sales-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sales-hero,
+  .sales-section--split,
+  .sales-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-hero h1 {
+    max-width: 14ch;
+    font-size: clamp(2.4rem, 13vw, 4.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .sales-shell,
+  .legal-shell {
+    width: min(100%, calc(100% - 0.6rem));
+    padding-top: max(0.65rem, env(safe-area-inset-top));
+  }
+
+  .sales-hero__copy,
+  .sales-section,
+  .sales-final,
+  .legal-card {
+    border-radius: 24px;
+  }
+
+  .sales-summary__image {
+    min-height: 210px;
+  }
+}

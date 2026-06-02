@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Dashboard del Funnel | Estadisticas</title>
+    <meta
+      name="description"
+      content="Canvas visual de estadisticas del funnel con paso, salida y lectura de retencion por etapa."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body class="analytics-page">
+    <div class="analytics-app">
+      <header class="analytics-topbar">
+        <div class="analytics-topbar__brand">
+          <button class="icon-button" type="button" aria-label="Volver">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div>
+            <p class="analytics-topbar__eyebrow">Dashboard de estadisticas</p>
+            <strong class="analytics-topbar__title">Grupo Jevo</strong>
+          </div>
+        </div>
+
+        <nav class="analytics-tabs" aria-label="Estado del dashboard">
+          <button class="analytics-tab analytics-tab--active" type="button">
+            Estadisticas
+          </button>
+        </nav>
+
+        <div class="analytics-topbar__actions">
+          <button class="ghost-button" type="button" id="refresh-demo">
+            Actualizar demo
+          </button>
+          <button class="primary-button" type="button">Guardado</button>
+        </div>
+      </header>
+
+      <main class="analytics-workspace">
+        <section class="analytics-canvas-shell">
+          <div class="analytics-canvas-toolbar">
+            <div class="analytics-canvas-toolbar__group">
+              <span class="status-pill" id="status-primary">Preview local</span>
+              <span class="status-pill status-pill--soft" id="status-secondary">
+                Datos demo
+              </span>
+            </div>
+
+            <div class="analytics-canvas-toolbar__group">
+              <button class="toolbar-chip" type="button" id="layout-horizontal">
+                Horizontal
+              </button>
+              <button class="toolbar-chip" type="button" id="layout-vertical">
+                Vertical
+              </button>
+              <button class="toolbar-chip" type="button" id="layout-reset">
+                Resetear layout
+              </button>
+              <button class="toolbar-chip" type="button">Hoy</button>
+            </div>
+          </div>
+
+          <div class="analytics-viewport" id="analytics-viewport">
+            <div class="analytics-grid" aria-hidden="true"></div>
+            <svg
+              class="analytics-connections"
+              id="analytics-connections"
+              aria-hidden="true"
+            ></svg>
+            <div class="analytics-flow" id="analytics-flow"></div>
+
+            <aside class="floating-panel floating-panel--summary">
+              <p class="floating-panel__eyebrow">Resumen general</p>
+              <div class="summary-grid">
+                <article class="summary-card">
+                  <span>Entrada</span>
+                  <strong id="summary-entry"></strong>
+                </article>
+                <article class="summary-card">
+                  <span>VSL</span>
+                  <strong id="summary-vsl"></strong>
+                </article>
+                <article class="summary-card">
+                  <span>CTA</span>
+                  <strong id="summary-cta"></strong>
+                </article>
+                <article class="summary-card">
+                  <span>Resultado</span>
+                  <strong id="summary-result"></strong>
+                </article>
+              </div>
+            </aside>
+
+            <aside class="floating-panel floating-panel--inspector">
+              <p class="floating-panel__eyebrow">Etapa seleccionada</p>
+              <h2 class="floating-panel__title" id="inspector-title"></h2>
+              <p class="floating-panel__subtitle" id="inspector-key"></p>
+
+              <div class="inspector-metrics">
+                <div class="inspector-metric">
+                  <span>Visualizaciones</span>
+                  <strong id="inspector-views"></strong>
+                </div>
+                <div class="inspector-metric inspector-metric--success">
+                  <span>Paso</span>
+                  <strong id="inspector-pass"></strong>
+                </div>
+                <div class="inspector-metric inspector-metric--danger">
+                  <span>Salida</span>
+                  <strong id="inspector-drop"></strong>
+                </div>
+                <div class="inspector-metric">
+                  <span>Base del funnel</span>
+                  <strong id="inspector-base"></strong>
+                </div>
+              </div>
+
+              <div class="inspector-next">
+                <p class="inspector-next__title">Proximos caminos</p>
+                <div class="inspector-next__list" id="inspector-next"></div>
+              </div>
+
+              <div class="inspector-actions">
+                <button class="toolbar-chip" type="button" id="focus-node">
+                  Centrar etapa
+                </button>
+                <button class="toolbar-chip" type="button" id="reset-node">
+                  Resetear posicion
+                </button>
+              </div>
+
+              <div class="inspector-insights">
+                <div class="inspector-tip inspector-tip--danger">
+                  <span>Mayor salida</span>
+                  <strong id="worst-step-title"></strong>
+                  <p id="worst-step-copy"></p>
+                </div>
+                <div class="inspector-tip inspector-tip--success">
+                  <span>Mejor retencion</span>
+                  <strong id="best-step-title"></strong>
+                  <p id="best-step-copy"></p>
+                </div>
+              </div>
+
+              <p class="inspector-help">
+                Arrastra las tarjetas para reorganizar el flujo sin romper las conexiones.
+              </p>
+            </aside>
+
+            <div class="zoom-controls" aria-label="Controles de visualizacion">
+              <button class="icon-button" type="button" id="zoom-in">+</button>
+              <button class="icon-button" type="button" id="zoom-out">−</button>
+              <button class="icon-button" type="button" id="zoom-reset">⤢</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./dashboard.js"></script>
+  </body>
+</html>

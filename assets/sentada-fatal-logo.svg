@@ -1,0 +1,70 @@
+<svg width="1600" height="620" viewBox="0 0 1600 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Sentada Fatal</title>
+  <desc>Logo horizontal do upsell Sentada Fatal com wordmark editorial e selo tecnico sensual.</desc>
+  <defs>
+    <linearGradient id="fatal-accent" x1="122" y1="132" x2="1376" y2="412" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B32131"/>
+      <stop offset="0.52" stop-color="#C89B60"/>
+      <stop offset="1" stop-color="#8D1826"/>
+    </linearGradient>
+    <linearGradient id="fatal-line" x1="1088" y1="112" x2="1366" y2="424" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#211A1C"/>
+      <stop offset="0.5" stop-color="#C89B60"/>
+      <stop offset="1" stop-color="#A71F2D"/>
+    </linearGradient>
+  </defs>
+
+  <g opacity="0.88">
+    <path d="M120 108H852" stroke="#C89B60" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M180 132H910" stroke="#B32131" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2.2 10"/>
+    <circle cx="108" cy="108" r="6" fill="#C89B60"/>
+    <circle cx="864" cy="108" r="6" fill="#C89B60"/>
+    <circle cx="170" cy="132" r="4.5" fill="#B32131"/>
+    <circle cx="920" cy="132" r="4.5" fill="#B32131"/>
+  </g>
+
+  <g>
+    <text x="108" y="242" fill="#161113" font-size="180" font-family="Georgia, 'Times New Roman', serif" font-weight="700" letter-spacing="6">
+      <tspan>S</tspan>
+      <tspan fill="#B32131">E</tspan>
+      <tspan>NTAD</tspan>
+      <tspan fill="#B32131">A</tspan>
+    </text>
+
+    <path d="M704 246C770 260 844 254 918 216C948 201 980 195 1009 200" stroke="url(#fatal-accent)" stroke-width="4" stroke-linecap="round"/>
+
+    <text x="112" y="380" fill="#161113" font-size="98" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="18">
+      <tspan>F</tspan>
+      <tspan fill="#B32131">A</tspan>
+      <tspan>T</tspan>
+      <tspan fill="#B32131">A</tspan>
+      <tspan>L</tspan>
+    </text>
+
+    <path d="M118 418H624" stroke="#C89B60" stroke-width="2"/>
+    <path d="M118 444H560" stroke="#B32131" stroke-width="1.6"/>
+    <text x="114" y="498" fill="#7E6860" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="12">
+      UPSSELL EXCLUSIVO
+    </text>
+  </g>
+
+  <g transform="translate(1038 92)">
+    <rect x="0.9" y="0.9" width="334.2" height="334.2" rx="16" stroke="#D7C0A4" stroke-width="1.8"/>
+    <path d="M36 28H108" stroke="#B32131" stroke-width="2" stroke-linecap="round"/>
+    <path d="M264 308H336" stroke="#B32131" stroke-width="2" stroke-linecap="round"/>
+    <path d="M168 34V300" stroke="url(#fatal-line)" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M168 20L150 50H186L168 20Z" fill="#B32131"/>
+    <path d="M168 314L150 284H186L168 314Z" fill="#B32131"/>
+    <path d="M98 168H238" stroke="url(#fatal-line)" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="168" cy="168" r="40" stroke="#161113" stroke-width="3.2"/>
+    <circle cx="168" cy="168" r="8" fill="#161113"/>
+
+    <path d="M108 78C83 104 70 139 70 177C70 223 89 264 125 292" stroke="#161113" stroke-width="4" stroke-linecap="round"/>
+    <path d="M228 78C253 104 266 139 266 177C266 223 247 264 211 292" stroke="#161113" stroke-width="4" stroke-linecap="round"/>
+    <path d="M110 204C130 186 149 178 168 178C187 178 206 186 226 204" stroke="#B32131" stroke-width="3" stroke-linecap="round"/>
+    <path d="M112 232C129 248 147 257 168 257C189 257 207 248 224 232" stroke="#C89B60" stroke-width="3" stroke-linecap="round"/>
+    <path d="M118 120C131 109 147 103 168 103C189 103 205 109 218 120" stroke="#C89B60" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M265 44C304 86 324 132 324 182" stroke="#B32131" stroke-width="1.6" stroke-dasharray="3 8" stroke-linecap="round"/>
+    <circle cx="318" cy="188" r="4.8" fill="#B32131"/>
+  </g>
+</svg>

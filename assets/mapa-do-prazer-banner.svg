@@ -1,0 +1,83 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="90" x2="1450" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17090B"/>
+      <stop offset="0.45" stop-color="#240B10"/>
+      <stop offset="1" stop-color="#050304"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1094 262) rotate(145.305) scale(412.792 290.888)">
+      <stop stop-color="#BE2F35" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#BE2F35" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1268 654) rotate(130.203) scale(347.938 270.307)">
+      <stop stop-color="#D2B07A" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#D2B07A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(383 209) rotate(68.731) scale(305.213 488.556)">
+      <stop stop-color="#F3D9D2" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#F3D9D2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="817" y1="154" x2="1132" y2="746" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F1D5D0" stop-opacity="0.85"/>
+      <stop offset="0.55" stop-color="#D2B07A" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#BE2F35" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="soft" x="-160" y="-160" width="1920" height="1220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow1)"/>
+  <rect width="1600" height="900" fill="url(#glow2)"/>
+  <rect width="1600" height="900" fill="url(#glow3)"/>
+
+  <g opacity="0.14">
+    <path d="M115 775C250 655 437 586 640 596" stroke="#F7EEEA" stroke-width="2"/>
+    <path d="M90 813C287 633 536 548 791 562" stroke="#BE2F35" stroke-width="1.5"/>
+    <path d="M104 857C328 661 610 581 889 593" stroke="#D2B07A" stroke-width="1.2"/>
+  </g>
+
+  <g opacity="0.18">
+    <path d="M1392 134C1302 188 1247 293 1247 416C1247 542 1305 647 1401 698" stroke="#F7EEEA" stroke-width="2"/>
+    <path d="M1350 104C1234 171 1162 299 1162 444C1162 577 1225 689 1330 758" stroke="#D2B07A" stroke-width="1.4"/>
+    <path d="M1467 183C1402 247 1367 334 1367 434C1367 534 1400 620 1460 681" stroke="#BE2F35" stroke-width="1.4"/>
+  </g>
+
+  <g filter="url(#soft)" opacity="0.55">
+    <circle cx="1118" cy="443" r="20" fill="#BE2F35"/>
+    <circle cx="1118" cy="443" r="53" stroke="#F7EEEA" stroke-width="4"/>
+    <circle cx="1118" cy="443" r="121" stroke="#D2B07A" stroke-opacity="0.68" stroke-width="2"/>
+  </g>
+
+  <g>
+    <path d="M1118 180V706" stroke="url(#line)" stroke-width="3"/>
+    <path d="M1118 180L1088 228H1148L1118 180Z" fill="#BE2F35"/>
+    <path d="M1118 706L1088 658H1148L1118 706Z" fill="#BE2F35"/>
+    <path d="M839 443H1398" stroke="url(#line)" stroke-width="3"/>
+    <circle cx="1118" cy="443" r="34" stroke="#F7EEEA" stroke-width="4"/>
+    <circle cx="1118" cy="443" r="7" fill="#F7EEEA"/>
+  </g>
+
+  <g opacity="0.88">
+    <path d="M962 275C915 309 885 365 885 430C885 494 915 551 963 585" stroke="#F7EEEA" stroke-width="4"/>
+    <path d="M947 327C920 347 905 387 905 429C905 472 921 512 950 534" stroke="#BE2F35" stroke-width="3"/>
+    <path d="M969 387C999 400 1016 418 1016 442C1016 466 1000 485 971 499" stroke="#D2B07A" stroke-width="3"/>
+    <path d="M905 429H848" stroke="#F7EEEA" stroke-width="4"/>
+    <path d="M908 429L878 404" stroke="#BE2F35" stroke-width="3"/>
+    <path d="M908 429L878 454" stroke="#BE2F35" stroke-width="3"/>
+  </g>
+
+  <g opacity="0.09">
+    <text x="86" y="256" fill="#F7EEEA" font-size="150" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="5">MAPA</text>
+    <text x="86" y="372" fill="#BE2F35" font-size="70" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="10">DO PRAZER</text>
+    <text x="89" y="453" fill="#D2B07A" font-size="46" font-family="Arial, Helvetica, sans-serif" font-weight="600" letter-spacing="12">MASCULINO</text>
+  </g>
+
+  <g opacity="0.52">
+    <path d="M126 717H622" stroke="#D2B07A" stroke-width="2"/>
+    <path d="M126 741H562" stroke="#BE2F35" stroke-width="1.5"/>
+    <circle cx="111" cy="717" r="6" fill="#F7EEEA"/>
+    <circle cx="637" cy="717" r="6" fill="#F7EEEA"/>
+  </g>
+</svg>

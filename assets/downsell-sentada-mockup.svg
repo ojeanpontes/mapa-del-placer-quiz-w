@@ -1,0 +1,42 @@
+<svg width="1100" height="860" viewBox="0 0 1100 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="62" y1="60" x2="981" y2="796" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17151F"/>
+      <stop offset="0.48" stop-color="#0F0F17"/>
+      <stop offset="1" stop-color="#09090F"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="316" y1="132" x2="730" y2="741" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B2836"/>
+      <stop offset="1" stop-color="#121219"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="352" y1="170" x2="696" y2="716" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B1420"/>
+      <stop offset="0.5" stop-color="#160D14"/>
+      <stop offset="1" stop-color="#0B0910"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="860" rx="52" fill="url(#bg)"/>
+  <rect x="72" y="92" width="956" height="676" rx="38" fill="#10111A" stroke="#C9A96E" stroke-opacity="0.24" stroke-width="2"/>
+
+  <g opacity="0.92">
+    <rect x="342" y="124" width="416" height="686" rx="54" fill="url(#phone)"/>
+    <rect x="360" y="142" width="380" height="650" rx="42" fill="url(#screen)"/>
+    <rect x="478" y="164" width="146" height="16" rx="8" fill="#0D0D12"/>
+    <rect x="400" y="224" width="300" height="82" rx="24" fill="#11131A" fill-opacity="0.74" stroke="#C9A96E" stroke-opacity="0.22"/>
+    <text x="438" y="272" fill="#FFFFFF" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="3">SENTADA FATAL</text>
+    <text x="460" y="410" fill="#C9A96E" font-size="20" font-family="Arial, Helvetica, sans-serif" letter-spacing="4">AULA PRÁTICA 01</text>
+    <text x="434" y="448" fill="#FFFFFF" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700">Condução com Presença</text>
+    <rect x="412" y="494" width="276" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.1"/>
+    <rect x="412" y="526" width="228" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.08"/>
+    <rect x="412" y="598" width="276" height="68" rx="24" fill="#C0392B"/>
+    <text x="468" y="640" fill="#FFFFFF" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="2">LIBERAR ACESSO</text>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M146 699H284" stroke="#C9A96E" stroke-width="2"/>
+    <path d="M800 166H940" stroke="#D4A0A0" stroke-width="2"/>
+    <circle cx="216" cy="699" r="8" fill="#FFFFFF"/>
+    <circle cx="870" cy="166" r="8" fill="#FFFFFF"/>
+  </g>
+</svg>
