@@ -161,7 +161,7 @@
         </div>
         <a
           class="tsl-button"
-          href="https://lastlink.com/p/CCA0BE781/checkout-payment"
+          href="#"
           data-tsl-cta
         >
           SI, QUIERO ACCEDER AL MAPA
@@ -187,7 +187,7 @@
         </p>
         <a
           class="tsl-button tsl-button--secondary"
-          href="https://lastlink.com/p/CCA0BE781/checkout-payment"
+          href="#"
           data-tsl-cta
         >
           ENTRAR AL MAPA AHORA
@@ -202,11 +202,15 @@
 
       const query = window.location.search;
       document.querySelectorAll("[data-tsl-cta]").forEach((link) => {
-        if (query && !link.href.includes("?")) {
+        if (query && link.href.startsWith("http") && !link.href.includes("?")) {
           link.href = `${link.href}${query}`;
         }
 
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (event) => {
+          if (link.getAttribute("href") === "#") {
+            event.preventDefault();
+          }
+
           window.funnelAnalytics?.track("tsl_cta_click", {
             destination: link.href,
           });
