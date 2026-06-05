@@ -6,7 +6,7 @@ const FLOW_NODES = [
   {
     key: "quiz_entry_view",
     tag: "Entrada",
-    title: "Activa el Punto G Masculino",
+    title: "Ative o Ponto G Masculino",
     eventLabel: "quiz_entry_view",
     next: ["quiz_step_1_view"],
     kind: "entry",
@@ -17,8 +17,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_1_view",
-    tag: "Pregunta 1",
-    title: "Cual es tu situacion hoy?",
+    tag: "Pergunta 1",
+    title: "Qual é a sua situação hoje?",
     eventLabel: "quiz_step_1_view",
     next: ["quiz_step_2_view"],
     layouts: {
@@ -28,8 +28,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_2_view",
-    tag: "Pregunta 2",
-    title: "Como esta tu vida sexual hoy?",
+    tag: "Pergunta 2",
+    title: "Como está sua vida sexual hoje?",
     eventLabel: "quiz_step_2_view",
     next: ["quiz_step_3_view"],
     layouts: {
@@ -39,8 +39,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_3_view",
-    tag: "Pregunta 3",
-    title: "Que es lo que mas te incomoda hoy?",
+    tag: "Pergunta 3",
+    title: "O que mais te incomoda hoje?",
     eventLabel: "quiz_step_3_view",
     next: ["quiz_bridge_1_view"],
     layouts: {
@@ -50,8 +50,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_bridge_1_view",
-    tag: "Pausa 1",
-    title: "Antes de continuar, necesitas saber algo",
+    tag: "Quebra 1",
+    title: "Antes de continuar, você precisa saber de uma coisa",
     eventLabel: "quiz_bridge_1_view",
     next: ["quiz_step_4_view"],
     layouts: {
@@ -61,8 +61,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_4_view",
-    tag: "Pregunta 4",
-    title: "Ya intentaste reencender las cosas?",
+    tag: "Pergunta 4",
+    title: "Você já tentou reacender as coisas?",
     eventLabel: "quiz_step_4_view",
     next: ["quiz_step_5_view"],
     layouts: {
@@ -72,8 +72,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_5_view",
-    tag: "Pregunta 5",
-    title: "Si pudieras cambiar UNA cosa...",
+    tag: "Pergunta 5",
+    title: "Se você pudesse mudar UMA coisa...",
     eventLabel: "quiz_step_5_view",
     next: ["quiz_bridge_2_view"],
     layouts: {
@@ -83,8 +83,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_bridge_2_view",
-    tag: "Pausa 2",
-    title: "Que hace que un hombre elija a una sola?",
+    tag: "Quebra 2",
+    title: "O que faz um cara escolher uma só?",
     eventLabel: "quiz_bridge_2_view",
     next: ["quiz_step_6_view"],
     layouts: {
@@ -94,8 +94,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_6_view",
-    tag: "Pregunta 6",
-    title: "Si aprendes, puedes guardarlo?",
+    tag: "Pergunta 6",
+    title: "Se você aprender, consegue guardar?",
     eventLabel: "quiz_step_6_view",
     next: ["quiz_step_7_view"],
     layouts: {
@@ -105,8 +105,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_step_7_view",
-    tag: "Pregunta 7",
-    title: "Ultima pregunta",
+    tag: "Pergunta 7",
+    title: "Última pergunta",
     eventLabel: "quiz_step_7_view",
     next: ["quiz_result_view"],
     layouts: {
@@ -117,7 +117,7 @@ const FLOW_NODES = [
   {
     key: "quiz_result_view",
     tag: "Resultado",
-    title: "Tu resultado esta listo",
+    title: "Seu resultado está pronto",
     eventLabel: "quiz_result_view",
     next: ["quiz_vsl_click"],
     layouts: {
@@ -127,8 +127,8 @@ const FLOW_NODES = [
   },
   {
     key: "quiz_vsl_click",
-    tag: "Salida",
-    title: "Click hacia la VSL",
+    tag: "Saída",
+    title: "Clique para a VSL",
     eventLabel: "quiz_vsl_click",
     next: ["vsl_view"],
     layouts: {
@@ -139,7 +139,7 @@ const FLOW_NODES = [
   {
     key: "vsl_view",
     tag: "VSL",
-    title: "Entrada en la VSL",
+    title: "Entrada na VSL",
     eventLabel: "vsl_view",
     next: ["vsl_cta_visible"],
     layouts: {
@@ -150,7 +150,7 @@ const FLOW_NODES = [
   {
     key: "vsl_cta_visible",
     tag: "Oferta",
-    title: "CTA liberado en la VSL",
+    title: "CTA liberado na VSL",
     eventLabel: "vsl_cta_visible",
     next: ["vsl_cta_click"],
     layouts: {
@@ -161,7 +161,7 @@ const FLOW_NODES = [
   {
     key: "vsl_cta_click",
     tag: "Checkout",
-    title: "Click en el checkout de la VSL",
+    title: "Clique no checkout da VSL",
     eventLabel: "vsl_cta_click",
     next: [],
     layouts: {
@@ -235,11 +235,11 @@ const state = {
 };
 
 function formatCount(value) {
-  return new Intl.NumberFormat("es-419").format(Math.max(0, Math.round(value)));
+  return new Intl.NumberFormat("pt-BR").format(Math.max(0, Math.round(value)));
 }
 
 function formatPercent(value) {
-  return `${Math.max(0, value).toFixed(1).replace(".", ".")}%`;
+  return `${Math.max(0, value).toFixed(1).replace(".", ",")}%`;
 }
 
 function jitterValue(value, variance = 0.05) {
@@ -299,7 +299,7 @@ function createDemoSnapshot() {
 
 async function loadLiveSnapshot() {
   try {
-    setStatus("Conectando GA4", "Buscando datos reales");
+    setStatus("Conectando GA4", "Buscando dados reais");
 
     const response = await fetch("/api/ga4-funnel?range=today", {
       cache: "no-store",
@@ -327,19 +327,19 @@ async function loadLiveSnapshot() {
       throw new Error("GA4 payload missing snapshot");
     }
 
-    setStatus("GA4 conectado", payload.rangeLabel || "Hoy");
+    setStatus("GA4 conectado", payload.rangeLabel || "Hoje");
     return normalizeSnapshot(payload.snapshot);
   } catch (error) {
     const message = error.message || "";
 
     if (message.includes("GA4_")) {
-      setStatus("GA4 pendiente", "Credenciales no configuradas");
+      setStatus("GA4 pendente", "Credenciais não configuradas");
     } else if (message.includes("SERVICE_DISABLED") || message.includes("Google Analytics Data API has not been used")) {
-      setStatus("GA4 bloqueado", "Activa la Data API en Google Cloud");
+      setStatus("GA4 bloqueado", "Ative a Data API no Google Cloud");
     } else if (message.includes("PERMISSION_DENIED")) {
-      setStatus("GA4 sin acceso", "Verifica el acceso de la service account");
+      setStatus("GA4 sem acesso", "Verifique o acesso da service account");
     } else {
-      setStatus("Preview local", "Datos demo");
+      setStatus("Preview local", "Dados demo");
     }
 
     return createDemoSnapshot();
@@ -442,15 +442,15 @@ function buildNodeMarkup(node, snapshot) {
 
       <div class="flow-node__stats">
         <div class="flow-node__stat">
-          <span>Visualizaciones</span>
+          <span>Visualizações</span>
           <strong>${formatCount(metrics.current)}</strong>
         </div>
         <div class="flow-node__stat">
-          <span>Paso</span>
+          <span>Passagem</span>
           <strong class="is-success">${node.next.length ? formatPercent(metrics.passRate) : "Final"}</strong>
         </div>
         <div class="flow-node__stat">
-          <span>Salida</span>
+          <span>Saída</span>
           <strong class="is-danger">${node.next.length ? formatPercent(metrics.dropRate) : "—"}</strong>
         </div>
       </div>
@@ -614,7 +614,7 @@ function renderInspector(snapshot) {
   elements.inspectorDrop.textContent = node.next.length ? formatPercent(metrics.dropRate) : "—";
   elements.inspectorBase.textContent = formatPercent(metrics.baseRate);
   elements.inspectorNext.innerHTML =
-    nextItems || '<div class="inspector-next__item"><span>Sin proximo paso</span><strong>Final</strong></div>';
+    nextItems || '<div class="inspector-next__item"><span>Sem próximo passo</span><strong>Final</strong></div>';
 }
 
 function renderInsights(snapshot) {
@@ -631,14 +631,14 @@ function renderInsights(snapshot) {
   );
 
   elements.worstTitle.textContent = worst.node.title;
-  elements.worstCopy.textContent = `${formatPercent(worst.dropRate)} de salida en esta etapa. ${formatCount(
+  elements.worstCopy.textContent = `${formatPercent(worst.dropRate)} de saída nesta etapa. ${formatCount(
     worst.current,
-  )} personas llegaron aqui.`;
+  )} pessoas chegaram aqui.`;
 
   elements.bestTitle.textContent = best.node.title;
-  elements.bestCopy.textContent = `${formatPercent(best.passRate)} de paso en esta etapa. ${formatCount(
+  elements.bestCopy.textContent = `${formatPercent(best.passRate)} de passagem nesta etapa. ${formatCount(
     best.current,
-  )} personas pasaron por este bloque.`;
+  )} pessoas passaram por esse bloco.`;
 }
 
 function applyZoom() {

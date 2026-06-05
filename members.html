@@ -1,57 +1,46 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Acceso no disponible | Mapa del Placer Masculino</title>
+    <title>Área de Miembros | El Mapa del Placer Masculino</title>
     <meta
       name="description"
-      content="El acceso privado del Mapa del Placer Masculino no esta disponible en este momento. Contacta soporte para ayuda."
+      content="Área de miembros de El Mapa del Placer Masculino con cinco clases, materiales de apoyo y comunidad privada."
     />
+    <script>
+      window.pixelId = "68254fb467dcb1af33b49702";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFDJ3KETFR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-SFDJ3KETFR");
+    </script>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./vsl.css" />
+    <link rel="stylesheet" href="./members.css" />
   </head>
-  <body class="vsl-page">
+  <body class="members-page">
     <div class="ambient ambient--top"></div>
     <div class="ambient ambient--side"></div>
     <div class="ambient ambient--glow"></div>
 
-    <main class="page-shell legal-shell">
-      <header class="sales-topbar">
-        <a class="sales-brand" href="./pv.html" aria-label="Volver a la pagina principal">
-          <img
-            class="sales-brand__logo"
-            src="./assets/mapa-do-prazer-logo.jpeg"
-            alt="Mapa del Placer Masculino"
-          />
-          <span>Mapa del Placer Masculino</span>
-        </a>
-        <nav class="sales-nav" aria-label="Enlaces importantes">
-          <a href="./pv.html">Pagina principal</a>
-          <a href="./support.html">Soporte</a>
-          <a href="./privacy.html">Privacidad</a>
-        </nav>
-      </header>
-
-      <article class="legal-card">
-        <p class="sales-eyebrow">Acceso privado</p>
-        <h1>Acceso no disponible en este momento</h1>
-        <p>
-          El contenido privado no esta disponible publicamente en este momento.
-          Para dudas sobre acceso, disponibilidad o soporte al comprador, escribe a
-          <a href="mailto:mapadelplacer.contato@gmail.com">mapadelplacer.contato@gmail.com</a>.
-        </p>
-        <p>
-          Si llegaste aqui por error, vuelve a la pagina principal o consulta la
-          politica de privacidad antes de continuar.
-        </p>
-        <div class="sales-actions">
-          <a class="sales-button" href="./pv.html">Volver a la pagina principal</a>
-        </div>
-      </article>
+    <main class="page-shell members-shell">
+      <div id="members-app" aria-live="polite" aria-atomic="true"></div>
     </main>
+
+    <script src="./funnel-analytics.js"></script>
+    <script src="./members.js"></script>
   </body>
 </html>

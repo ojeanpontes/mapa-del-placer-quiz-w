@@ -1,7 +1,7 @@
 const DOWNSELL_CONFIG = {
   ctaHref: "https://lastlink.com/p/C4B89F167/checkout-payment",
-  dashboardHref: "./support.html",
-  ctaLabel: "QUIERO COMPLETAR MI JORNADA POR R$67",
+  dashboardHref: "./members.html",
+  ctaLabel: "SÍ, QUIERO LA SENTADA PERFECTA + 3 BONOS POR SOLO $27",
 };
 
 function trackDownsellEvent(eventName, params = {}) {
@@ -78,7 +78,7 @@ function setupRevealObserver() {
       });
     },
     {
-      threshold: 0.16,
+      threshold: 0.14,
       rootMargin: "0px 0px -32px 0px",
     },
   );

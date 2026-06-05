@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>VTurb Rescue | Preview e Download</title>
+    <meta
+      name="description"
+      content="Ferramenta local para detectar, visualizar e baixar vídeos próprios hospedados no VTurb/ConverteAI."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./vturb-tool.css" />
+  </head>
+  <body class="vturb-tool-page">
+    <main class="vturb-tool-shell">
+      <section class="tool-panel">
+        <div class="tool-heading">
+          <p class="tool-eyebrow">Ferramenta local</p>
+          <h1>VTurb Rescue</h1>
+          <p>
+            Cole o embed, o link do <code>player.js</code> ou o
+            <code>main.m3u8</code> de um vídeo seu. A ferramenta detecta o
+            stream, mostra preview e gera um MP4 para baixar.
+          </p>
+        </div>
+
+        <form class="tool-form" data-video-form>
+          <label class="field-group">
+            <span>Embed ou URL do VTurb</span>
+            <textarea
+              name="input"
+              rows="7"
+              placeholder="Cole aqui o embed completo, a URL do player.js ou a URL main.m3u8..."
+              spellcheck="false"
+              required
+            ></textarea>
+          </label>
+
+          <label class="field-group">
+            <span>Nome do arquivo final</span>
+            <input
+              name="fileName"
+              type="text"
+              placeholder="ex: upsell-la-sentada-preview"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="action-row">
+            <button type="button" class="secondary-button" data-probe-button>
+              Detectar vídeo
+            </button>
+            <button type="submit" class="primary-button">
+              Baixar MP4
+            </button>
+          </div>
+        </form>
+
+        <div class="tool-note">
+          Use apenas com vídeos seus ou com material que você tem permissão para
+          baixar. Não remove DRM nem passa por barreiras privadas.
+          <a href="./video-manager.html">Trocar embed e deixar online</a>
+        </div>
+      </section>
+
+      <section class="preview-panel">
+        <div class="preview-box" data-preview-box>
+          <div class="preview-empty">
+            <strong>Nenhum vídeo detectado ainda.</strong>
+            <span>Depois de detectar, o preview aparece aqui.</span>
+          </div>
+        </div>
+
+        <div class="status-card" data-status-card>
+          <p class="status-card__label">Status</p>
+          <strong data-status-title>Pronto para começar</strong>
+          <p data-status-detail>
+            Cole o link do VTurb e clique em detectar ou baixar.
+          </p>
+          <a class="download-link" data-download-link href="#" download hidden>
+            Baixar arquivo pronto
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="./vturb-tool.js"></script>
+  </body>
+</html>

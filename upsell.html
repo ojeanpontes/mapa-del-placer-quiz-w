@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>VSL | Sentada Fatal</title>
+    <title>La Sentada Perfecta | Oferta Especial</title>
     <meta
       name="description"
-      content="VSL de upsell de Sentada Fatal con integracion Lastlink y diseno premium."
+      content="Oferta post-compra para agregar La Sentada Perfecta al pedido de El Mapa del Placer Masculino."
     />
     <script>
       window.pixelId = "68254fb467dcb1af33b49702";
@@ -32,133 +32,168 @@
     <link rel="stylesheet" href="./upsell.css" />
   </head>
   <body class="upsell-page">
+    <div class="upsell-alert" role="status" aria-live="polite">
+      <span class="upsell-alert__icon" aria-hidden="true">!</span>
+      <span>No cierres ni recargues esta página. ¡Tu pedido aún no ha sido completado!</span>
+    </div>
+
+    <canvas class="upsell-confetti" data-confetti-canvas aria-hidden="true"></canvas>
     <div class="ambient ambient--top"></div>
     <div class="ambient ambient--side"></div>
     <div class="ambient ambient--glow"></div>
 
     <main class="page-shell upsell-shell">
-      <header class="upsell-topbar">
-        <div class="upsell-topbar__brand">
-          <img
-            class="upsell-topbar__logo"
-            src="./assets/mapa-do-prazer-logo.jpeg"
-            alt="Mapa del Placer Masculino"
-          />
-          <div>
-            <p class="upsell-topbar__eyebrow">VSL complementaria liberada</p>
-            <p class="upsell-topbar__title">Mapa del Placer Masculino</p>
+      <section class="upsell-hero" aria-label="Oferta La Sentada Perfecta">
+        <p class="upsell-hero__eyebrow">Oferta especial post-compra</p>
+        <h1 class="upsell-hero__headline">
+          Tu acceso al <span>Mapa del Placer Masculino</span> está siendo preparado.
+        </h1>
+        <p class="upsell-hero__subheadline">
+          Mira el video a continuación para completar tu pedido.
+        </p>
+
+        <div class="order-progress" aria-label="Estado del pedido">
+          <div class="order-progress__step order-progress__step--done">
+            <span class="order-progress__icon" aria-hidden="true">
+              <svg class="order-progress__svg" viewBox="0 0 24 24" fill="none">
+                <path d="m6.5 12.4 3.4 3.4 7.6-8.1" />
+              </svg>
+            </span>
+            <strong>Compra</strong>
+            <small>confirmada</small>
+          </div>
+          <span class="order-progress__arrow order-progress__arrow--active" aria-hidden="true"></span>
+          <div class="order-progress__step order-progress__step--active" data-progress-message>
+            <span class="order-progress__icon" aria-hidden="true">
+              <svg class="order-progress__svg order-progress__svg--play" viewBox="0 0 24 24" fill="none">
+                <path d="M9 6.8v10.4L17 12 9 6.8Z" />
+              </svg>
+            </span>
+            <strong>Mensaje de Sofia</strong>
+            <small data-progress-copy>paso actual</small>
+          </div>
+          <span class="order-progress__arrow order-progress__arrow--waiting" aria-hidden="true"></span>
+          <div class="order-progress__step order-progress__step--waiting">
+            <span class="order-progress__icon" aria-hidden="true">
+              <svg class="order-progress__svg" viewBox="0 0 24 24" fill="none">
+                <path d="M7.5 10.6V8.4a4.5 4.5 0 0 1 9 0v2.2" />
+                <path d="M6.5 10.6h13v8.2a1.7 1.7 0 0 1-1.7 1.7H8.2a1.7 1.7 0 0 1-1.7-1.7v-8.2Z" />
+              </svg>
+            </span>
+            <strong>Acceso pendiente</strong>
+            <small>en espera</small>
           </div>
         </div>
-        <p class="upsell-topbar__note">Oferta bonus presentada antes del acceso final.</p>
-      </header>
 
-      <section class="upsell-vsl" aria-label="VSL de upsell">
-        <article class="upsell-hero">
-          <p class="upsell-hero__eyebrow">Contenido complementario premium</p>
-          <h1 class="upsell-hero__headline">
-            Clase 1:
-            <span class="upsell-hero__highlight">Como potenciar los masajes</span>
-          </h1>
-          <p class="upsell-hero__subheadline">
-            Es una observacion complementaria para hacer que lo que acabas de ver sea mucho
-            mas facil de aplicar en la practica, con mas presencia, encaje y control.
-          </p>
-
-          <div class="upsell-video-shell">
-            <div class="upsell-video-shell__frame">
-              <div class="upsell-video-embed" data-video-embed>
-                <div class="upsell-video-embed__inner">
-                  <vturb-smartplayer
-                    id="vid-69c5a5345610b6167abf0645"
-                    style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"
-                  ></vturb-smartplayer>
-                </div>
+        <div class="upsell-video-shell">
+          <div class="upsell-video-shell__frame">
+            <div class="upsell-video-embed" data-video-embed>
+              <div class="upsell-video-embed__inner" data-player-stage>
+                <button class="upsell-video-thumb" type="button" data-play-video>
+                  <img
+                    class="upsell-video-thumb__image"
+                    src="./assets/downsell-sofia-speaking.jpg"
+                    alt="Sofia lista para mostrar el mensaje de La Sentada Perfecta"
+                    loading="eager"
+                  />
+                  <span class="upsell-video-thumb__shade" aria-hidden="true"></span>
+                  <span class="upsell-video-thumb__text">
+                    ▶ Sofia tiene un mensaje importante para ti
+                  </span>
+                  <span class="upsell-video-thumb__play" aria-hidden="true">
+                    <span></span>
+                  </span>
+                </button>
               </div>
             </div>
           </div>
-        </article>
+        </div>
 
-        <section class="upsell-offer hide" aria-label="Oferta liberada">
-          <div class="upsell-action-stack" data-upsell-stack>
-            <div
-              class="button-default button-accept w-full"
-              id="llupsell-C13A7D2AF-"
-              role="button"
-              tabindex="0"
-            >
-              SI, QUIERO LIBERAR SENTADA FATAL
-            </div>
-            <div
-              class="button-default button-deny w-full"
-              id="denyButtonc2a1ecc"
-              role="button"
-              tabindex="0"
-            >
-              No, quiero salir sin continuar
-            </div>
+      </section>
+
+      <section
+        class="upsell-stage upsell-offer is-locked"
+        data-unlock="offer"
+        hidden
+      >
+        <div class="upsell-action-stack upsell-action-stack--primary" data-upsell-stack>
+          <div
+            class="button-default button-accept w-full"
+            id="llupsell-C13A7D2AF-"
+            role="button"
+            tabindex="0"
+          >
+            <strong>SÍ, ACTIVAR MI PRUEBA POR $0 DE RIESGO</strong>
           </div>
-
-          <div class="upsell-trust-strip" aria-label="Puntos de confianza">
-            <div class="upsell-trust-card">
-              <strong>Acceso inmediato</strong>
-              <span>entra en la misma jornada, sin rehacer el proceso.</span>
-            </div>
-            <div class="upsell-trust-card">
-              <strong>Complemento estrategico</strong>
-              <span>profundizando control, ritmo y presencia.</span>
-            </div>
-            <div class="upsell-trust-card">
-              <strong>Decision en esta pantalla</strong>
-              <span>si rechazas, sigues directo al dashboard.</span>
-            </div>
-          </div>
-
-          <section class="upsell-faq" aria-label="Preguntas rapidas">
-            <h3 class="upsell-faq__title">Preguntas rapidas</h3>
-            <div class="upsell-faq__items">
-              <details class="upsell-faq__item">
-                <summary>Como recibo este modulo si acepto?</summary>
-                <p>
-                  El contenido entra junto con tu jornada y queda disponible con el resto
-                  del acceso liberado despues de la confirmacion.
-                </p>
-              </details>
-              <details class="upsell-faq__item">
-                <summary>Si rechazo, pierdo el producto principal?</summary>
-                <p>
-                  No. Al rechazar, sales de esta oferta y puedes contactar soporte si necesitas ayuda.
-                </p>
-              </details>
-              <details class="upsell-faq__item">
-                <summary>Cual es la idea de Sentada Fatal?</summary>
-                <p>
-                  Entrar en una capa mas practica de conduccion, postura, ritmo e impacto,
-                  como complemento de lo que ya fue presentado antes.
-                </p>
-              </details>
-            </div>
-          </section>
-
-          <p class="upsell-offer__note">
-            El boton verde mantiene la integracion del gateway. El rechazo preserva los mismos
-            parametros de la sesion en el redireccionamiento.
+          <p class="upsell-action-stack__micro">
+            Tu dinero queda RETENIDO en la plataforma 30 días.
+            Si no te gusta, te lo devuelvo completo. Técnicamente, estás probando gratis.
           </p>
-        </section>
+          <a class="upsell-decline-link" href="./downsell.html" data-decline>
+            No gracias, prefiero quedarme con solo la mitad del mapa →
+          </a>
+        </div>
+
+        <div class="upsell-guarantee" tabindex="0">
+          <span class="upsell-guarantee__crest" aria-hidden="true">
+            <svg viewBox="0 0 72 86" fill="none">
+              <path d="M36 5 61 14v22c0 21-10 35-25 45C21 71 11 57 11 36V14L36 5Z" />
+              <path d="M24 40.5 32.5 49 49 30" />
+              <path d="M21 18.5h30M18 27h36" />
+            </svg>
+          </span>
+          <div>
+            <strong>Garantía de 30 días</strong>
+            <p>Tu dinero queda retenido. Si no te gusta, lo recuperas completo.</p>
+          </div>
+        </div>
+
+        <div class="upsell-deliverables">
+          <div class="upsell-deliverables__group">
+            <p class="upsell-stage__eyebrow">Lo que recibes</p>
+            <ul class="upsell-bullets">
+              <li>15 posiciones para sentarte con seguridad, sin sentirte perdida.</li>
+              <li>El movimiento de cadera que cambia ritmo, presión y control.</li>
+              <li>Cómo estar encima sin cansarte ni perder el clima.</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="button-default button-accept button-accept--repeat" type="button" data-accept-proxy>
+          <strong>SÍ, ACTIVAR MI PRUEBA POR $0 DE RIESGO</strong>
+        </button>
+        <a class="upsell-decline-link upsell-decline-link--final" href="./downsell.html" data-decline>
+          No gracias, prefiero quedarme con solo la mitad del mapa →
+        </a>
       </section>
     </main>
 
+    <aside class="upsell-countdown" data-countdown hidden>
+      <span>⏳ Esta oferta expira en:</span>
+      <strong data-countdown-clock>14:59</strong>
+    </aside>
+
+    <div class="upsell-toast-region" data-toast-region aria-live="polite"></div>
+
+    <div class="upsell-exit-modal" data-exit-modal hidden>
+      <div class="upsell-exit-modal__backdrop" data-modal-keep></div>
+      <section class="upsell-exit-modal__panel" role="dialog" aria-modal="true" aria-labelledby="exit-title">
+        <h2 id="exit-title">¿Segura?</h2>
+        <p>Esta oferta desaparece cuando cierres esta página.</p>
+        <button class="upsell-exit-modal__keep" type="button" data-modal-keep>
+          Espera, déjame ver de nuevo
+        </button>
+        <button class="upsell-exit-modal__leave" type="button" data-decline-confirm>
+          Sí, quiero salir
+        </button>
+      </section>
+    </div>
+
     <script>
-      window.upsellRedirect = "./support.html";
+      window.upsellRedirect = "./members.html";
     </script>
     <script src="https://cdn.lastlink.com/upsell.min.js"></script>
     <script src="./funnel-analytics.js"></script>
     <script src="./upsell.js"></script>
-    <script type="text/javascript">
-      var s = document.createElement("script");
-      s.src =
-        "https://scripts.converteai.net/078ca594-053b-427b-a22f-58f182182f25/players/69c5a5345610b6167abf0645/v4/player.js";
-      s.async = true;
-      document.head.appendChild(s);
-    </script>
   </body>
 </html>
