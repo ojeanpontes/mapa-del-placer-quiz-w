@@ -1,4 +1,4 @@
-const FINAL_CTA_URL = "./vsl.html";
+const FINAL_CTA_URL = "./tsl.html";
 
 const imageLibrary = {
   intro: {
@@ -253,47 +253,47 @@ const steps = [
     progressTotal: 7,
     mood: {
       eyebrow: "Pausa 2",
-      title: "Una pieza suele faltar.",
+      title: "El caso Vini Jr y Virginia.",
       copy:
-        "Muchas parejas no necesitan una conversación perfecta. Necesitan un ritual simple que las vuelva a reunir.",
-      visualLabel: "Reconexión",
-      visualStat: "5 minutos",
-      visualCaption: "Un punto de encuentro pequeño puede cambiar el tono del día.",
-      tags: ["ritual", "presencia", "constancia"],
-      image: imageLibrary.studyPaper,
+        "Cuando un hombre con opciones presta atención, casi nunca se trata de una sola cosa. Hay señales emocionales que pesan más de lo que parece.",
+      visualLabel: "Caso público",
+      visualStat: "Vini Jr + Virginia",
+      visualCaption: "La lectura no es copiar una historia pública. Es entender el patrón detrás de la percepción.",
+      tags: ["caso público", "presencia", "estatus"],
+      image: imageLibrary.promise,
     },
-    kicker: "Lo que casi nadie practica",
-    title: "Las relaciones que se mantienen vivas tienen pequeños puntos de regreso.",
+    kicker: "Caso de referencia",
+    title: "Por qué el caso Vini Jr y Virginia llamó tanto la atención.",
     subheadline:
-      "No son perfectas. No hablan todo el tiempo. Pero tienen momentos donde vuelven a verse, incluso en días cargados.",
+      "No por chisme. Por lo que revela sobre presencia, seguridad y el tipo de mujer que no abandona su propio mundo.",
     paragraphsTop: [
-      "Puede ser un café sin celular.",
-      "Puede ser una pregunta honesta antes de dormir.",
-      "Puede ser una pausa corta donde no se habla de cuentas, tareas ni pendientes.",
-      "Lo importante no es que sea grande. Lo importante es que sea constante.",
+      "Vini Jr no es un hombre invisible. Tiene carrera internacional, exposición, estatus y atención alrededor de su nombre.",
+      "Virginia tampoco entra a una sala como alguien que pide permiso. Tiene marca propia, vida pública, familia, negocios y una presencia que ya existe antes de cualquier hombre.",
+      "Cuando la prensa y el público empezaron a comentar esa aproximación, mucha gente intentó reducir todo a belleza, fama o curiosidad.",
+      "Pero la lectura más útil es otra: una mujer con mundo propio comunica algo que se siente distinto.",
     ],
     galleryTop: [
       {
         image: imageLibrary.promise,
-        label: "Punto de encuentro",
-        caption: "No todo cambio empieza con una conversación larga.",
+        label: "Hombre con opciones",
+        caption: "Cuando él puede mirar para muchos lados, la presencia pesa más que la insistencia.",
       },
       {
         image: imageLibrary.studyDesk,
-        label: "Método simple",
-        caption: "Cuando hay estructura, la reconexión deja de depender del humor del día.",
+        label: "Mujer con mundo propio",
+        caption: "Ella no transmite necesidad de ser elegida. Transmite dirección, centro y vida propia.",
       },
     ],
-    calloutTitle: "Por eso esta lectura importa:",
+    calloutTitle: "La lectura real:",
     quote:
-      "Una mujer que sabe crear seguridad sin perderse a sí misma cambia la forma en que él se acerca.",
+      "La mujer que no abandona su centro comunica: no estoy aquí para perseguir, estoy aquí porque elijo estar.",
     paragraphsBottom: [
-      "No por presión.",
-      "No por drama.",
-      "Sino porque el ambiente entre los dos se vuelve más fácil de habitar.",
+      "Eso no significa hacerse la difícil ni jugar con él.",
+      "Significa sostener seguridad, comunicación y presencia sin convertir la relación en una persecución.",
+      "Un hombre puede admirar belleza. Pero lo que lo hace prestar atención de otra forma suele ser la combinación entre calma, autoestima y una vida que no gira completamente alrededor de él.",
       "Estás a dos preguntas de recibir tu recomendación personalizada.",
     ],
-    microcopy: "Mantén esto en mente para las próximas respuestas.",
+    microcopy: "Mantén esta idea en mente: presencia no se ruega, se comunica.",
     cta: "Ver las últimas preguntas ->",
   },
   {
@@ -367,7 +367,7 @@ const steps = [
       "Tus respuestas muestran que la conexión puede mejorar cuando hay presencia, comunicación y un ritual simple de regreso.",
     intro: "Esto es lo que tu perfil revela:",
     offerIntro:
-      "Preparé una explicación corta para mostrarte cómo aplicar esto con calma, sin forzar conversación y sin perder tu seguridad.",
+      "Preparé una TSL corta para mostrarte cómo aplicar esto con calma, sin forzar conversación y sin perder tu seguridad.",
     lessons: [
       "La señal emocional que muchos hombres no verbalizan",
       "La pregunta que abre espacio sin parecer reclamo",
@@ -378,7 +378,7 @@ const steps = [
       "Importante: este contenido es educativo y no sustituye orientación profesional, médica o psicológica.",
     footnote:
       "Acceso inmediato. Puedes ver por celular. Sin registro adicional.",
-    cta: "VER MI RECOMENDACIÓN ->",
+    cta: "VER MI TSL PRIVADA ->",
     secondary: "Volver a hacer el quiz",
   },
 ];
@@ -851,7 +851,7 @@ elements.quizApp.addEventListener("click", (event) => {
   }
 
   if (action === "result-cta") {
-    trackEvent("quiz_vsl_click", {
+    trackEvent("quiz_tsl_click", {
       destination: FINAL_CTA_URL,
     });
   }

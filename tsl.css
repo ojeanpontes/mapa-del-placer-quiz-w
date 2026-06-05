@@ -1,0 +1,300 @@
+.tsl-page {
+  min-height: 100vh;
+}
+
+.tsl-shell {
+  position: relative;
+  z-index: 1;
+  width: min(680px, calc(100% - 1.25rem));
+  margin: 0 auto;
+  padding: 1rem 0 calc(2rem + env(safe-area-inset-bottom));
+}
+
+.tsl-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0 1.2rem;
+}
+
+.tsl-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.tsl-brand__logo {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(207, 171, 114, 0.35);
+}
+
+.tsl-link,
+.tsl-decline {
+  color: var(--text-faint);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+
+.tsl-hero,
+.tsl-note,
+.tsl-section,
+.tsl-offer,
+.tsl-final {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 28%),
+    rgba(22, 11, 18, 0.72);
+  box-shadow: var(--shadow);
+}
+
+.tsl-hero {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(2rem, 7vw, 4.4rem) clamp(1.15rem, 5vw, 3.2rem);
+  border-radius: 30px;
+  text-align: center;
+}
+
+.tsl-kicker,
+.tsl-offer__label {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tsl-hero h1,
+.tsl-note h2,
+.tsl-section h2,
+.tsl-offer h2 {
+  margin: 0;
+  font-family: var(--serif);
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.tsl-hero h1 {
+  font-size: clamp(2.05rem, 7vw, 3.65rem);
+}
+
+.tsl-hero p:not(.tsl-kicker),
+.tsl-note p,
+.tsl-section p,
+.tsl-offer p,
+.tsl-final p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.72;
+}
+
+.tsl-note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: start;
+  margin-top: 1rem;
+  padding: 1.1rem;
+  border-radius: 24px;
+}
+
+.tsl-note__photo {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(207, 171, 114, 0.5);
+}
+
+.tsl-note > div,
+.tsl-section,
+.tsl-section--stack,
+.tsl-final {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.tsl-section {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border-radius: 24px;
+}
+
+.tsl-section h2,
+.tsl-note h2,
+.tsl-offer h2 {
+  font-size: clamp(1.5rem, 4vw, 2.15rem);
+}
+
+.tsl-quote {
+  padding: 1rem;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 16px 16px 0;
+  background: rgba(207, 171, 114, 0.09);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.tsl-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.tsl-card {
+  display: grid;
+  gap: 0.42rem;
+  padding: 1rem;
+  border: 1px solid rgba(245, 220, 203, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.tsl-card span {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.tsl-card h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.tsl-card p {
+  font-size: 0.93rem;
+}
+
+.tsl-offer {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.35rem;
+  border-color: rgba(207, 171, 114, 0.46);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(50, 255, 137, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(207, 171, 114, 0.08), transparent 26%),
+    rgba(22, 11, 18, 0.8);
+}
+
+.tsl-price {
+  display: flex;
+  align-items: end;
+  gap: 0.8rem;
+  padding: 0.95rem 0;
+}
+
+.tsl-price__old {
+  color: var(--text-faint);
+  text-decoration: line-through;
+  font-size: 1rem;
+}
+
+.tsl-price strong {
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: clamp(3rem, 12vw, 4.8rem);
+  line-height: 0.85;
+}
+
+.tsl-price span:last-child {
+  padding-bottom: 0.35rem;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+.tsl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, #35ff8f 0%, #0fe176 47%, #07aa55 100%);
+  color: #062313;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 950;
+  font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+  letter-spacing: 0.04em;
+  box-shadow:
+    0 0 20px rgba(48, 255, 136, 0.45),
+    0 22px 44px rgba(6, 184, 91, 0.28);
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.tsl-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 0 28px rgba(48, 255, 136, 0.58),
+    0 28px 52px rgba(6, 184, 91, 0.35);
+}
+
+.tsl-button--secondary {
+  width: 100%;
+}
+
+.tsl-offer__micro {
+  text-align: center;
+  font-size: 0.86rem;
+}
+
+.tsl-section--compact {
+  box-shadow: none;
+}
+
+.tsl-final {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.tsl-decline {
+  display: inline-block;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 640px) {
+  .tsl-shell {
+    width: min(100% - 0.9rem, 480px);
+  }
+
+  .tsl-topbar {
+    padding-top: max(0.35rem, env(safe-area-inset-top));
+  }
+
+  .tsl-brand span {
+    max-width: 16ch;
+  }
+
+  .tsl-note {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: left;
+  }
+
+  .tsl-note__photo {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .tsl-price {
+    justify-content: center;
+  }
+}
