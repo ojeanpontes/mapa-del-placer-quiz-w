@@ -344,6 +344,44 @@
   background: var(--members-gold);
 }
 
+.resources-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.resource-item {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(245, 220, 203, 0.1);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(207, 171, 114, 0.09), rgba(185, 90, 129, 0.05)),
+    rgba(255, 255, 255, 0.035);
+}
+
+.resource-item strong {
+  color: var(--members-text);
+  font-weight: 900;
+}
+
+.resource-item p {
+  margin: 0;
+  color: var(--members-text-soft);
+  line-height: 1.55;
+}
+
+.resource-item .ghost-button {
+  justify-self: start;
+  min-height: 2.6rem;
+  padding: 0 0.85rem;
+}
+
 .community-section {
   margin-top: 1rem;
   padding: 1rem;
@@ -498,6 +536,10 @@
 
   .detail-card--wide {
     grid-column: 1 / -1;
+  }
+
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .community-composer {

@@ -132,6 +132,80 @@ const lessons = [
   },
 ];
 
+const courseResources = [
+  {
+    id: "cuaderno-reflexion",
+    title: "Cuaderno de reflexión",
+    description:
+      "Un material para anotar patrones, frases importantes y pequeños cambios que quieras observar durante el curso.",
+    filename: "cuaderno-de-reflexion-mapa-del-placer.txt",
+    lines: [
+      "El Mapa del Placer Masculino",
+      "Cuaderno de reflexión",
+      "",
+      "Cómo usar este material:",
+      "Reserva 5 minutos después de cada clase para escribir sin editarte demasiado.",
+      "No busques una respuesta perfecta. Busca claridad.",
+      "",
+      "Después de cada clase, responde:",
+      "1. ¿Qué idea me hizo más sentido hoy?",
+      "2. ¿Qué patrón quiero observar con más calma?",
+      "3. ¿Qué gesto pequeño puedo practicar esta semana?",
+      "4. ¿Qué necesito cuidar en mí antes de intentar conversar?",
+      "",
+      "Cierre de la semana:",
+      "¿Qué conversación, gesto o pausa me ayudó a estar más presente?",
+    ],
+  },
+  {
+    id: "plan-7-dias",
+    title: "Plan de práctica de 7 días",
+    description:
+      "Una ruta simple para aplicar el contenido sin presión, con una acción pequeña por día.",
+    filename: "plan-de-practica-7-dias.txt",
+    lines: [
+      "El Mapa del Placer Masculino",
+      "Plan de práctica de 7 días",
+      "",
+      "Día 1: Observa sin reaccionar. Anota qué momentos generan distancia.",
+      "Día 2: Haz un gesto breve de presencia sin pedir nada a cambio.",
+      "Día 3: Elige una pregunta simple y hazla en un momento tranquilo.",
+      "Día 4: Escucha sin interrumpir ni completar la respuesta.",
+      "Día 5: Expresa una necesidad con calma y de forma concreta.",
+      "Día 6: Crea un ritual de 5 minutos sin celular ni distracciones.",
+      "Día 7: Revisa qué se sintió natural y qué necesita más práctica.",
+      "",
+      "Nota: este plan es educativo. No garantiza resultados y no reemplaza apoyo profesional.",
+    ],
+  },
+  {
+    id: "guia-conversacion",
+    title: "Guía de conversación tranquila",
+    description:
+      "Frases base para abrir una conversación sin sonar a reclamo, presión o interrogatorio.",
+    filename: "guia-de-conversacion-tranquila.txt",
+    lines: [
+      "El Mapa del Placer Masculino",
+      "Guía de conversación tranquila",
+      "",
+      "Antes de hablar:",
+      "- Elige un momento sin prisa.",
+      "- Habla de una cosa por vez.",
+      "- Usa frases cortas y concretas.",
+      "",
+      "Frases base:",
+      "- Quiero hablar de algo pequeño antes de que se vuelva grande.",
+      "- No quiero discutir. Quiero entendernos mejor.",
+      "- Me gustaría contarte cómo me sentí y escucharte también.",
+      "- ¿Qué necesitas de mí hoy?",
+      "- ¿Podemos tener 5 minutos sin celular para conversar?",
+      "",
+      "Cierre:",
+      "La meta no es ganar una conversación. La meta es abrir un espacio más claro.",
+    ],
+  },
+];
+
 const seedCommunityPosts = [
   {
     id: "seed-1",
@@ -315,6 +389,22 @@ function renderApp() {
             ${lesson.support.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
         </section>
+
+        <section class="support-card resources-card">
+          <div class="support-card__head">
+            <div>
+              <p class="members-kicker">Entregables incluidos</p>
+              <h3>Materiales complementarios del curso</h3>
+            </div>
+          </div>
+          <div class="resource-grid">
+            <article class="resource-item">
+              <strong>5 guías de clase</strong>
+              <p>Una guía descargable por cada aula, generada desde el botón de la clase activa.</p>
+            </article>
+            ${courseResources.map(renderCourseResource).join("")}
+          </div>
+        </section>
       </main>
     </section>
 
@@ -386,6 +476,18 @@ function renderCommunityPost(post) {
         <input name="message" type="text" placeholder="Responder..." maxlength="220" required />
         <button type="submit">Enviar</button>
       </form>
+    </article>
+  `;
+}
+
+function renderCourseResource(resource) {
+  return `
+    <article class="resource-item">
+      <strong>${escapeHtml(resource.title)}</strong>
+      <p>${escapeHtml(resource.description)}</p>
+      <button class="ghost-button" type="button" data-action="download-resource" data-resource-id="${escapeHtml(resource.id)}">
+        Descargar
+      </button>
     </article>
   `;
 }
@@ -488,13 +590,28 @@ function downloadSelectedMaterial() {
     ``,
     `Pregunta guía: ${lesson.reflection}`,
   ].join("\n");
+
+  downloadTextFile(`guia-clase-${lesson.number}-mapa-del-placer.txt`, content);
+}
+
+function downloadCourseResource(resourceId) {
+  const resource = courseResources.find((item) => item.id === resourceId);
+
+  if (!resource) {
+    return;
+  }
+
+  downloadTextFile(resource.filename, resource.lines.join("\n"));
+}
+
+function downloadTextFile(filename, content) {
   const blob = new Blob([content], {
     type: "text/plain;charset=utf-8",
   });
   const link = document.createElement("a");
 
   link.href = URL.createObjectURL(blob);
-  link.download = `guia-clase-${lesson.number}-mapa-del-placer.txt`;
+  link.download = filename;
   link.click();
   URL.revokeObjectURL(link.href);
 }
@@ -615,6 +732,10 @@ document.addEventListener("click", (event) => {
 
   if (actionButton.dataset.action === "download-material") {
     downloadSelectedMaterial();
+  }
+
+  if (actionButton.dataset.action === "download-resource") {
+    downloadCourseResource(actionButton.dataset.resourceId);
   }
 
   if (actionButton.dataset.action === "react-post") {
