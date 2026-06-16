@@ -12,6 +12,16 @@ const videoLibraryPath = path.join(projectRoot, "video-embeds.json");
 const membersCommunityPath = path.join(projectRoot, "members-community.json");
 const videoJobs = new Map();
 
+const routeAliases = new Map([
+  ["/quiz", "/index.html"],
+  ["/curso", "/tsl.html"],
+  ["/area-de-miembros", "/members.html"],
+  ["/soporte", "/support.html"],
+  ["/privacidad", "/privacy.html"],
+  ["/terminos", "/terms.html"],
+  ["/reembolsos", "/refund.html"],
+]);
+
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".gif": "image/gif",
@@ -578,7 +588,9 @@ function createApiResponse(res) {
 }
 
 function getSafeFilePath(urlPathname) {
-  const requestedPath = decodeURIComponent(urlPathname === "/" ? "/index.html" : urlPathname);
+  const cleanPath = urlPathname.length > 1 ? urlPathname.replace(/\/+$/, "") : urlPathname;
+  const routedPath = routeAliases.get(cleanPath) || cleanPath;
+  const requestedPath = decodeURIComponent(routedPath === "/" ? "/index.html" : routedPath);
   const normalizedPath = path.normalize(requestedPath).replace(/^(\.\.[/\\])+/, "");
   const absolutePath = path.join(projectRoot, normalizedPath);
 

@@ -1,4 +1,4 @@
-const FINAL_CTA_URL = "./tsl.html";
+const FINAL_CTA_URL = "/curso";
 
 const imageLibrary = {
   intro: {
