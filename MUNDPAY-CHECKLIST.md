@@ -26,7 +26,6 @@ Fonte de referência: https://mundpay.crisp.help/pt-br/article/requisitos-para-a
 
 2. Preencher identificação do vendedor no rodapé da TSL e nos termos.
    - Razão social ou nome do responsável.
-   - CNPJ ou CPF.
    - Endereço comercial.
    - E-mail oficial de suporte.
 
