@@ -25,9 +25,10 @@ Fonte de referência: https://mundpay.crisp.help/pt-br/article/requisitos-para-a
    - Constante: `CHECKOUT_URL`
 
 2. Preencher identificação do vendedor no rodapé da TSL e nos termos.
-   - Razão social ou nome do responsável.
-   - Endereço comercial.
-   - E-mail oficial de suporte.
+   - Razão social ou nome do responsável: `JEAN MOREIRA DE SOUSA PONTES`.
+   - CNPJ: `63.217.560/0001-12`.
+   - Endereço comercial: `Rua Jose Zacharias 552, Cosmopolis - SP, 13157-352, Brasil`.
+   - E-mail de suporte: `mapadelplacer.contato@gmail.com`.
 
 3. Publicar em domínio próprio .com.
    - A Vercel pode continuar hospedando.
