@@ -2,6 +2,10 @@
   min-height: 100vh;
 }
 
+.sales-compliance-page {
+  color-scheme: dark;
+}
+
 .tsl-shell {
   position: relative;
   z-index: 1;
@@ -16,6 +20,24 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.4rem 0 1.2rem;
+}
+
+.sales-topbar {
+  align-items: flex-start;
+}
+
+.sales-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.sales-nav .tsl-link {
+  border: 1px solid rgba(245, 220, 203, 0.08);
+  border-radius: 999px;
+  padding: 0.45rem 0.62rem;
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .tsl-brand {
@@ -82,6 +104,16 @@
   text-align: center;
 }
 
+.sales-hero {
+  text-align: left;
+}
+
+.sales-hero .tsl-kicker,
+.sales-hero h1,
+.sales-hero > p {
+  text-align: center;
+}
+
 .tsl-kicker,
 .tsl-offer__label {
   margin: 0;
@@ -105,6 +137,60 @@
 
 .tsl-hero h1 {
   font-size: clamp(2.05rem, 7vw, 3.65rem);
+}
+
+.sales-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.sales-summary div {
+  display: grid;
+  gap: 0.22rem;
+  min-height: 5rem;
+  align-content: center;
+  padding: 0.85rem;
+  border: 1px solid rgba(207, 171, 114, 0.18);
+  border-radius: 14px;
+  background: rgba(207, 171, 114, 0.07);
+}
+
+.sales-summary span {
+  color: var(--text-faint);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.sales-summary strong {
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.22;
+}
+
+.sales-hero__cta {
+  width: min(100%, 28rem);
+  justify-self: center;
+}
+
+.sales-trust-note,
+.sales-support-line {
+  font-size: 0.88rem;
+}
+
+.sales-support-line a,
+.sales-inline-link {
+  color: var(--gold);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.sales-inline-link {
+  justify-self: start;
+  border-bottom: 1px solid rgba(207, 171, 114, 0.35);
 }
 
 .tsl-hero p:not(.tsl-kicker),
@@ -354,6 +440,11 @@
   color: var(--gold);
 }
 
+.sales-pending {
+  color: var(--text);
+  font-weight: 800;
+}
+
 @media (max-width: 640px) {
   .tsl-shell {
     width: min(100% - 0.9rem, 480px);
@@ -361,6 +452,15 @@
 
   .tsl-topbar {
     padding-top: max(0.35rem, env(safe-area-inset-top));
+  }
+
+  .sales-topbar {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .sales-nav {
+    justify-content: flex-start;
   }
 
   .tsl-brand span {
@@ -380,6 +480,10 @@
 
   .tsl-price {
     justify-content: center;
+  }
+
+  .sales-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .tsl-facts,
@@ -622,5 +726,78 @@ body.tsl-page .ambient {
 
   .tsl-note {
     justify-items: start;
+  }
+}
+
+.sales-compliance-page .tsl-shell {
+  overflow-x: clip;
+}
+
+.sales-compliance-page .sales-summary,
+.sales-compliance-page .sales-summary div,
+.sales-compliance-page .tsl-button {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sales-compliance-page .sales-summary strong,
+.sales-compliance-page .tsl-hero h1,
+.sales-compliance-page .tsl-button {
+  overflow-wrap: anywhere;
+}
+
+.sales-compliance-page .tsl-button {
+  width: 100%;
+  line-height: 1.15;
+  white-space: normal;
+}
+
+.sales-compliance-page .sales-hero__cta {
+  width: min(100%, 28rem);
+  justify-self: center;
+}
+
+@media (max-width: 640px) {
+  .sales-compliance-page .tsl-shell {
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+  }
+
+  .sales-compliance-page .tsl-hero,
+  .sales-compliance-page .tsl-note,
+  .sales-compliance-page .tsl-section,
+  .sales-compliance-page .tsl-offer,
+  .sales-compliance-page .tsl-final {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sales-compliance-page .tsl-hero {
+    text-align: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .sales-compliance-page .tsl-hero h1 {
+    font-size: clamp(1.65rem, 8.4vw, 2.1rem);
+  }
+
+  .sales-compliance-page .tsl-hero p:not(.tsl-kicker) {
+    font-size: 0.96rem;
+  }
+
+  .sales-compliance-page .sales-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-compliance-page .sales-summary div {
+    min-height: auto;
+  }
+
+  .sales-compliance-page .tsl-button {
+    min-height: 3.8rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    font-size: 0.9rem;
   }
 }

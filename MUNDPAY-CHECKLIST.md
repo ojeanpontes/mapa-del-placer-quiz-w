@@ -30,9 +30,9 @@ Fonte de referência: https://mundpay.crisp.help/pt-br/article/requisitos-para-a
    - Endereço comercial.
    - E-mail oficial de suporte.
 
-3. Publicar em domínio próprio.
+3. Publicar em domínio próprio .com.
    - A Vercel pode continuar hospedando.
-   - Mas o domínio final não deve ser apenas `vercel.app`.
+   - Mas o domínio final não deve ser apenas `vercel.app` nem página provisória.
 
 4. Confirmar política de reembolso final.
    - O texto atual informa 30 dias.
