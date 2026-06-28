@@ -1413,24 +1413,201 @@ function renderMaterials() {
   `;
 }
 
+function renderLearningSidebar(activeCourse) {
+  return `
+    <aside class="learning-sidebar" aria-label="Navegación de cursos">
+      <div class="learning-sidebar__brand">
+        <img src="${escapeHtml(state.product.logoSrc)}" alt="Logo del producto ${escapeHtml(state.product.name)}" />
+        <div>
+          <strong>${escapeHtml(state.product.name)}</strong>
+          <span>Área de miembros</span>
+        </div>
+      </div>
+
+      <nav class="learning-sidebar__courses" aria-label="Cursos disponibles">
+        <span class="learning-sidebar__section">Mis cursos</span>
+        ${state.courses
+          .map((course) => {
+            const stats = getCourseStats(course.id);
+            const isActive = activeCourse?.id === course.id;
+
+            return `
+              <button
+                class="learning-course-link${isActive ? " is-active" : ""}"
+                type="button"
+                data-action="open-course"
+                data-course-id="${escapeHtml(course.id)}"
+              >
+                <span class="learning-course-link__icon">${stats.progress}%</span>
+                <span>
+                  <strong>${escapeHtml(course.title)}</strong>
+                  <small>${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"} · ${escapeHtml(course.status)}</small>
+                </span>
+              </button>
+            `;
+          })
+          .join("")}
+      </nav>
+    </aside>
+  `;
+}
+
+function renderCourseLessonNavigation(course) {
+  const modules = getCourseModules(course.id);
+
+  return `
+    <div class="learning-outline" aria-label="Módulos y clases">
+      <div class="learning-outline__top">
+        <span class="learning-sidebar__section">Contenido</span>
+        <button class="ghost-link" type="button" data-action="reset-lesson-filters">Limpiar filtros</button>
+      </div>
+      ${modules
+        .map(
+          (module) => `
+            <section class="learning-module">
+              <div class="learning-module__head">
+                <strong>${escapeHtml(module.eyebrow)}</strong>
+                <span>${(module.lessons || []).length} clase${(module.lessons || []).length === 1 ? "" : "s"}</span>
+              </div>
+              <h3>${escapeHtml(module.title)}</h3>
+              <div class="learning-module__lessons">
+                ${
+                  (module.lessons || []).length > 0
+                    ? module.lessons
+                        .map(
+                          (lesson) => `
+                            <button
+                              class="learning-lesson-link${lesson.id === selectedLessonId ? " is-active" : ""}"
+                              type="button"
+                              data-action="watch-lesson"
+                              data-lesson-id="${escapeHtml(lesson.id)}"
+                            >
+                              <span class="learning-lesson-link__check">${lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#") ? "✓" : "•"}</span>
+                              <span>
+                                <strong>${escapeHtml(lesson.title)}</strong>
+                                <small>${escapeHtml(lesson.duration)}</small>
+                              </span>
+                            </button>
+                          `,
+                        )
+                        .join("")
+                    : `<p class="learning-module__empty">Contenido en preparación.</p>`
+                }
+              </div>
+            </section>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderLearningDashboard() {
+  const totalLessons = getAllLessons(state.modules).length;
+  const playableLessons = getAllLessons(state.modules).filter((lesson) => lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#"));
+
+  return `
+    <section class="learning-dashboard">
+      <div class="learning-dashboard__hero">
+        <div>
+          <p class="members-kicker">Bienvenida</p>
+          <h2>${escapeHtml(state.product.welcomeTitle)}</h2>
+          <p>${escapeHtml(state.product.welcomeText)}</p>
+        </div>
+        <button class="primary-link" type="button" data-action="open-course" data-course-id="${escapeHtml(state.courses[0]?.id || "")}">
+          Continuar estudiando
+        </button>
+      </div>
+
+      <div class="learning-stats" aria-label="Resumen de progreso">
+        <article><strong>${state.courses.length}</strong><span>Cursos</span></article>
+        <article><strong>${totalLessons}</strong><span>Clases</span></article>
+        <article><strong>${playableLessons.length}</strong><span>Disponibles</span></article>
+      </div>
+
+      <section class="learning-course-grid" id="cursos">
+        <div class="learning-section-title">
+          <p class="members-kicker">Catálogo</p>
+          <h2>Mis cursos</h2>
+        </div>
+        <div class="learning-course-grid__items">
+          ${state.courses
+            .map((course) => {
+              const stats = getCourseStats(course.id);
+              const nextLesson = stats.lessons[0];
+
+              return `
+                <button class="learning-course-card" type="button" data-action="open-course" data-course-id="${escapeHtml(course.id)}">
+                  <span class="learning-course-card__status">${escapeHtml(course.status)}</span>
+                  <strong>${escapeHtml(course.title)}</strong>
+                  <small>${escapeHtml(course.description)}</small>
+                  <span class="course-progress" aria-hidden="true"><span style="width: ${stats.progress}%"></span></span>
+                  <span class="learning-course-card__meta">${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"} · ${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
+                  <span class="learning-course-card__next">${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : "Contenido en preparación"}</span>
+                </button>
+              `;
+            })
+            .join("")}
+        </div>
+      </section>
+    </section>
+  `;
+}
+
+function renderLearningCourse(activeCourse) {
+  const { modules, lessons, playableLessons, progress } = getCourseStats(activeCourse.id);
+  const lesson = getSelectedLesson() || lessons[0] || null;
+
+  return `
+    <section class="learning-course">
+      <div class="learning-course__top">
+        <button class="ghost-link" type="button" data-action="close-course">Todos los cursos</button>
+        <div>
+          <p class="members-kicker">${escapeHtml(activeCourse.label)}</p>
+          <h2>${escapeHtml(activeCourse.title)}</h2>
+          <p>${escapeHtml(activeCourse.description)}</p>
+        </div>
+        <div class="learning-course__progress">
+          <strong>${progress}%</strong>
+          <span class="course-progress" aria-label="${progress}% listo"><span style="width: ${progress}%"></span></span>
+          <small>${playableLessons.length} de ${lessons.length} clases disponibles</small>
+        </div>
+      </div>
+
+      ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
+
+      <div class="learning-course__content" id="modulos">
+        <div class="learning-course__filters">
+          ${renderLessonFilters(activeCourse)}
+        </div>
+        ${renderCourseLessonNavigation(activeCourse)}
+      </div>
+
+      ${activeCourse.id === "mapa-do-prazer" ? renderMaterials() : ""}
+    </section>
+  `;
+}
+
 function renderMemberView() {
   const activeCourse = getActiveCourse();
-  const courseLessons = activeCourse ? getCourseLessons(activeCourse.id) : [];
 
   if (!activeCourse) {
     return `
-      <section class="members-main members-home">
-        ${renderCourseCatalog()}
+      <section class="members-main learning-shell learning-shell--home">
+        ${renderLearningSidebar(null)}
+        <main class="learning-main">
+          ${renderLearningDashboard()}
+        </main>
       </section>
     `;
   }
 
   return `
-    <section class="members-main course-detail">
-      ${renderCourseDetailHero(activeCourse)}
-      ${courseLessons.length > 0 ? renderLessonPlayer() : ""}
-      ${renderModules()}
-      ${activeCourse.id === "mapa-do-prazer" ? renderMaterials() : ""}
+    <section class="members-main learning-shell">
+      ${renderLearningSidebar(activeCourse)}
+      <main class="learning-main">
+        ${renderLearningCourse(activeCourse)}
+      </main>
     </section>
   `;
 }
