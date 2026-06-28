@@ -1496,8 +1496,8 @@ function renderLearningDashboard() {
       <div class="learning-dashboard__hero">
         <div>
           <p class="members-kicker">Bienvenida</p>
-          <h2>${escapeHtml(state.product.welcomeTitle)}</h2>
-          <p>${escapeHtml(state.product.welcomeText)}</p>
+          <h2>Continúa donde lo dejaste</h2>
+          <p>Elige un curso, abre la siguiente clase y avanza sin buscar entre contenidos mezclados.</p>
           ${
             nextStats
               ? `
@@ -1517,7 +1517,7 @@ function renderLearningDashboard() {
       <section class="learning-course-grid" id="cursos">
         <div class="learning-section-title">
           <p class="members-kicker">Catálogo</p>
-          <h2>Mis cursos</h2>
+          <h2>Cursos</h2>
         </div>
         <div class="learning-course-list">
           ${state.courses
@@ -1533,6 +1533,7 @@ function renderLearningDashboard() {
                     <small>${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : escapeHtml(course.status)}</small>
                   </span>
                   <span class="learning-course-row__meta">${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"} · ${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
+                  <span class="learning-course-row__action">Abrir</span>
                 </button>
               `;
             })
