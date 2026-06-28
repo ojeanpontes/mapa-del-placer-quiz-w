@@ -1,4 +1,4 @@
-const MEMBERS_STORAGE_KEY = "mdpm-members-area-v8";
+const MEMBERS_STORAGE_KEY = "mdpm-members-area-es-v1";
 
 window.funnelAnalytics?.trackOnce("members_view");
 
@@ -10,15 +10,15 @@ const defaultState = {
   role: "member",
   adminTab: "lessons",
   product: {
-    name: "Mapa do Prazer Masculino",
-    subtitle: "Método completo para mulheres",
+    name: "Mapa del Placer Masculino",
+    subtitle: "Método completo para mujeres",
     description:
-      "Uma biblioteca prática para mulheres que querem estudar o método completo, acessar os cursos e bônus em ordem e aplicar cada técnica com mais clareza.",
-    welcomeTitle: "Sua biblioteca já está organizada por cursos.",
+      "Una biblioteca práctica para mujeres que quieren estudiar el método completo, acceder a los cursos y bonos en orden y aplicar cada técnica con más claridad.",
+    welcomeTitle: "Tu biblioteca ya está organizada por cursos.",
     welcomeText:
-      "Aqui você encontra o curso principal, o Sentada Fatal e os bônus em áreas separadas para facilitar o consumo e evitar mistura entre as trilhas.",
+      "Aquí encuentras el curso principal, Sentada Fatal y los bonos en áreas separadas para consumir cada ruta sin mezclar contenidos.",
     nextStep:
-      "Comece pelo Mapa do Prazer Masculino em ordem. Depois avance para Sentada Fatal e para os bônus conforme cada curso for liberado.",
+      "Empieza por el Mapa del Placer Masculino en orden. Después avanza hacia Sentada Fatal y los bonos conforme cada curso sea liberado.",
     logoSrc: "./assets/mapa-do-prazer-logo.jpeg",
     bannerSrc: "./assets/mapa-do-prazer-banner.svg",
   },
@@ -26,9 +26,9 @@ const defaultState = {
     {
       id: "mapa-do-prazer",
       label: "Curso principal",
-      title: "Mapa do Prazer Masculino",
+      title: "Mapa del Placer Masculino",
       description:
-        "Trilha principal com teoria e explícito organizados em sequência para começar e avançar sem se perder.",
+        "Ruta principal con teoría y contenido explícito organizados en secuencia para empezar y avanzar sin perderte.",
       status: "Liberado",
       coverImage: "./assets/mapa-do-prazer-banner.svg",
     },
@@ -37,35 +37,35 @@ const defaultState = {
       label: "Curso",
       title: "Sentada Fatal",
       description:
-        "Espaço separado para colocar as aulas e materiais do Sentada Fatal quando os embeds estiverem prontos.",
-      status: "Em organização",
+        "Espacio separado para colocar las clases y materiales de Sentada Fatal cuando los embeds estén listos.",
+      status: "En organización",
       coverImage: "",
     },
     {
       id: "bonus-1",
-      label: "Bônus 1",
-      title: "Bônus 1",
+      label: "Bono 1",
+      title: "Bono 1",
       description:
-        "Área reservada para o primeiro curso bônus. Depois é só renomear e adicionar as aulas no admin.",
-      status: "A configurar",
+        "Área reservada para el primer curso bono. Después solo debes renombrarla y agregar las clases en el admin.",
+      status: "Por configurar",
       coverImage: "",
     },
     {
       id: "bonus-2",
-      label: "Bônus 2",
-      title: "Bônus 2",
+      label: "Bono 2",
+      title: "Bono 2",
       description:
-        "Área reservada para o segundo curso bônus, com módulo próprio para receber aulas e links.",
-      status: "A configurar",
+        "Área reservada para el segundo curso bono, con módulo propio para recibir clases y enlaces.",
+      status: "Por configurar",
       coverImage: "",
     },
     {
       id: "bonus-3",
-      label: "Bônus 3",
-      title: "Bônus 3",
+      label: "Bono 3",
+      title: "Bono 3",
       description:
-        "Área reservada para o terceiro curso bônus, pronta para organizar novos conteúdos.",
-      status: "A configurar",
+        "Área reservada para el tercer curso bono, lista para organizar nuevos contenidos.",
+      status: "Por configurar",
       coverImage: "",
     },
   ],
@@ -74,20 +74,20 @@ const defaultState = {
       id: "mod-1",
       courseId: "mapa-do-prazer",
       eyebrow: "Módulo 1",
-      title: "Teoria",
+      title: "Teoría",
       description:
-        "Primeiro bloco do entregável com a base teórica e as técnicas em sequência para estudar em ordem.",
+        "Primer bloque del entregable con la base teórica y las técnicas en secuencia para estudiar en orden.",
       progress: 0.64,
       lessons: [
         {
           id: "lesson-1",
-          title: "Aula 1 · Tradicional",
+          title: "Clase 1 · Tradicional",
           description:
-            "Primeira técnica da trilha teórica, usada como base para entender o movimento e a lógica da aplicação.",
-          duration: "Aula gravada",
+            "Primera técnica de la ruta teórica, usada como base para entender el movimiento y la lógica de aplicación.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 1 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 1 del entregable",
           coverTheme: "ember",
           coverImage: "",
           videoUrl: "#",
@@ -96,13 +96,13 @@ const defaultState = {
         },
         {
           id: "lesson-2",
-          title: "Aula 2 · Bombinha",
+          title: "Clase 2 · Bombinha",
           description:
-            "Segunda técnica do módulo teórico, aprofundando leitura de ritmo e continuidade da aplicação.",
-          duration: "Aula gravada",
+            "Segunda técnica del módulo teórico, profundizando lectura de ritmo y continuidad de la aplicación.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 2 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 2 del entregable",
           coverTheme: "noir",
           coverImage: "",
           videoUrl: "#",
@@ -111,13 +111,13 @@ const defaultState = {
         },        
         {
           id: "lesson-3",
-          title: "Aula 3 · Tradicional Giratória",
+          title: "Clase 3 · Tradicional Giratoria",
           description:
-            "Variação da técnica tradicional com ênfase em continuidade, ângulo e manutenção do estímulo.",
-          duration: "Aula gravada",
+            "Variación de la técnica tradicional con énfasis en continuidad, ángulo y mantenimiento del estímulo.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 3 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 3 del entregable",
           coverTheme: "blush",
           coverImage: "",
           videoUrl: "#",
@@ -126,13 +126,13 @@ const defaultState = {
         },
         {
           id: "lesson-4",
-          title: "Aula 4 · Anel",
+          title: "Clase 4 · Anillo",
           description:
-            "Quarta técnica do módulo, com foco em encaixe, controle e percepção do movimento.",
-          duration: "Aula gravada",
+            "Cuarta técnica del módulo, con foco en encaje, control y percepción del movimiento.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 4 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 4 del entregable",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -141,13 +141,13 @@ const defaultState = {
         },        
         {
           id: "lesson-5",
-          title: "Aula 5 · Mão Dupla",
+          title: "Clase 5 · Mano Doble",
           description:
-            "Técnica que trabalha coordenação e controle com as duas mãos dentro da mesma sequência.",
-          duration: "Aula gravada",
+            "Técnica que trabaja coordinación y control con ambas manos dentro de la misma secuencia.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 5 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 5 del entregable",
           coverTheme: "ember",
           coverImage: "",
           videoUrl: "#",
@@ -156,13 +156,13 @@ const defaultState = {
         },
         {
           id: "lesson-6",
-          title: "Aula 6 · Carnívora",
+          title: "Clase 6 · Carnívora",
           description:
-            "Sexta técnica do módulo teórico, aprofundando intensidade, variação e sustentação do estímulo.",
-          duration: "Aula gravada",
+            "Sexta técnica del módulo teórico, profundizando intensidad, variación y sostenimiento del estímulo.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 6 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 6 del entregable",
           coverTheme: "noir",
           coverImage: "",
           videoUrl: "#",
@@ -171,13 +171,13 @@ const defaultState = {
         },        
         {
           id: "lesson-7",
-          title: "Aula 7 · Invertida",
+          title: "Clase 7 · Invertida",
           description:
-            "Técnica de inversão com foco em adaptação do movimento e leitura do tempo de resposta.",
-          duration: "Aula gravada",
+            "Técnica de inversión con foco en adaptación del movimiento y lectura del tiempo de respuesta.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 7 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 7 del entregable",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -186,13 +186,13 @@ const defaultState = {
         },
         {
           id: "lesson-8",
-          title: "Aula 8 · Invertida Sucção",
+          title: "Clase 8 · Invertida Succión",
           description:
-            "Combinação de variação invertida com sucção, destacando precisão e continuidade da técnica.",
-          duration: "Aula gravada",
+            "Combinación de variación invertida con succión, destacando precisión y continuidad de la técnica.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 8 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 8 del entregable",
           coverTheme: "blush",
           coverImage: "",
           videoUrl: "#",
@@ -201,13 +201,13 @@ const defaultState = {
         },
         {
           id: "lesson-9",
-          title: "Aula 9 · Chuveirinho",
+          title: "Clase 9 · Duchita",
           description:
-            "Técnica voltada para cadência e constância, com variação de toque dentro da mesma proposta.",
-          duration: "Aula gravada",
+            "Técnica orientada a cadencia y constancia, con variación de toque dentro de la misma propuesta.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 9 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 9 del entregable",
           coverTheme: "ember",
           coverImage: "",
           videoUrl: "#",
@@ -216,13 +216,13 @@ const defaultState = {
         },        
         {
           id: "lesson-10",
-          title: "Aula 10 · Chuveirinho Rotação",
+          title: "Clase 10 · Duchita Rotación",
           description:
-            "Variação com rotação para aprofundar controle do movimento e consistência da execução.",
-          duration: "Aula gravada",
+            "Variación con rotación para profundizar control del movimiento y consistencia de la ejecución.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 10 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 10 del entregable",
           coverTheme: "noir",
           coverImage: "",
           videoUrl: "#",
@@ -231,13 +231,13 @@ const defaultState = {
         },
         {
           id: "lesson-11",
-          title: "Aula 11 · Ordenhar",
+          title: "Clase 11 · Ordeñar",
           description:
-            "Técnica com ênfase em pressão e fluidez, mantendo leitura corporal durante toda a aplicação.",
-          duration: "Aula gravada",
+            "Técnica con énfasis en presión y fluidez, manteniendo lectura corporal durante toda la aplicación.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 11 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 11 del entregable",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -246,13 +246,13 @@ const defaultState = {
         },
         {
           id: "lesson-12",
-          title: "Aula 12 · Conchinha",
+          title: "Clase 12 · Cucharita",
           description:
-            "Fechamento do bloco teórico com uma técnica de leitura, conforto e continuidade do toque.",
-          duration: "Aula gravada",
+            "Cierre del bloque teórico con una técnica de lectura, comodidad y continuidad del toque.",
+          duration: "Clase grabada",
           status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Técnica 12 do entregável",
+          coverLabel: "Teoría",
+          coverTag: "Técnica 12 del entregable",
           coverTheme: "blush",
           coverImage: "",
           videoUrl: "#",
@@ -267,18 +267,18 @@ const defaultState = {
       eyebrow: "Módulo 2",
       title: "Explícito",
       description:
-        "Segundo bloco do entregável com a parte explícita, organizado em sequência para aprofundar a visualização prática das técnicas.",
+        "Segundo bloque del entregable con la parte explícita, organizado en secuencia para profundizar la visualización práctica de las técnicas.",
       progress: 0.72,
       lessons: [
         {
           id: "lesson-13",
-          title: "Aula 1 · Tradicional",
+          title: "Clase 1 · Tradicional",
           description:
-            "Primeira aula do bloco explícito, apresentando a versão visual da técnica tradicional em aplicação direta.",
-          duration: "Aula gravada",
+            "Primera clase del bloque explícito, presentando la versión visual de la técnica tradicional en aplicación directa.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 1 do módulo explícito",
+          coverTag: "Técnica 1 del módulo explícito",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -287,13 +287,13 @@ const defaultState = {
         },
         {
           id: "lesson-14",
-          title: "Aula 2 · Invertida",
+          title: "Clase 2 · Invertida",
           description:
-            "Continuação da trilha explícita com foco na execução visual da técnica invertida.",
-          duration: "Aula gravada",
+            "Continuación de la ruta explícita con foco en la ejecución visual de la técnica invertida.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 2 do módulo explícito",
+          coverTag: "Técnica 2 del módulo explícito",
           coverTheme: "ember",
           coverImage: "",
           videoUrl: "#",
@@ -302,13 +302,13 @@ const defaultState = {
         },
         {
           id: "lesson-15",
-          title: "Aula 3 · Invertida com Sucção",
+          title: "Clase 3 · Invertida con Succión",
           description:
-            "Variação explícita da invertida com sucção, destacando continuidade, ritmo e aplicação visual.",
-          duration: "Aula gravada",
+            "Variación explícita de la invertida con succión, destacando continuidad, ritmo y aplicación visual.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 3 do módulo explícito",
+          coverTag: "Técnica 3 del módulo explícito",
           coverTheme: "blush",
           coverImage: "",
           videoUrl: "#",
@@ -317,13 +317,13 @@ const defaultState = {
         },
         {
           id: "lesson-16",
-          title: "Aula 4 · EGG",
+          title: "Clase 4 · EGG",
           description:
-            "Quarta técnica do módulo explícito, com foco na demonstração prática do encaixe e da condução.",
-          duration: "Aula gravada",
+            "Cuarta técnica del módulo explícito, con foco en la demostración práctica del encaje y la conducción.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 4 do módulo explícito",
+          coverTag: "Técnica 4 del módulo explícito",
           coverTheme: "noir",
           coverImage: "",
           videoUrl: "#",
@@ -332,13 +332,13 @@ const defaultState = {
         },
         {
           id: "lesson-17",
-          title: "Aula 5 · Conchinha",
+          title: "Clase 5 · Cucharita",
           description:
-            "Demonstração explícita da técnica conchinha, destacando conforto, continuidade e posicionamento.",
-          duration: "Aula gravada",
+            "Demostración explícita de la técnica cucharita, destacando comodidad, continuidad y posicionamiento.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 5 do módulo explícito",
+          coverTag: "Técnica 5 del módulo explícito",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -347,13 +347,13 @@ const defaultState = {
         },
         {
           id: "lesson-18",
-          title: "Aula 6 · Chuveirinho",
+          title: "Clase 6 · Duchita",
           description:
-            "Aplicação explícita da técnica chuveirinho, com leitura visual de cadência e constância do movimento.",
-          duration: "Aula gravada",
+            "Aplicación explícita de la técnica duchita, con lectura visual de cadencia y constancia del movimiento.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 6 do módulo explícito",
+          coverTag: "Técnica 6 del módulo explícito",
           coverTheme: "ember",
           coverImage: "",
           videoUrl: "#",
@@ -362,13 +362,13 @@ const defaultState = {
         },
         {
           id: "lesson-19",
-          title: "Aula 7 · Chuveirinho com Rotação",
+          title: "Clase 7 · Duchita con Rotación",
           description:
-            "Variação explícita com rotação para aprofundar a percepção visual do movimento e do controle.",
-          duration: "Aula gravada",
+            "Variación explícita con rotación para profundizar la percepción visual del movimiento y del control.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 7 do módulo explícito",
+          coverTag: "Técnica 7 del módulo explícito",
           coverTheme: "blush",
           coverImage: "",
           videoUrl: "#",
@@ -377,13 +377,13 @@ const defaultState = {
         },
         {
           id: "lesson-20",
-          title: "Aula 8 · Carnívora",
+          title: "Clase 8 · Carnívora",
           description:
-            "Oitava técnica do módulo explícito, mostrando intensidade, variação e ritmo em aplicação prática.",
-          duration: "Aula gravada",
+            "Octava técnica del módulo explícito, mostrando intensidad, variación y ritmo en aplicación práctica.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 8 do módulo explícito",
+          coverTag: "Técnica 8 del módulo explícito",
           coverTheme: "noir",
           coverImage: "",
           videoUrl: "#",
@@ -392,13 +392,13 @@ const defaultState = {
         },
         {
           id: "lesson-21",
-          title: "Aula 9 · Bombinha",
+          title: "Clase 9 · Bombinha",
           description:
-            "Demonstração visual da técnica bombinha, com atenção à repetição, pressão e consistência.",
-          duration: "Aula gravada",
+            "Demostración visual de la técnica bombita, con atención a la repetición, presión y consistencia.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 9 do módulo explícito",
+          coverTag: "Técnica 9 del módulo explícito",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -407,13 +407,13 @@ const defaultState = {
         },
         {
           id: "lesson-22",
-          title: "Aula 10 · Anel Vibrador",
+          title: "Clase 10 · Anillo Vibrador",
           description:
-            "Aplicação explícita da técnica com anel vibrador, destacando encaixe, adaptação e ritmo.",
-          duration: "Aula gravada",
+            "Aplicación explícita de la técnica con anillo vibrador, destacando encaje, adaptación y ritmo.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 10 do módulo explícito",
+          coverTag: "Técnica 10 del módulo explícito",
           coverTheme: "ember",
           coverImage: "",
           videoUrl: "#",
@@ -422,13 +422,13 @@ const defaultState = {
         },
         {
           id: "lesson-23",
-          title: "Aula 11 · Anel",
+          title: "Clase 11 · Anillo",
           description:
-            "Variação explícita com anel, reforçando leitura visual do movimento, ajuste e condução da técnica.",
-          duration: "Aula gravada",
+            "Variación explícita con anillo, reforzando lectura visual del movimiento, ajuste y conducción de la técnica.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 11 do módulo explícito",
+          coverTag: "Técnica 11 del módulo explícito",
           coverTheme: "blush",
           coverImage: "",
           videoUrl: "#",
@@ -437,13 +437,13 @@ const defaultState = {
         },
         {
           id: "lesson-24",
-          title: "Aula 12 · Ordenha",
+          title: "Clase 12 · Ordeño",
           description:
-            "Demonstração explícita da técnica ordenha, com foco em fluidez, pressão e leitura corporal.",
-          duration: "Aula gravada",
+            "Demostración explícita de la técnica ordeño, con foco en fluidez, presión y lectura corporal.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 12 do módulo explícito",
+          coverTag: "Técnica 12 del módulo explícito",
           coverTheme: "gold",
           coverImage: "",
           videoUrl: "#",
@@ -452,13 +452,13 @@ const defaultState = {
         },
         {
           id: "lesson-25",
-          title: "Aula 13 · Mão Dupla",
+          title: "Clase 13 · Mano Doble",
           description:
-            "Fechamento do módulo explícito com a técnica mão dupla em versão visual, aprofundando coordenação e controle.",
-          duration: "Aula gravada",
+            "Cierre del módulo explícito con la técnica mano doble en versión visual, profundizando coordinación y control.",
+          duration: "Clase grabada",
           status: "Liberada",
           coverLabel: "Explícito",
-          coverTag: "Técnica 13 do módulo explícito",
+          coverTag: "Técnica 13 del módulo explícito",
           coverTheme: "noir",
           coverImage: "",
           videoUrl: "#",
@@ -473,37 +473,37 @@ const defaultState = {
       eyebrow: "Curso",
       title: "Sentada Fatal",
       description:
-        "Módulo inicial para adicionar as aulas do Sentada Fatal e manter esse curso separado da trilha principal.",
+        "Módulo inicial para agregar las clases de Sentada Fatal y mantener este curso separado de la ruta principal.",
       progress: 0,
       lessons: [],
     },
     {
       id: "mod-bonus-1",
       courseId: "bonus-1",
-      eyebrow: "Bônus 1",
-      title: "Bônus 1",
+      eyebrow: "Bono 1",
+      title: "Bono 1",
       description:
-        "Módulo reservado para o primeiro bônus. Renomeie quando definir o nome final do curso.",
+        "Módulo reservado para el primer bono. Renómbralo cuando definas el nombre final del curso.",
       progress: 0,
       lessons: [],
     },
     {
       id: "mod-bonus-2",
       courseId: "bonus-2",
-      eyebrow: "Bônus 2",
-      title: "Bônus 2",
+      eyebrow: "Bono 2",
+      title: "Bono 2",
       description:
-        "Módulo reservado para o segundo bônus. Renomeie quando definir o nome final do curso.",
+        "Módulo reservado para el segundo bono. Renómbralo cuando definas el nombre final del curso.",
       progress: 0,
       lessons: [],
     },
     {
       id: "mod-bonus-3",
       courseId: "bonus-3",
-      eyebrow: "Bônus 3",
-      title: "Bônus 3",
+      eyebrow: "Bono 3",
+      title: "Bono 3",
       description:
-        "Módulo reservado para o terceiro bônus. Renomeie quando definir o nome final do curso.",
+        "Módulo reservado para el tercer bono. Renómbralo cuando definas el nombre final del curso.",
       progress: 0,
       lessons: [],
     },
@@ -511,27 +511,27 @@ const defaultState = {
   materials: [
     {
       id: "material-1",
-      title: "Sequência completa das 12 técnicas",
+      title: "Secuencia completa de las 12 técnicas",
       description:
-        "Resumo do primeiro módulo para revisar a ordem das aulas e visualizar rapidamente as técnicas liberadas na teoria.",
+        "Resumen del primer módulo para revisar el orden de las clases y visualizar rápidamente las técnicas liberadas en la teoría.",
       type: "PDF",
-      badge: "Essencial",
+      badge: "Esencial",
       link: "#",
     },
     {
       id: "material-2",
-      title: "Checklist de estudo do módulo Teoria",
+      title: "Checklist de estudio del módulo Teoría",
       description:
-        "Material de apoio para acompanhar as aulas em ordem e marcar o que já foi estudado dentro do primeiro entregável.",
+        "Material de apoyo para acompañar las clases en orden y marcar lo que ya fue estudiado dentro del primer entregable.",
       type: "Checklist",
-      badge: "Suporte",
+      badge: "Soporte",
       link: "#",
     },
     {
       id: "material-3",
-      title: "Sequência completa do módulo Explícito",
+      title: "Secuencia completa del módulo Explícito",
       description:
-        "Resumo do segundo módulo para visualizar a ordem das 13 aulas explícitas e acompanhar o avanço no entregável.",
+        "Resumen del segundo módulo para visualizar el orden de las 13 clases explícitas y acompañar el avance en el entregable.",
       type: "PDF",
       badge: "Explícito",
       link: "#",
@@ -598,7 +598,7 @@ async function fetchJson(url, options = {}) {
   }
 
   if (!response.ok) {
-    throw new Error(payload?.error || "A requisição falhou.");
+    throw new Error(payload?.error || "La solicitud falló.");
   }
 
   return payload;
@@ -637,7 +637,7 @@ async function saveContentToServer() {
       body: JSON.stringify({ content: getContentState() }),
     });
   } catch (error) {
-    console.warn("Não foi possível salvar no servidor.", error);
+    console.warn("No fue posible guardar en el servidor.", error);
   }
 }
 
@@ -746,7 +746,7 @@ function getFeaturedLesson() {
 function buildEmbedDocument(embedCode) {
   return `
     <!doctype html>
-    <html lang="pt-BR">
+    <html lang="es">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -811,7 +811,7 @@ function renderRoleSwitch() {
         data-role="member"
         aria-pressed="${state.role === "member"}"
       >
-        Visão de membro
+        Vista de miembro
       </button>
       <button
         class="role-switch__button"
@@ -820,14 +820,14 @@ function renderRoleSwitch() {
         data-role="admin"
         aria-pressed="${state.role === "admin"}"
       >
-        Visão de admin
+        Vista de admin
       </button>
       <button
         class="role-switch__button"
         type="button"
         data-action="logout-admin"
       >
-        Sair
+        Salir
       </button>
     </div>
   `;
@@ -843,20 +843,20 @@ function renderMasthead() {
         <img
           class="members-topbar__logo"
           src="${escapeHtml(state.product.logoSrc)}"
-          alt="Logo do produto ${escapeHtml(state.product.name)}"
+          alt="Logo del producto ${escapeHtml(state.product.name)}"
         />
         <div class="members-topbar__brand">
           <p class="members-topbar__eyebrow">${escapeHtml(state.product.subtitle)}</p>
           <h1 class="members-topbar__title">${escapeHtml(state.product.name)}</h1>
         </div>
-        <nav class="members-topbar__nav" aria-label="Navegação principal">
+        <nav class="members-topbar__nav" aria-label="Navegación principal">
           <a class="members-topbar__link" href="#cursos"${activeCourse ? ` data-action="close-course"` : ""}>Cursos</a>
           ${
             activeCourse
               ? `
-                <a class="members-topbar__link" href="#featured">Início</a>
-                <a class="members-topbar__link" href="#modulos">Aulas</a>
-                ${activeCourse.id === "mapa-do-prazer" ? `<a class="members-topbar__link" href="#materiais">Materiais</a>` : ""}
+                <a class="members-topbar__link" href="#featured">Inicio</a>
+                <a class="members-topbar__link" href="#modulos">Clases</a>
+                ${activeCourse.id === "mapa-do-prazer" ? `<a class="members-topbar__link" href="#materiales">Materiales</a>` : ""}
               `
               : ""
           }
@@ -866,9 +866,9 @@ function renderMasthead() {
         <div class="members-topbar__meta">
           <span class="pill">${state.modules.length} módulos</span>
           <span class="pill">${state.courses.length} cursos</span>
-          <span class="pill">${lessons.length} aulas</span>
-          <span class="pill">${state.materials.length} materiais</span>
-          <span class="pill pill--accent">${state.role === "admin" ? "Admin" : "Membro"}</span>
+          <span class="pill">${lessons.length} clases</span>
+          <span class="pill">${state.materials.length} materiales</span>
+          <span class="pill pill--accent">${state.role === "admin" ? "Admin" : "Miembro"}</span>
         </div>
         ${renderRoleSwitch()}
       </div>
@@ -886,11 +886,11 @@ function renderMemberHero() {
   return `
     <section class="members-billboard" id="featured" ${heroBackground}>
       <div class="members-billboard__content">
-        <p class="members-billboard__eyebrow">Comece por aqui</p>
+        <p class="members-billboard__eyebrow">Empieza por aquí</p>
         <h2 class="members-billboard__title">${escapeHtml(state.product.welcomeTitle)}</h2>
         <p class="members-billboard__subtitle">${escapeHtml(state.product.welcomeText)}</p>
         <div class="members-billboard__meta">
-          <span class="pill">${totalLessons} aulas na biblioteca</span>
+          <span class="pill">${totalLessons} clases en la biblioteca</span>
           ${
             featuredLesson
               ? `
@@ -902,14 +902,14 @@ function renderMemberHero() {
         </div>
         <div class="members-billboard__actions">
           <button class="primary-link" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(featuredLesson?.id || "")}">
-            Começar agora
+            Empezar ahora
           </button>
         </div>
       </div>
       <div class="members-billboard__spotlight">
         <div class="members-billboard__info">
-          <span class="members-billboard__badge">Próxima aula</span>
-          <strong class="members-billboard__focus">${escapeHtml(featuredLesson?.title || "Primeira aula da trilha")}</strong>
+          <span class="members-billboard__badge">Próxima clase</span>
+          <strong class="members-billboard__focus">${escapeHtml(featuredLesson?.title || "Primera clase de la ruta")}</strong>
           <p class="members-billboard__caption">${escapeHtml(featuredLesson?.description || state.product.nextStep)}</p>
         </div>
       </div>
@@ -937,9 +937,9 @@ function renderCourseCatalog() {
   return `
     <section class="course-home" id="cursos">
       <div class="course-home__intro">
-        <p class="members-kicker">Área de membros</p>
-        <h2>Escolha seu curso</h2>
-        <p>Entre por uma capa e continue a trilha sem mistura entre curso principal, Sentada Fatal e bônus.</p>
+        <p class="members-kicker">Área de miembros</p>
+        <h2>Elige tu curso</h2>
+        <p>Entra por una portada y continúa la ruta sin mezclar el curso principal, Sentada Fatal y los bonos.</p>
       </div>
 
       <div class="course-poster-grid">
@@ -983,7 +983,7 @@ function renderCourseDetailHero(course) {
   return `
     <section class="course-detail-hero" id="featured" ${coverStyle}>
       <button class="ghost-link course-back" type="button" data-action="close-course">
-        Voltar aos cursos
+        Volver a los cursos
       </button>
       <div class="course-detail-hero__content">
         <p class="members-kicker">${escapeHtml(course.label)}</p>
@@ -991,13 +991,13 @@ function renderCourseDetailHero(course) {
         <p>${escapeHtml(course.description)}</p>
         <div class="members-billboard__meta">
           <span class="pill">${modules.length} módulo${modules.length === 1 ? "" : "s"}</span>
-          <span class="pill">${lessons.length} aula${lessons.length === 1 ? "" : "s"}</span>
+          <span class="pill">${lessons.length} clase${lessons.length === 1 ? "" : "s"}</span>
           <span class="pill pill--accent">${escapeHtml(course.status)}</span>
         </div>
         ${
           lessons.length > 0
             ? `<button class="primary-link" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(lessons[0].id)}">Continuar curso</button>`
-            : `<span class="pill">Aulas ainda serão adicionadas</span>`
+            : `<span class="pill">Las clases aún serán agregadas</span>`
         }
       </div>
     </section>
@@ -1010,13 +1010,13 @@ function renderAdminLogin() {
       <section class="members-card admin-login-card">
         <div>
           <p class="members-kicker">Admin</p>
-          <h2 class="content-block__title">Entrar no painel</h2>
-          <p class="content-block__subtitle">A edição de cursos e aulas fica protegida por login de administrador.</p>
+          <h2 class="content-block__title">Entrar al panel</h2>
+          <p class="content-block__subtitle">La edición de cursos y clases queda protegida por login de administrador.</p>
         </div>
         ${loginError ? `<p class="admin-login-card__error">${escapeHtml(loginError)}</p>` : ""}
         <form class="admin-form" data-form="login">
           <div class="admin-field">
-            <label for="admin-password">Senha</label>
+            <label for="admin-password">Contraseña</label>
             <input id="admin-password" name="password" type="password" autocomplete="current-password" required />
           </div>
           <div class="admin-form__actions">
@@ -1040,7 +1040,7 @@ function renderLessonCard(lesson) {
   return `
     <article class="lesson-card lesson-card--poster">
       <div class="${coverClass}" ${coverStyle}>
-        <span class="lesson-cover__eyebrow">${escapeHtml(lesson.coverLabel || "Aula")}</span>
+        <span class="lesson-cover__eyebrow">${escapeHtml(lesson.coverLabel || "Clase")}</span>
         <h4 class="lesson-cover__title">${escapeHtml(lesson.title)}</h4>
         <span class="lesson-cover__tag">${escapeHtml(lesson.coverTag || lesson.description)}</span>
       </div>
@@ -1054,7 +1054,7 @@ function renderLessonCard(lesson) {
       </div>
       <div class="lesson-card__actions">
         <button class="primary-link" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(lesson.id)}">
-          ${isPlayable ? "Assistir aula" : "Em breve"}
+          ${isPlayable ? "Ver clase" : "Próximamente"}
         </button>
       </div>
     </article>
@@ -1075,12 +1075,12 @@ function renderLessonPlayer() {
       <div class="lesson-player-panel__meta">
         <div>
           <p class="members-kicker">${escapeHtml(moduleLabel)}</p>
-          <h2 class="content-block__title">${escapeHtml(lesson?.title || "Selecione uma aula")}</h2>
+          <h2 class="content-block__title">${escapeHtml(lesson?.title || "Selecciona una clase")}</h2>
           <p class="content-block__subtitle">${escapeHtml(lesson?.description || state.product.nextStep)}</p>
         </div>
         <div class="lesson-player-panel__chips">
           <span class="pill">${escapeHtml(lesson?.duration || "Biblioteca")}</span>
-          <span class="pill pill--accent">${escapeHtml(lesson?.status || "Disponível")}</span>
+          <span class="pill pill--accent">${escapeHtml(lesson?.status || "Disponible")}</span>
         </div>
       </div>
 
@@ -1100,17 +1100,17 @@ function renderLessonPlayer() {
             : canRenderLink
               ? `
                 <div class="lesson-player-empty">
-                  <strong>Essa aula está pronta para abrir por link.</strong>
-                  <p>O player embutido ainda não foi configurado para esse item, mas o acesso já pode ser feito pelo link da aula.</p>
+                  <strong>Esta clase está lista para abrirse por enlace.</strong>
+                  <p>El player embebido aún no fue configurado para este ítem, pero el acceso ya puede hacerse por el enlace de la clase.</p>
                   <a class="primary-link" href="${escapeHtml(lesson.videoUrl)}" target="_blank" rel="noreferrer">
-                    Abrir aula
+                    Abrir clase
                   </a>
                 </div>
               `
               : `
                 <div class="lesson-player-empty">
-                  <strong>Player ainda não configurado.</strong>
-                  <p>Essa aula já existe na biblioteca, mas o embed ainda não foi plugado. Quando você mandar o restante, eu encaixo aqui.</p>
+                  <strong>Player aún no configurado.</strong>
+                  <p>Esta clase ya existe en la biblioteca, pero el embed aún no fue conectado. Cuando tengas el resto, se puede encajar aquí.</p>
                 </div>
               `
         }
@@ -1119,8 +1119,8 @@ function renderLessonPlayer() {
       <div class="lesson-player-panel__footer">
         ${
           lesson?.materialUrl && lesson.materialUrl !== "#"
-            ? `<a class="ghost-link" href="${escapeHtml(lesson.materialUrl)}" target="_blank" rel="noreferrer">Abrir material complementar</a>`
-            : `<span class="lesson-player-panel__hint">Use os cards abaixo para trocar rapidamente de aula dentro da mesma área.</span>`
+            ? `<a class="ghost-link" href="${escapeHtml(lesson.materialUrl)}" target="_blank" rel="noreferrer">Abrir material complementario</a>`
+            : `<span class="lesson-player-panel__hint">Usa las tarjetas de abajo para cambiar rápidamente de clase dentro de la misma área.</span>`
         }
       </div>
     </section>
@@ -1149,7 +1149,7 @@ function renderEmptyModule(module) {
       <p class="course-card__label">${escapeHtml(module.eyebrow)}</p>
       <h3>${escapeHtml(module.title)}</h3>
       <p>${escapeHtml(module.description)}</p>
-      <span class="pill">Sem aulas adicionadas ainda</span>
+      <span class="pill">Sin clases agregadas todavía</span>
     </article>
   `;
 }
@@ -1168,7 +1168,7 @@ function renderCourseSection(course) {
         </div>
         <div class="course-section__stats">
           <span class="pill">${modules.length} módulo${modules.length === 1 ? "" : "s"}</span>
-          <span class="pill">${lessons.length} aula${lessons.length === 1 ? "" : "s"}</span>
+          <span class="pill">${lessons.length} clase${lessons.length === 1 ? "" : "s"}</span>
         </div>
       </div>
 
@@ -1187,7 +1187,7 @@ function renderCourseSection(course) {
                     : renderEmptyModule(module),
                 )
                 .join("")
-            : `<article class="course-empty"><p>Esse curso ainda não tem módulos cadastrados.</p></article>`
+            : `<article class="course-empty"><p>Este curso aún no tiene módulos registrados.</p></article>`
         }
       </div>
     </section>
@@ -1207,11 +1207,11 @@ function renderModules() {
 
 function renderMaterials() {
   return `
-    <section class="members-shelf" id="materiais">
+    <section class="members-shelf" id="materiales">
       <div class="members-shelf__top">
         <div>
-          <h2 class="content-block__title">Materiais de apoio</h2>
-          <p class="content-block__subtitle">PDFs, guias e bônus para acompanhar as aulas sem perder clareza na aplicação.</p>
+          <h2 class="content-block__title">Materiales de apoio</h2>
+          <p class="content-block__subtitle">PDFs, guías y bonos para acompañar las clases sin perder claridad en la aplicación.</p>
         </div>
         <span class="pill">${state.materials.length} itens</span>
       </div>
@@ -1265,14 +1265,14 @@ function renderMemberView() {
 
 function renderAdminTabs() {
   const tabs = [
-    { id: "product", label: "Produto" },
+    { id: "product", label: "Producto" },
     { id: "courses", label: "Cursos" },
-    { id: "lessons", label: "Aulas" },
-    { id: "materials", label: "Materiais" },
+    { id: "lessons", label: "Clases" },
+    { id: "materials", label: "Materiales" },
   ];
 
   return `
-    <div class="admin-tab-row" role="tablist" aria-label="Seções do admin">
+    <div class="admin-tab-row" role="tablist" aria-label="Secciones del admin">
       ${tabs
         .map(
           (tab) => `
@@ -1296,11 +1296,11 @@ function renderProductForm() {
     <section class="members-card admin-form-card">
       <div class="admin-form-card__header">
         <div>
-          <h2 class="content-block__title">Configuração do produto</h2>
-          <p class="content-block__subtitle">Edite nome, subtítulo, mensagem principal e posicionamento da área de membros.</p>
+          <h2 class="content-block__title">Configuración del producto</h2>
+          <p class="content-block__subtitle">Edita nombre, subtítulo, mensaje principal y posicionamiento del área de miembros.</p>
         </div>
         <button class="outline-button" type="button" data-action="restore-defaults">
-          Restaurar conteúdo original
+          Restaurar contenido original
         </button>
       </div>
 
@@ -1316,11 +1316,11 @@ function renderProductForm() {
           </div>
         </div>
         <div class="admin-field">
-          <label for="product-description">Descrição</label>
+          <label for="product-description">Descripción</label>
           <textarea id="product-description" name="description">${escapeHtml(state.product.description)}</textarea>
         </div>
         <div class="admin-field">
-          <label for="product-welcome-title">Título de boas-vindas</label>
+          <label for="product-welcome-title">Título de bienvenida</label>
           <input id="product-welcome-title" name="welcomeTitle" value="${escapeHtml(state.product.welcomeTitle)}" />
         </div>
         <div class="admin-field">
@@ -1334,15 +1334,15 @@ function renderProductForm() {
         <div class="admin-field">
           <label for="product-logo-src">Logo</label>
           <input id="product-logo-src" name="logoSrc" value="${escapeHtml(state.product.logoSrc)}" />
-          <p class="admin-form__help">Pode ser um caminho local do projeto ou uma URL pública.</p>
+          <p class="admin-form__help">Puede ser una ruta local del proyecto o una URL pública.</p>
         </div>
         <div class="admin-field">
           <label for="product-banner-src">Banner principal</label>
           <input id="product-banner-src" name="bannerSrc" value="${escapeHtml(state.product.bannerSrc || "")}" />
-          <p class="admin-form__help">Arte principal da área de membros, no estilo catálogo.</p>
+          <p class="admin-form__help">Arte principal del área de miembros, en estilo catálogo.</p>
         </div>
         <div class="admin-form__actions">
-          <button type="submit">Salvar produto</button>
+          <button type="submit">Guardar producto</button>
         </div>
       </form>
     </section>
@@ -1358,10 +1358,10 @@ function renderCourseEditor() {
         <div class="admin-list__header">
           <div>
             <h2 class="content-block__title">Cursos</h2>
-            <p class="content-block__subtitle">Renomeie as trilhas e organize o curso principal, Sentada Fatal e os bônus.</p>
+            <p class="content-block__subtitle">Renombra las rutas y organiza el curso principal, Sentada Fatal y los bonos.</p>
           </div>
           <button class="admin-action" type="button" data-action="add-course">
-            Novo curso
+            Nuevo curso
           </button>
         </div>
         <div class="admin-list__items">
@@ -1378,7 +1378,7 @@ function renderCourseEditor() {
                   data-course-id="${escapeHtml(course.id)}"
                 >
                   <h3 class="admin-list__item-title">${escapeHtml(course.title)}</h3>
-                  <p class="admin-list__item-copy">${modules.length} módulo${modules.length === 1 ? "" : "s"} · ${lessons.length} aula${lessons.length === 1 ? "" : "s"} · ${escapeHtml(course.status)}</p>
+                  <p class="admin-list__item-copy">${modules.length} módulo${modules.length === 1 ? "" : "s"} · ${lessons.length} clase${lessons.length === 1 ? "" : "s"} · ${escapeHtml(course.status)}</p>
                 </button>
               `;
             })
@@ -1390,7 +1390,7 @@ function renderCourseEditor() {
         <div class="admin-form-card__header">
           <div>
             <h2 class="content-block__title">Editor de curso</h2>
-            <p class="content-block__subtitle">Atualize o nome que aparece na biblioteca e nos cards de curso.</p>
+            <p class="content-block__subtitle">Actualiza el nombre que aparece en la biblioteca y en las tarjetas de curso.</p>
           </div>
         </div>
 
@@ -1410,24 +1410,24 @@ function renderCourseEditor() {
                   </div>
                 </div>
                 <div class="admin-field">
-                  <label for="course-title">Nome do curso</label>
+                  <label for="course-title">Nombre del curso</label>
                   <input id="course-title" name="title" value="${escapeHtml(selectedCourse.title)}" />
                 </div>
                 <div class="admin-field">
-                  <label for="course-description">Descrição</label>
+                  <label for="course-description">Descripción</label>
                   <textarea id="course-description" name="description">${escapeHtml(selectedCourse.description)}</textarea>
                 </div>
                 <div class="admin-field">
                   <label for="course-cover-image">Foto de capa</label>
                   <input id="course-cover-image" name="coverImage" value="${escapeHtml(selectedCourse.coverImage || "")}" />
-                  <p class="admin-form__help">Use um caminho de imagem do projeto ou uma URL pública para aparecer como capa do card.</p>
+                  <p class="admin-form__help">Usa una ruta de imagen del proyecto o una URL pública para aparecer como portada de la tarjeta.</p>
                 </div>
                 <div class="admin-form__actions">
-                  <button type="submit">Salvar curso</button>
+                  <button type="submit">Guardar curso</button>
                 </div>
               </form>
             `
-            : `<p class="admin-empty">Selecione um curso para editar.</p>`
+            : `<p class="admin-empty">Selecciona un curso para editar.</p>`
         }
       </section>
     </section>
@@ -1443,11 +1443,11 @@ function renderLessonEditor() {
       <aside class="members-card admin-list">
         <div class="admin-list__header">
           <div>
-            <h2 class="content-block__title">Aulas</h2>
-            <p class="content-block__subtitle">Selecione um card para editar capa, título, descrição e links.</p>
+            <h2 class="content-block__title">Clases</h2>
+            <p class="content-block__subtitle">Selecciona una tarjeta para editar portada, título, descripción y enlaces.</p>
           </div>
           <button class="admin-action" type="button" data-action="add-lesson">
-            Nova aula
+            Nueva clase
           </button>
         </div>
         <div class="admin-list__items">
@@ -1476,12 +1476,12 @@ function renderLessonEditor() {
       <section class="members-card admin-form-card">
         <div class="admin-form-card__header">
           <div>
-            <h2 class="content-block__title">Editor de aula</h2>
-            <p class="content-block__subtitle">Mantenha o visual e a copy alinhados ao produto enquanto organiza a biblioteca.</p>
+            <h2 class="content-block__title">Editor de clase</h2>
+            <p class="content-block__subtitle">Mantén el visual y la copy alineados al producto mientras organizas la biblioteca.</p>
           </div>
           ${
             selectedLesson
-              ? `<button class="outline-button" type="button" data-action="delete-lesson" data-lesson-id="${escapeHtml(selectedLesson.id)}">Excluir aula</button>`
+              ? `<button class="outline-button" type="button" data-action="delete-lesson" data-lesson-id="${escapeHtml(selectedLesson.id)}">Eliminar clase</button>`
               : ""
           }
         </div>
@@ -1511,7 +1511,7 @@ function renderLessonEditor() {
                     </select>
                   </div>
                   <div class="admin-field">
-                    <label for="lesson-duration">Duração</label>
+                    <label for="lesson-duration">Duración</label>
                     <input id="lesson-duration" name="duration" value="${escapeHtml(selectedLesson.duration)}" />
                   </div>
                 </div>
@@ -1540,7 +1540,7 @@ function renderLessonEditor() {
                   <input id="lesson-title" name="title" value="${escapeHtml(selectedLesson.title)}" />
                 </div>
                 <div class="admin-field">
-                  <label for="lesson-description">Descrição</label>
+                  <label for="lesson-description">Descripción</label>
                   <textarea id="lesson-description" name="description">${escapeHtml(selectedLesson.description)}</textarea>
                 </div>
                 <div class="admin-form__row">
@@ -1556,16 +1556,16 @@ function renderLessonEditor() {
                 <div class="admin-field">
                   <label for="lesson-cover-image">Imagem da capa</label>
                   <input id="lesson-cover-image" name="coverImage" value="${escapeHtml(selectedLesson.coverImage || "")}" />
-                  <p class="admin-form__help">Se deixar vazio, o card usa o gradiente temático.</p>
+                  <p class="admin-form__help">Si lo dejas vacío, la tarjeta usa el degradado temático.</p>
                 </div>
                 <div class="admin-field">
-                  <label for="lesson-embed-code">Embed da aula</label>
+                  <label for="lesson-embed-code">Embed de la clase</label>
                   <textarea id="lesson-embed-code" name="embedCode">${escapeHtml(selectedLesson.embedCode || "")}</textarea>
-                  <p class="admin-form__help">Cole aqui o embed completo da VTurb quando quiser abrir a aula dentro da área de membros.</p>
+                  <p class="admin-form__help">Pega aquí el embed completo de VTurb cuando quieras abrir la clase dentro del área de miembros.</p>
                 </div>
                 <div class="admin-form__row">
                   <div class="admin-field">
-                    <label for="lesson-video-url">Link da aula</label>
+                    <label for="lesson-video-url">Enlace de la clase</label>
                     <input id="lesson-video-url" name="videoUrl" value="${escapeHtml(selectedLesson.videoUrl || "#")}" />
                   </div>
                   <div class="admin-field">
@@ -1574,11 +1574,11 @@ function renderLessonEditor() {
                   </div>
                 </div>
                 <div class="admin-form__actions">
-                  <button type="submit">Salvar aula</button>
+                  <button type="submit">Guardar clase</button>
                 </div>
               </form>
             `
-            : `<p class="admin-empty">Adicione uma aula para começar a editar.</p>`
+            : `<p class="admin-empty">Agrega una clase para empezar a editar.</p>`
         }
       </section>
     </section>
@@ -1593,11 +1593,11 @@ function renderMaterialEditor() {
       <aside class="members-card admin-list">
         <div class="admin-list__header">
           <div>
-            <h2 class="content-block__title">Materiais</h2>
-            <p class="content-block__subtitle">Organize PDFs, guias, bônus e links de apoio para a aluna.</p>
+            <h2 class="content-block__title">Materiales</h2>
+            <p class="content-block__subtitle">Organiza PDFs, guías, bonos y enlaces de apoyo para la alumna.</p>
           </div>
           <button class="admin-action" type="button" data-action="add-material">
-            Novo material
+            Nuevo material
           </button>
         </div>
         <div class="admin-list__items">
@@ -1623,11 +1623,11 @@ function renderMaterialEditor() {
         <div class="admin-form-card__header">
           <div>
             <h2 class="content-block__title">Editor de material</h2>
-            <p class="content-block__subtitle">Atualize nome, descrição, categoria e link de acesso.</p>
+            <p class="content-block__subtitle">Actualiza nombre, descripción, categoría y enlace de acceso.</p>
           </div>
           ${
             selectedMaterial
-              ? `<button class="outline-button" type="button" data-action="delete-material" data-material-id="${escapeHtml(selectedMaterial.id)}">Excluir material</button>`
+              ? `<button class="outline-button" type="button" data-action="delete-material" data-material-id="${escapeHtml(selectedMaterial.id)}">Eliminar material</button>`
               : ""
           }
         </div>
@@ -1652,7 +1652,7 @@ function renderMaterialEditor() {
                   <input id="material-title" name="title" value="${escapeHtml(selectedMaterial.title)}" />
                 </div>
                 <div class="admin-field">
-                  <label for="material-description">Descrição</label>
+                  <label for="material-description">Descripción</label>
                   <textarea id="material-description" name="description">${escapeHtml(selectedMaterial.description)}</textarea>
                 </div>
                 <div class="admin-field">
@@ -1660,11 +1660,11 @@ function renderMaterialEditor() {
                   <input id="material-link" name="link" value="${escapeHtml(selectedMaterial.link || "#")}" />
                 </div>
                 <div class="admin-form__actions">
-                  <button type="submit">Salvar material</button>
+                  <button type="submit">Guardar material</button>
                 </div>
               </form>
             `
-            : `<p class="admin-empty">Adicione um material para começar a editar.</p>`
+            : `<p class="admin-empty">Agrega un material para empezar a editar.</p>`
         }
       </section>
     </section>
@@ -1678,15 +1678,15 @@ function renderAdminView() {
         <div class="admin-shell__top">
           <div>
             <p class="members-kicker">Workspace admin</p>
-            <h2 class="members-billboard__title">Organize cursos, bônus e aulas em um só lugar.</h2>
+            <h2 class="members-billboard__title">Organiza cursos, bonos y clases en un solo lugar.</h2>
             <p class="members-billboard__subtitle">
-              Use os módulos para separar cada curso, renomeie os bônus quando tiver os nomes finais e encaixe os embeds na trilha certa.
+              Usa los módulos para separar cada curso, renombra los bonos cuando tengas los nombres finales y encaja los embeds en la ruta correcta.
             </p>
           </div>
           ${renderAdminTabs()}
         </div>
         <div class="admin-note">
-          <strong>Importante:</strong> essa primeira versão usa armazenamento local do navegador para simular a operação de admin e membro sem backend. O próximo passo, se você quiser, é ligar isso a autenticação e banco de dados reais.
+          <strong>Importante:</strong> esta primera versión usa almacenamiento local del navegador para simular la operación de admin y miembro sin backend. El próximo paso es conectarlo a autenticación y base de datos reales.
         </div>
       </section>
 
@@ -1757,10 +1757,10 @@ function saveProduct(formData) {
 function saveCourse(formData) {
   const courseId = formData.get("id");
   const previousCourse = getCourseById(courseId);
-  const title = formData.get("title")?.trim() || previousCourse?.title || "Novo curso";
+  const title = formData.get("title")?.trim() || previousCourse?.title || "Nuevo curso";
   const label = formData.get("label")?.trim() || previousCourse?.label || "Curso";
   const description = formData.get("description")?.trim() || previousCourse?.description || "";
-  const status = formData.get("status")?.trim() || previousCourse?.status || "A configurar";
+  const status = formData.get("status")?.trim() || previousCourse?.status || "Por configurar";
   const coverImage = formData.get("coverImage")?.trim() || "";
 
   state.courses = state.courses.map((course) =>
@@ -1800,11 +1800,11 @@ function saveLesson(formData) {
 
   const updatedLesson = {
     id: lessonId,
-    title: formData.get("title")?.trim() || "Nova aula",
+    title: formData.get("title")?.trim() || "Nueva clase",
     description: formData.get("description")?.trim() || "",
     duration: formData.get("duration")?.trim() || "00 min",
     status: formData.get("status")?.trim() || "Liberada",
-    coverLabel: formData.get("coverLabel")?.trim() || "Aula",
+    coverLabel: formData.get("coverLabel")?.trim() || "Clase",
     coverTag: formData.get("coverTag")?.trim() || "",
     coverTheme: formData.get("coverTheme")?.trim() || "ember",
     coverImage: formData.get("coverImage")?.trim() || "",
@@ -1839,10 +1839,10 @@ function saveMaterial(formData) {
     material.id === materialId
       ? {
           ...material,
-          title: formData.get("title")?.trim() || "Novo material",
+          title: formData.get("title")?.trim() || "Nuevo material",
           description: formData.get("description")?.trim() || "",
           type: formData.get("type")?.trim() || "PDF",
-          badge: formData.get("badge")?.trim() || "Novo",
+          badge: formData.get("badge")?.trim() || "Nuevo",
           link: formData.get("link")?.trim() || "#",
         }
       : material,
@@ -1867,12 +1867,12 @@ function addLesson() {
   firstModule.lessons = [
     {
       id: lessonId,
-      title: "Nova aula",
-      description: "Descreva aqui o objetivo da aula.",
+      title: "Nueva clase",
+      description: "Describe aquí el objetivo de la clase.",
       duration: "00 min",
-      status: "Rascunho",
-      coverLabel: "Nova capa",
-      coverTag: "Defina a promessa visual",
+      status: "Borrador",
+      coverLabel: "Nueva portada",
+      coverTag: "Define la promesa visual",
       coverTheme: "ember",
       coverImage: "",
       embedCode: "",
@@ -1895,10 +1895,10 @@ function addCourse() {
   state.courses = [
     {
       id: courseId,
-      label: "Novo curso",
-      title: "Novo curso",
-      description: "Descreva a promessa e a ordem desse curso.",
-      status: "A configurar",
+      label: "Nuevo curso",
+      title: "Nuevo curso",
+      description: "Describe la promesa y el orden de este curso.",
+      status: "Por configurar",
       coverImage: "",
     },
     ...state.courses,
@@ -1909,8 +1909,8 @@ function addCourse() {
       id: moduleId,
       courseId,
       eyebrow: "Módulo 1",
-      title: "Comece por aqui",
-      description: "Primeiro módulo do novo curso.",
+      title: "Empieza por aquí",
+      description: "Primer módulo del nuevo curso.",
       progress: 0,
       lessons: [],
     },
@@ -1930,10 +1930,10 @@ function addMaterial() {
   state.materials = [
     {
       id: materialId,
-      title: "Novo material",
-      description: "Descreva o objetivo do material.",
+      title: "Nuevo material",
+      description: "Describe el objetivo del material.",
       type: "PDF",
-      badge: "Novo",
+      badge: "Nuevo",
       link: "#",
     },
     ...state.materials,
@@ -2119,7 +2119,7 @@ app.addEventListener("submit", async (event) => {
       state.role = "admin";
       renderApp();
     } catch (error) {
-      loginError = error.message || "Não foi possível entrar.";
+      loginError = error.message || "No fue posible entrar.";
       renderApp();
     }
 
