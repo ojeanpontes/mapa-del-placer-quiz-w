@@ -1227,16 +1227,14 @@ function renderShelf(title, subtitle, lessons, shelfTone = "", shelfId = "") {
 function renderLessonFilters(course) {
   const modules = getCourseModules(course.id);
   const lessons = getCourseLessons(course.id);
-  const statuses = [...new Set(lessons.map((lesson) => lesson.status).filter(Boolean))];
   const filteredLessons = getFilteredCourseLessons(course);
 
   return `
     <section class="lesson-filter-panel" aria-label="Filtros de clases">
       <div class="lesson-filter-panel__top">
         <div>
-          <p class="members-kicker">Biblioteca del curso</p>
-          <h2 class="content-block__title">Encuentra la clase correcta</h2>
-          <p class="content-block__subtitle">Filtra por módulo, estado o palabra clave para saltar directo a la clase que necesitas.</p>
+          <p class="members-kicker">Clases</p>
+          <h2 class="content-block__title">Encuentra rápido</h2>
         </div>
         <span class="pill pill--accent">${filteredLessons.length} de ${lessons.length} clases</span>
       </div>
@@ -1261,19 +1259,6 @@ function renderLessonFilters(course) {
                   <option value="${escapeHtml(module.id)}"${lessonModuleFilter === module.id ? " selected" : ""}>
                     ${escapeHtml(`${module.eyebrow} · ${module.title}`)}
                   </option>
-                `,
-              )
-              .join("")}
-          </select>
-        </label>
-        <label class="lesson-filter-field">
-          <span>Estado</span>
-          <select data-filter="lesson-status">
-            <option value="all"${lessonStatusFilter === "all" ? " selected" : ""}>Todos los estados</option>
-            ${statuses
-              .map(
-                (status) => `
-                  <option value="${escapeHtml(status)}"${lessonStatusFilter === status ? " selected" : ""}>${escapeHtml(status)}</option>
                 `,
               )
               .join("")}
@@ -1503,8 +1488,8 @@ function renderCourseLessonNavigation(course) {
 }
 
 function renderLearningDashboard() {
-  const totalLessons = getAllLessons(state.modules).length;
-  const playableLessons = getAllLessons(state.modules).filter((lesson) => lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#"));
+  const nextCourse = state.courses.find((course) => getCourseLessons(course.id).length > 0) || state.courses[0];
+  const nextStats = nextCourse ? getCourseStats(nextCourse.id) : null;
 
   return `
     <section class="learning-dashboard">
@@ -1513,16 +1498,20 @@ function renderLearningDashboard() {
           <p class="members-kicker">Bienvenida</p>
           <h2>${escapeHtml(state.product.welcomeTitle)}</h2>
           <p>${escapeHtml(state.product.welcomeText)}</p>
+          ${
+            nextStats
+              ? `
+                <span class="learning-hero-progress">
+                  <span class="course-progress" aria-hidden="true"><span style="width: ${nextStats.progress}%"></span></span>
+                  ${nextStats.progress}% listo · ${nextStats.lessons.length} clases
+                </span>
+              `
+              : ""
+          }
         </div>
-        <button class="primary-link" type="button" data-action="open-course" data-course-id="${escapeHtml(state.courses[0]?.id || "")}">
+        <button class="primary-link" type="button" data-action="open-course" data-course-id="${escapeHtml(nextCourse?.id || "")}">
           Continuar estudiando
         </button>
-      </div>
-
-      <div class="learning-stats" aria-label="Resumen de progreso">
-        <article><strong>${state.courses.length}</strong><span>Cursos</span></article>
-        <article><strong>${totalLessons}</strong><span>Clases</span></article>
-        <article><strong>${playableLessons.length}</strong><span>Disponibles</span></article>
       </div>
 
       <section class="learning-course-grid" id="cursos">
@@ -1530,20 +1519,20 @@ function renderLearningDashboard() {
           <p class="members-kicker">Catálogo</p>
           <h2>Mis cursos</h2>
         </div>
-        <div class="learning-course-grid__items">
+        <div class="learning-course-list">
           ${state.courses
             .map((course) => {
               const stats = getCourseStats(course.id);
               const nextLesson = stats.lessons[0];
 
               return `
-                <button class="learning-course-card" type="button" data-action="open-course" data-course-id="${escapeHtml(course.id)}">
-                  <span class="learning-course-card__status">${escapeHtml(course.status)}</span>
-                  <strong>${escapeHtml(course.title)}</strong>
-                  <small>${escapeHtml(course.description)}</small>
-                  <span class="course-progress" aria-hidden="true"><span style="width: ${stats.progress}%"></span></span>
-                  <span class="learning-course-card__meta">${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"} · ${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
-                  <span class="learning-course-card__next">${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : "Contenido en preparación"}</span>
+                <button class="learning-course-row" type="button" data-action="open-course" data-course-id="${escapeHtml(course.id)}">
+                  <span class="learning-course-row__progress">${stats.progress}%</span>
+                  <span class="learning-course-row__body">
+                    <strong>${escapeHtml(course.title)}</strong>
+                    <small>${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : escapeHtml(course.status)}</small>
+                  </span>
+                  <span class="learning-course-row__meta">${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"} · ${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
                 </button>
               `;
             })
