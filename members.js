@@ -544,6 +544,9 @@ let selectedLessonId = getAllLessons(state.modules)[0]?.id || null;
 let selectedMaterialId = state.materials[0]?.id || null;
 let selectedCourseId = state.courses[0]?.id || null;
 let activeCourseId = null;
+let lessonSearchQuery = "";
+let lessonModuleFilter = "all";
+let lessonStatusFilter = "all";
 let isAdminAuthenticated = false;
 let loginError = "";
 
@@ -712,6 +715,53 @@ function getCourseModules(courseId) {
 
 function getCourseLessons(courseId) {
   return getAllLessons(getCourseModules(courseId));
+}
+
+function getCourseStats(courseId) {
+  const modules = getCourseModules(courseId);
+  const lessons = getCourseLessons(courseId);
+  const playableLessons = lessons.filter((lesson) => lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#"));
+  const progress = lessons.length > 0 ? Math.round((playableLessons.length / lessons.length) * 100) : 0;
+
+  return {
+    modules,
+    lessons,
+    playableLessons,
+    progress,
+  };
+}
+
+function normalizeFilterText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function getFilteredCourseLessons(course) {
+  const normalizedSearch = normalizeFilterText(lessonSearchQuery);
+
+  return getCourseLessons(course.id).filter((lesson) => {
+    const matchesModule = lessonModuleFilter === "all" || lesson.moduleId === lessonModuleFilter;
+    const matchesStatus = lessonStatusFilter === "all" || lesson.status === lessonStatusFilter;
+    const searchableText = normalizeFilterText([
+      lesson.title,
+      lesson.description,
+      lesson.moduleTitle,
+      lesson.moduleEyebrow,
+      lesson.coverTag,
+      lesson.status,
+    ].join(" "));
+    const matchesSearch = !normalizedSearch || searchableText.includes(normalizedSearch);
+
+    return matchesModule && matchesStatus && matchesSearch;
+  });
+}
+
+function resetLessonFilters() {
+  lessonSearchQuery = "";
+  lessonModuleFilter = "all";
+  lessonStatusFilter = "all";
 }
 
 function getModuleCourse(moduleId) {
@@ -934,21 +984,33 @@ function renderQuickBand() {
 }
 
 function renderCourseCatalog() {
+  const totalLessons = getAllLessons(state.modules).length;
+  const availableCourses = state.courses.filter((course) => getCourseLessons(course.id).length > 0).length;
+
   return `
     <section class="course-home" id="cursos">
       <div class="course-home__intro">
-        <p class="members-kicker">Área de miembros</p>
-        <h2>Elige tu curso</h2>
-        <p>Entra por una portada y continúa la ruta sin mezclar el curso principal, Sentada Fatal y los bonos.</p>
+        <div>
+          <p class="members-kicker">Área de miembros</p>
+          <h2>Elige tu curso</h2>
+          <p>Empieza por el curso principal y entra a cada bono desde una ruta separada, con módulos y clases visibles antes de abrir.</p>
+        </div>
+        <div class="course-home__summary" aria-label="Resumen de biblioteca">
+          <span><strong>${state.courses.length}</strong> cursos</span>
+          <span><strong>${availableCourses}</strong> con clases</span>
+          <span><strong>${totalLessons}</strong> clases</span>
+        </div>
       </div>
 
       <div class="course-poster-grid">
         ${state.courses
           .map((course) => {
+            const stats = getCourseStats(course.id);
             const coverStyle = getCourseCoverStyle(course);
             const coverClass = course.coverImage
               ? "course-poster"
               : `course-poster course-poster--placeholder course-poster--${escapeHtml(course.id)}`;
+            const nextLesson = stats.lessons[0];
 
             return `
               <button
@@ -960,8 +1022,21 @@ function renderCourseCatalog() {
               >
                 <span class="course-poster__shade"></span>
                 <span class="course-poster__content">
-                  <span class="course-poster__label">${escapeHtml(course.label)}</span>
+                  <span class="course-poster__topline">
+                    <span class="course-poster__label">${escapeHtml(course.label)}</span>
+                    <span class="course-poster__status">${escapeHtml(course.status)}</span>
+                  </span>
                   <strong>${escapeHtml(course.title)}</strong>
+                  <span class="course-poster__description">${escapeHtml(course.description)}</span>
+                  <span class="course-poster__meta">
+                    <span>${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"}</span>
+                    <span>${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
+                    <span>${stats.progress}% listo</span>
+                  </span>
+                  <span class="course-progress" aria-hidden="true">
+                    <span style="width: ${stats.progress}%"></span>
+                  </span>
+                  <span class="course-poster__next">${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : "Contenido en preparación"}</span>
                 </span>
               </button>
             `;
@@ -973,8 +1048,7 @@ function renderCourseCatalog() {
 }
 
 function renderCourseDetailHero(course) {
-  const modules = getCourseModules(course.id);
-  const lessons = getCourseLessons(course.id);
+  const { modules, lessons, playableLessons, progress } = getCourseStats(course.id);
   const coverStyle = getCourseCoverStyle(
     course,
     "linear-gradient(90deg, rgba(5, 3, 4, 0.94) 0%, rgba(5, 3, 4, 0.76) 48%, rgba(5, 3, 4, 0.2) 100%)",
@@ -992,7 +1066,14 @@ function renderCourseDetailHero(course) {
         <div class="members-billboard__meta">
           <span class="pill">${modules.length} módulo${modules.length === 1 ? "" : "s"}</span>
           <span class="pill">${lessons.length} clase${lessons.length === 1 ? "" : "s"}</span>
+          <span class="pill">${playableLessons.length} disponibles</span>
           <span class="pill pill--accent">${escapeHtml(course.status)}</span>
+        </div>
+        <div class="course-detail-progress">
+          <span class="course-progress" aria-label="${progress}% del curso listo">
+            <span style="width: ${progress}%"></span>
+          </span>
+          <small>${progress}% listo para ver</small>
         </div>
         ${
           lessons.length > 0
@@ -1143,6 +1224,95 @@ function renderShelf(title, subtitle, lessons, shelfTone = "", shelfId = "") {
   `;
 }
 
+function renderLessonFilters(course) {
+  const modules = getCourseModules(course.id);
+  const lessons = getCourseLessons(course.id);
+  const statuses = [...new Set(lessons.map((lesson) => lesson.status).filter(Boolean))];
+  const filteredLessons = getFilteredCourseLessons(course);
+
+  return `
+    <section class="lesson-filter-panel" aria-label="Filtros de clases">
+      <div class="lesson-filter-panel__top">
+        <div>
+          <p class="members-kicker">Biblioteca del curso</p>
+          <h2 class="content-block__title">Encuentra la clase correcta</h2>
+          <p class="content-block__subtitle">Filtra por módulo, estado o palabra clave para saltar directo a la clase que necesitas.</p>
+        </div>
+        <span class="pill pill--accent">${filteredLessons.length} de ${lessons.length} clases</span>
+      </div>
+      <div class="lesson-filters">
+        <label class="lesson-filter-field">
+          <span>Buscar</span>
+          <input
+            type="search"
+            data-filter="lesson-search"
+            value="${escapeHtml(lessonSearchQuery)}"
+            placeholder="Nombre, técnica o tema"
+            autocomplete="off"
+          />
+        </label>
+        <label class="lesson-filter-field">
+          <span>Módulo</span>
+          <select data-filter="lesson-module">
+            <option value="all"${lessonModuleFilter === "all" ? " selected" : ""}>Todos los módulos</option>
+            ${modules
+              .map(
+                (module) => `
+                  <option value="${escapeHtml(module.id)}"${lessonModuleFilter === module.id ? " selected" : ""}>
+                    ${escapeHtml(`${module.eyebrow} · ${module.title}`)}
+                  </option>
+                `,
+              )
+              .join("")}
+          </select>
+        </label>
+        <label class="lesson-filter-field">
+          <span>Estado</span>
+          <select data-filter="lesson-status">
+            <option value="all"${lessonStatusFilter === "all" ? " selected" : ""}>Todos los estados</option>
+            ${statuses
+              .map(
+                (status) => `
+                  <option value="${escapeHtml(status)}"${lessonStatusFilter === status ? " selected" : ""}>${escapeHtml(status)}</option>
+                `,
+              )
+              .join("")}
+          </select>
+        </label>
+        <button class="ghost-link lesson-filter-reset" type="button" data-action="reset-lesson-filters">Limpiar</button>
+      </div>
+      <div class="lesson-results">
+        ${
+          filteredLessons.length > 0
+            ? filteredLessons.map(renderLessonListItem).join("")
+            : `<article class="lesson-results__empty">No encontramos clases con esos filtros.</article>`
+        }
+      </div>
+    </section>
+  `;
+}
+
+function renderLessonListItem(lesson) {
+  const isActive = lesson.id === selectedLessonId;
+  const isPlayable = Boolean(lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#"));
+
+  return `
+    <button
+      class="lesson-result${isActive ? " is-active" : ""}"
+      type="button"
+      data-action="watch-lesson"
+      data-lesson-id="${escapeHtml(lesson.id)}"
+    >
+      <span class="lesson-result__index">${escapeHtml(lesson.moduleEyebrow)}</span>
+      <span class="lesson-result__body">
+        <strong>${escapeHtml(lesson.title)}</strong>
+        <small>${escapeHtml(lesson.moduleTitle)} · ${escapeHtml(lesson.duration)}</small>
+      </span>
+      <span class="lesson-result__status">${isPlayable ? "Ver ahora" : "Próximamente"}</span>
+    </button>
+  `;
+}
+
 function renderEmptyModule(module) {
   return `
     <article class="course-empty">
@@ -1157,6 +1327,7 @@ function renderEmptyModule(module) {
 function renderCourseSection(course) {
   const modules = getCourseModules(course.id);
   const lessons = getCourseLessons(course.id);
+  const isActiveCourse = activeCourseId === course.id;
 
   return `
     <section class="course-section" id="course-${escapeHtml(course.id)}">
@@ -1173,6 +1344,7 @@ function renderCourseSection(course) {
       </div>
 
       <div class="course-section__body">
+        ${isActiveCourse && lessons.length > 0 ? renderLessonFilters(course) : ""}
         ${
           modules.length > 0
             ? modules
@@ -1210,10 +1382,10 @@ function renderMaterials() {
     <section class="members-shelf" id="materiales">
       <div class="members-shelf__top">
         <div>
-          <h2 class="content-block__title">Materiales de apoio</h2>
+          <h2 class="content-block__title">Materiales de apoyo</h2>
           <p class="content-block__subtitle">PDFs, guías y bonos para acompañar las clases sin perder claridad en la aplicación.</p>
         </div>
-        <span class="pill">${state.materials.length} itens</span>
+        <span class="pill">${state.materials.length} materiales</span>
       </div>
 
       <div class="shelf-row shelf-row--materials">
@@ -2026,6 +2198,7 @@ app.addEventListener("click", (event) => {
   if (action === "open-course") {
     event.preventDefault();
     activeCourseId = target.dataset.courseId;
+    resetLessonFilters();
     const firstLesson = getCourseLessons(activeCourseId)[0];
     selectedLessonId = firstLesson?.id || null;
     renderApp();
@@ -2041,6 +2214,7 @@ app.addEventListener("click", (event) => {
   if (action === "close-course") {
     event.preventDefault();
     activeCourseId = null;
+    resetLessonFilters();
     renderApp();
 
     window.requestAnimationFrame(() => {
@@ -2075,6 +2249,11 @@ app.addEventListener("click", (event) => {
     restoreDefaults();
   }
 
+  if (action === "reset-lesson-filters") {
+    resetLessonFilters();
+    renderApp();
+  }
+
   if (action === "watch-lesson") {
     if (!target.dataset.lessonId) {
       return;
@@ -2092,6 +2271,41 @@ app.addEventListener("click", (event) => {
       });
     });
   }
+});
+
+app.addEventListener("input", (event) => {
+  const target = event.target.closest("[data-filter]");
+
+  if (!target) {
+    return;
+  }
+
+  if (target.dataset.filter === "lesson-search") {
+    lessonSearchQuery = target.value;
+    renderApp();
+
+    window.requestAnimationFrame(() => {
+      document.querySelector('[data-filter="lesson-search"]')?.focus();
+    });
+  }
+});
+
+app.addEventListener("change", (event) => {
+  const target = event.target.closest("[data-filter]");
+
+  if (!target) {
+    return;
+  }
+
+  if (target.dataset.filter === "lesson-module") {
+    lessonModuleFilter = target.value;
+  }
+
+  if (target.dataset.filter === "lesson-status") {
+    lessonStatusFilter = target.value;
+  }
+
+  renderApp();
 });
 
 app.addEventListener("submit", async (event) => {
