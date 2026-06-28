@@ -1153,18 +1153,6 @@ function renderLessonPlayer() {
 
   return `
     <section class="members-card lesson-player-panel" id="player">
-      <div class="lesson-player-panel__meta">
-        <div>
-          <p class="members-kicker">${escapeHtml(moduleLabel)}</p>
-          <h2 class="content-block__title">${escapeHtml(lesson?.title || "Selecciona una clase")}</h2>
-          <p class="content-block__subtitle">${escapeHtml(lesson?.description || state.product.nextStep)}</p>
-        </div>
-        <div class="lesson-player-panel__chips">
-          <span class="pill">${escapeHtml(lesson?.duration || "Biblioteca")}</span>
-          <span class="pill pill--accent">${escapeHtml(lesson?.status || "Disponible")}</span>
-        </div>
-      </div>
-
       <div class="lesson-player-panel__stage">
         ${
           canRenderEmbed
@@ -1195,6 +1183,18 @@ function renderLessonPlayer() {
                 </div>
               `
         }
+      </div>
+
+      <div class="lesson-player-panel__meta">
+        <div>
+          <p class="members-kicker">${escapeHtml(moduleLabel)}</p>
+          <h2 class="content-block__title">${escapeHtml(lesson?.title || "Selecciona una clase")}</h2>
+          <p class="content-block__subtitle">${escapeHtml(lesson?.description || state.product.nextStep)}</p>
+        </div>
+        <div class="lesson-player-panel__chips">
+          <span class="pill">${escapeHtml(lesson?.duration || "Biblioteca")}</span>
+          <span class="pill pill--accent">${escapeHtml(lesson?.status || "Disponible")}</span>
+        </div>
       </div>
 
       <div class="lesson-player-panel__footer">
@@ -1488,52 +1488,27 @@ function renderCourseLessonNavigation(course) {
 }
 
 function renderLearningDashboard() {
-  const nextCourse = state.courses.find((course) => getCourseLessons(course.id).length > 0) || state.courses[0];
-  const nextStats = nextCourse ? getCourseStats(nextCourse.id) : null;
-
   return `
-    <section class="learning-dashboard">
-      <div class="learning-dashboard__hero">
-        <div>
-          <p class="members-kicker">Bienvenida</p>
-          <h2>Continúa donde lo dejaste</h2>
-          <p>Elige un curso, abre la siguiente clase y avanza sin buscar entre contenidos mezclados.</p>
-          ${
-            nextStats
-              ? `
-                <span class="learning-hero-progress">
-                  <span class="course-progress" aria-hidden="true"><span style="width: ${nextStats.progress}%"></span></span>
-                  ${nextStats.progress}% listo · ${nextStats.lessons.length} clases
-                </span>
-              `
-              : ""
-          }
-        </div>
-        <button class="primary-link" type="button" data-action="open-course" data-course-id="${escapeHtml(nextCourse?.id || "")}">
-          Continuar estudiando
-        </button>
-      </div>
-
+    <section class="learning-dashboard learning-dashboard--simple">
       <section class="learning-course-grid" id="cursos">
         <div class="learning-section-title">
-          <p class="members-kicker">Catálogo</p>
+          <p class="members-kicker">Biblioteca</p>
           <h2>Cursos</h2>
         </div>
-        <div class="learning-course-list">
+        <div class="learning-thumb-grid">
           ${state.courses
             .map((course) => {
-              const stats = getCourseStats(course.id);
-              const nextLesson = stats.lessons[0];
+              const coverStyle = getCourseCoverStyle(course, "linear-gradient(180deg, rgba(4, 3, 4, 0.04), rgba(4, 3, 4, 0.62))");
+              const coverClass = course.coverImage
+                ? "learning-thumb"
+                : `learning-thumb learning-thumb--${escapeHtml(course.id)}`;
 
               return `
-                <button class="learning-course-row" type="button" data-action="open-course" data-course-id="${escapeHtml(course.id)}">
-                  <span class="learning-course-row__progress">${stats.progress}%</span>
-                  <span class="learning-course-row__body">
-                    <strong>${escapeHtml(course.title)}</strong>
-                    <small>${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : escapeHtml(course.status)}</small>
+                <button class="learning-thumb-card" type="button" data-action="open-course" data-course-id="${escapeHtml(course.id)}">
+                  <span class="${coverClass}" ${coverStyle}>
+                    <span>${escapeHtml(course.label)}</span>
                   </span>
-                  <span class="learning-course-row__meta">${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"} · ${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
-                  <span class="learning-course-row__action">Abrir</span>
+                  <strong>${escapeHtml(course.title)}</strong>
                 </button>
               `;
             })
@@ -1545,25 +1520,10 @@ function renderLearningDashboard() {
 }
 
 function renderLearningCourse(activeCourse) {
-  const { modules, lessons, playableLessons, progress } = getCourseStats(activeCourse.id);
-  const lesson = getSelectedLesson() || lessons[0] || null;
+  const { lessons } = getCourseStats(activeCourse.id);
 
   return `
     <section class="learning-course">
-      <div class="learning-course__top">
-        <button class="ghost-link" type="button" data-action="close-course">Todos los cursos</button>
-        <div>
-          <p class="members-kicker">${escapeHtml(activeCourse.label)}</p>
-          <h2>${escapeHtml(activeCourse.title)}</h2>
-          <p>${escapeHtml(activeCourse.description)}</p>
-        </div>
-        <div class="learning-course__progress">
-          <strong>${progress}%</strong>
-          <span class="course-progress" aria-label="${progress}% listo"><span style="width: ${progress}%"></span></span>
-          <small>${playableLessons.length} de ${lessons.length} clases disponibles</small>
-        </div>
-      </div>
-
       ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
 
       <div class="learning-course__content" id="modulos">
@@ -1583,8 +1543,7 @@ function renderMemberView() {
 
   if (!activeCourse) {
     return `
-      <section class="members-main learning-shell learning-shell--home">
-        ${renderLearningSidebar(null)}
+      <section class="members-main learning-shell learning-shell--home learning-shell--catalog">
         <main class="learning-main">
           ${renderLearningDashboard()}
         </main>
