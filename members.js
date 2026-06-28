@@ -1523,12 +1523,13 @@ function renderLearningCourse(activeCourse) {
   const { lessons } = getCourseStats(activeCourse.id);
 
   return `
-    <section class="learning-course">
-      ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
-
-      <div class="learning-course__content" id="modulos">
-        <div class="learning-course__filters">
-          ${renderLessonFilters(activeCourse)}
+    <section class="learning-course learning-course--watch">
+      <div class="youtube-watch-grid" id="modulos">
+        <div class="youtube-watch-main">
+          ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
+          <div class="learning-course__filters">
+            ${renderLessonFilters(activeCourse)}
+          </div>
         </div>
         ${renderCourseLessonNavigation(activeCourse)}
       </div>

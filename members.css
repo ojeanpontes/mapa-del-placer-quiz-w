@@ -1144,6 +1144,252 @@
   }
 }
 
+/* Cleaner YouTube hierarchy and color pass */
+
+.members-page {
+  --members-bg-top: #0d0b0c;
+  --members-bg-bottom: #050505;
+  --members-surface: #121212;
+  --members-surface-soft: #1a1a1a;
+  --members-line: rgba(255, 255, 255, 0.1);
+  --members-line-strong: rgba(255, 255, 255, 0.18);
+  --members-text: #f5f5f5;
+  --members-text-soft: #b8b8b8;
+  --members-text-faint: #858585;
+  --members-red: #e0323e;
+  --members-gold: #d8b46f;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(224, 50, 62, 0.16), transparent 30%),
+    linear-gradient(180deg, #0b090a 0%, #050505 42%, #030303 100%);
+}
+
+.members-page .members-topbar {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: rgba(3, 3, 3, 0.94);
+}
+
+.learning-shell {
+  width: min(1380px, calc(100% - 2rem));
+}
+
+.learning-shell--catalog {
+  width: min(1200px, calc(100% - 2rem));
+}
+
+.learning-main,
+.learning-dashboard,
+.learning-course {
+  gap: 1rem;
+}
+
+.youtube-watch-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.34fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.youtube-watch-main {
+  display: grid;
+  min-width: 0;
+  gap: 0.9rem;
+}
+
+.learning-sidebar,
+.learning-outline,
+.learning-shell .lesson-player-panel,
+.learning-shell .lesson-filter-panel,
+.learning-course-list {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(18, 18, 18, 0.96);
+}
+
+.learning-sidebar {
+  top: 5.2rem;
+}
+
+.learning-outline {
+  position: sticky;
+  top: 5.2rem;
+  max-height: calc(100vh - 6rem);
+}
+
+.learning-outline__top {
+  padding-bottom: 0.15rem;
+}
+
+.learning-module {
+  background: #171717;
+}
+
+.learning-lesson-link {
+  grid-template-columns: 2rem minmax(0, 1fr);
+  border-color: transparent;
+  background: transparent;
+}
+
+.learning-lesson-link:hover,
+.learning-lesson-link:focus-visible,
+.learning-lesson-link.is-active {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #222222;
+}
+
+.learning-lesson-link.is-active .learning-lesson-link__check {
+  background: var(--members-red);
+  color: #ffffff;
+}
+
+.learning-shell .lesson-player-panel {
+  border-radius: 8px;
+}
+
+.learning-shell .lesson-player-panel__stage {
+  background: #000000;
+}
+
+.lesson-player-frame {
+  min-height: min(62vh, 680px);
+}
+
+.learning-shell .lesson-player-panel__meta {
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 1rem 0.95rem 1.05rem;
+  background: #101010;
+}
+
+.learning-shell .lesson-player-panel__meta .content-block__title {
+  font-size: 1.28rem;
+  line-height: 1.2;
+}
+
+.learning-shell .lesson-player-panel__meta .content-block__subtitle {
+  max-width: 80ch;
+  margin-top: 0.35rem;
+  color: var(--members-text-soft);
+}
+
+.learning-shell .lesson-player-panel__chips {
+  justify-content: flex-end;
+}
+
+.pill,
+.members-billboard__badge {
+  background: #222222;
+  color: var(--members-text-soft);
+}
+
+.pill--accent {
+  border-color: rgba(47, 200, 117, 0.2);
+  background: rgba(47, 200, 117, 0.12);
+  color: #91e8b9;
+}
+
+.learning-shell .lesson-filter-panel {
+  padding: 0.85rem;
+}
+
+.lesson-filter-panel__top {
+  align-items: center;
+}
+
+.lesson-filter-panel__top .members-kicker {
+  color: var(--members-text-faint);
+}
+
+.lesson-filter-field input,
+.lesson-filter-field select {
+  background: #101010;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.lesson-result {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #151515;
+}
+
+.lesson-result:hover,
+.lesson-result:focus-visible,
+.lesson-result.is-active {
+  border-color: rgba(224, 50, 62, 0.42);
+  background: rgba(224, 50, 62, 0.08);
+}
+
+.lesson-result__status {
+  background: rgba(224, 50, 62, 0.13);
+  color: #ffb8be;
+}
+
+.learning-thumb-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.15rem 1rem;
+}
+
+.learning-thumb-card {
+  gap: 0.55rem;
+}
+
+.learning-thumb {
+  border-color: rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(135deg, rgba(70, 24, 29, 0.84), rgba(12, 12, 12, 0.98));
+}
+
+.learning-thumb--sentada-fatal {
+  background:
+    linear-gradient(135deg, rgba(160, 34, 48, 0.86), rgba(12, 12, 12, 0.98));
+}
+
+.learning-thumb--bonus-1 {
+  background:
+    linear-gradient(135deg, rgba(145, 112, 58, 0.82), rgba(12, 12, 12, 0.98));
+}
+
+.learning-thumb--bonus-2 {
+  background:
+    linear-gradient(135deg, rgba(40, 90, 82, 0.84), rgba(12, 12, 12, 0.98));
+}
+
+.learning-thumb--bonus-3 {
+  background:
+    linear-gradient(135deg, rgba(112, 40, 58, 0.84), rgba(12, 12, 12, 0.98));
+}
+
+.learning-thumb-card strong {
+  font-size: 1rem;
+}
+
+@media (max-width: 1180px) {
+  .youtube-watch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-outline {
+    position: relative;
+    top: auto;
+    max-height: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .learning-shell,
+  .learning-shell--catalog {
+    width: min(100% - 1.1rem, 1200px);
+  }
+
+  .learning-thumb-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-player-frame {
+    min-height: 320px;
+  }
+
+  .learning-shell .lesson-player-panel__meta {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Simplified premium pass */
 
 .learning-dashboard,
