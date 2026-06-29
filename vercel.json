@@ -13,7 +13,7 @@
     },
     {
       "source": "/members.html",
-      "destination": "/area-de-miembros",
+      "destination": "/cont",
       "permanent": false
     },
     {
@@ -48,6 +48,10 @@
     },
     {
       "source": "/area-de-miembros",
+      "destination": "/members.html"
+    },
+    {
+      "source": "/cont",
       "destination": "/members.html"
     },
     {
