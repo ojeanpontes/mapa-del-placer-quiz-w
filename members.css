@@ -1144,6 +1144,83 @@
   }
 }
 
+/* Final lesson cleanup */
+.learning-course__filters,
+.lesson-filter-panel {
+  display: none;
+}
+
+.learning-shell .lesson-player-panel__meta {
+  padding: 0.85rem 0.1rem 0;
+  border-top: 0;
+}
+
+.learning-shell .lesson-player-panel__meta .members-kicker,
+.learning-shell .lesson-player-panel__meta .content-block__subtitle,
+.learning-shell .lesson-player-panel__chips,
+.learning-shell .lesson-player-panel__footer {
+  display: none;
+}
+
+.learning-shell .lesson-player-panel__meta .content-block__title {
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-size: 1.32rem;
+  line-height: 1.25;
+}
+
+.learning-outline__top .ghost-link {
+  display: none;
+}
+
+.learning-module__head strong {
+  color: var(--members-gold);
+}
+
+.youtube-comments__tabs {
+  justify-content: space-between;
+}
+
+.youtube-comments__field {
+  display: grid;
+  flex: 1;
+  gap: 0.35rem;
+  color: var(--members-text-soft);
+  font-size: 0.88rem;
+}
+
+.youtube-comments__field textarea {
+  width: 100%;
+  min-height: 3rem;
+  resize: vertical;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--members-text);
+  font: inherit;
+  outline: 0;
+}
+
+.youtube-comments__field textarea:focus {
+  border-color: var(--members-gold);
+}
+
+.youtube-comments__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.youtube-comments__list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.youtube-comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
 /* Cleaner YouTube hierarchy and color pass */
 
 .members-page {

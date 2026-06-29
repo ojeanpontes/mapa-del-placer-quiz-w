@@ -1,9 +1,47 @@
-const MEMBERS_STORAGE_KEY = "mdpm-members-area-black-v1";
+const MEMBERS_STORAGE_KEY = "mdpm-members-area-black-v3";
 
 window.funnelAnalytics?.trackOnce("members_view");
 
 function createVturbEmbed(playerId) {
   return `<vturb-smartplayer id="vid-${playerId}" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/078ca594-053b-427b-a22f-58f182182f25/players/${playerId}/v4/player.js", s.async=!0,document.head.appendChild(s); </script>`;
+}
+
+const explicitLessonPlayers = [
+  "6a3dc964cbea5b52000f3ca7",
+  "6a3dc93a4d2b4d3fb001bb47",
+  "6a3dc95719ad0024febe57b7",
+  "6a3dc949e172d6fc86635b14",
+  "6a3dc9cb33aff91765435422",
+  "6a3dc9e14d2b4d3fb001bcc1",
+  "6a3dc9adb0bc99b90d6fad8c",
+  "6a3dc97a69f3e258e2cf0058",
+  "6a3dc986939c8f300cf4b6ca",
+  "6a3dc9974d2b4d3fb001bbf5",
+  "6a3dc9d2939c8f300cf4b770",
+  "6a3dc9b9ab74e8fd0f270e0e",
+];
+
+function buildExplicitLessons() {
+  const themes = ["noir", "gold", "blush", "ember"];
+
+  return explicitLessonPlayers.map((playerId, index) => {
+    const lessonNumber = index + 1;
+
+    return {
+      id: `lesson-explicito-${lessonNumber}`,
+      title: `Aula ${lessonNumber}`,
+      description: `Clase ${lessonNumber} del módulo explícito, organizada para seguir la secuencia sin distracciones.`,
+      duration: "Clase grabada",
+      status: "Liberada",
+      coverLabel: `Aula ${lessonNumber}`,
+      coverTag: "Módulo explícito",
+      coverTheme: themes[index % themes.length],
+      coverImage: "",
+      videoUrl: "#",
+      materialUrl: "#",
+      embedCode: createVturbEmbed(playerId),
+    };
+  });
 }
 
 const defaultState = {
@@ -28,49 +66,20 @@ const defaultState = {
       label: "Curso",
       title: "Black",
       description:
-        "Aulas Black organizadas em uma trilha direta para assistir sem distrações.",
+        "Módulo explícito con 12 clases organizadas para avanzar de forma intuitiva.",
       status: "Liberado",
       coverImage: "./assets/mapa-do-prazer-banner.svg",
     },
   ],
   modules: [
     {
-      id: "mod-black",
+      id: "mod-explicito",
       courseId: "black",
-      eyebrow: "Módulo 1",
-      title: "Black",
-      description: "Sequência principal com as aulas Black disponíveis.",
+      eyebrow: "Módulo 2",
+      title: "Explícito",
+      description: "Contenido explícito organizado en secuencia, sin exceso de información alrededor de la clase.",
       progress: 1,
-      lessons: [
-        {
-          id: "lesson-black-2",
-          title: "Aula 2 - BLACK",
-          description: "Aula Black número 2.",
-          duration: "Clase grabada",
-          status: "Liberada",
-          coverLabel: "Black",
-          coverTag: "Aula 2",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("6a3dc93a4d2b4d3fb001bb47"),
-        },
-        {
-          id: "lesson-black-4",
-          title: "Aula 4 - BLACK",
-          description: "Aula Black número 4.",
-          duration: "Clase grabada",
-          status: "Liberada",
-          coverLabel: "Black",
-          coverTag: "Aula 4",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("6a3dc949e172d6fc86635b14"),
-        },
-      ],
+      lessons: buildExplicitLessons(),
     },
   ],
   materials: [],
@@ -684,21 +693,42 @@ function renderCommentSection() {
     <section class="youtube-comments">
       <div class="youtube-comments__tabs" role="tablist" aria-label="Comentarios">
         <button class="youtube-comments__tab is-active" type="button">Comentarios</button>
+        <span class="pill">4 comentarios</span>
       </div>
       <div class="youtube-comments__composer">
         <span class="youtube-comments__avatar">M</span>
-        <div>
-          <strong>Comparte tu duda</strong>
-          <p>Deja tus notas o preguntas para revisar la clase con más claridad.</p>
-        </div>
+        <label class="youtube-comments__field">
+          <span>Comentar como alumna</span>
+          <textarea rows="2" placeholder="Escribe tu duda o una nota sobre esta clase..."></textarea>
+        </label>
       </div>
-      <article class="youtube-comment">
-        <span class="youtube-comments__avatar youtube-comments__avatar--soft">A</span>
-        <div>
-          <strong>Admin</strong>
-          <p>Revisa la clase completa y vuelve a esta área para anotar dudas sobre el módulo.</p>
-        </div>
-      </article>
+      <div class="youtube-comments__actions">
+        <button class="ghost-link" type="button">Cancelar</button>
+        <button class="primary-link" type="button">Comentar</button>
+      </div>
+      <div class="youtube-comments__list">
+        <article class="youtube-comment">
+          <span class="youtube-comments__avatar youtube-comments__avatar--soft">MP</span>
+          <div>
+            <strong>Equipo Mapa del Placer</strong>
+            <p>Mira la clase completa antes de avanzar. La secuencia fue pensada para que cada aula complemente la anterior.</p>
+          </div>
+        </article>
+        <article class="youtube-comment">
+          <span class="youtube-comments__avatar">A</span>
+          <div>
+            <strong>Alumna verificada</strong>
+            <p>Me gustó que las aulas están directas y en orden. Así es mucho más fácil seguir el módulo.</p>
+          </div>
+        </article>
+        <article class="youtube-comment">
+          <span class="youtube-comments__avatar">C</span>
+          <div>
+            <strong>Carolina</strong>
+            <p>Dejé esta clase guardada para revisar otra vez antes de avanzar.</p>
+          </div>
+        </article>
+      </div>
     </section>
   `;
 }
@@ -1045,7 +1075,6 @@ function renderCourseLessonNavigation(course) {
     <div class="learning-outline" aria-label="Módulos y clases">
       <div class="learning-outline__top">
         <span class="learning-sidebar__section">Contenido</span>
-        <button class="ghost-link" type="button" data-action="reset-lesson-filters">Limpiar filtros</button>
       </div>
       ${modules
         .map(
@@ -1130,9 +1159,6 @@ function renderLearningCourse(activeCourse) {
           ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
           ${renderCommentSection()}
           ${renderNextLessonsCarousel(activeCourse)}
-          <div class="learning-course__filters">
-            ${renderLessonFilters(activeCourse)}
-          </div>
         </div>
         ${renderCourseLessonNavigation(activeCourse)}
       </div>
