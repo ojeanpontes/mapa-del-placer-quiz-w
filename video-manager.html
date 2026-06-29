@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Gerenciador VTurb | Trocar embed</title>
+    <meta
+      name="description"
+      content="Painel local para trocar embeds do VTurb e publicar uma página de vídeo."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./video-manager.css" />
+  </head>
+  <body class="video-manager-page">
+    <main class="video-manager-shell">
+      <section class="manager-panel">
+        <div class="manager-heading">
+          <p class="manager-eyebrow">Trocar embed</p>
+          <h1>Deixar vídeo online</h1>
+          <p>
+            Cole um novo embed do VTurb, escolha uma URL curta e salve. A página
+            pública do vídeo fica pronta para abrir, revisar e subir junto com o
+            projeto.
+          </p>
+        </div>
+
+        <form class="manager-form" data-manager-form>
+          <label class="field-group">
+            <span>Nome do vídeo</span>
+            <input
+              name="title"
+              type="text"
+              placeholder="ex: Upsell La Sentada"
+              autocomplete="off"
+              required
+            />
+          </label>
+
+          <label class="field-group">
+            <span>URL curta</span>
+            <input
+              name="slug"
+              type="text"
+              placeholder="ex: upsell-sentada"
+              autocomplete="off"
+              required
+            />
+          </label>
+
+          <label class="field-group">
+            <span>Embed ou URL do VTurb</span>
+            <textarea
+              name="input"
+              rows="7"
+              placeholder="Cole aqui o embed completo do VTurb, player.js ou main.m3u8..."
+              spellcheck="false"
+              required
+            ></textarea>
+          </label>
+
+          <button type="submit" class="save-button">
+            Salvar e publicar vídeo
+          </button>
+        </form>
+
+        <div class="manager-status" data-manager-status>
+          Pronto para salvar um embed.
+        </div>
+      </section>
+
+      <section class="online-panel">
+        <div class="online-card">
+          <p class="manager-eyebrow">Página pública</p>
+          <strong data-public-title>Nenhum vídeo selecionado</strong>
+          <p data-public-url>
+            Salve um embed para gerar o link do vídeo online.
+          </p>
+          <div class="link-row">
+            <a class="open-button" data-open-public href="#" target="_blank" rel="noreferrer" hidden>
+              Abrir vídeo
+            </a>
+            <button class="copy-button" type="button" data-copy-public hidden>
+              Copiar link
+            </button>
+          </div>
+        </div>
+
+        <div class="iframe-shell">
+          <iframe
+            data-preview-frame
+            title="Preview do vídeo salvo"
+            src="about:blank"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="library-card">
+          <p class="manager-eyebrow">Salvos</p>
+          <div class="video-list" data-video-list>
+            <span>Nenhum vídeo salvo ainda.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./video-manager.js"></script>
+  </body>
+</html>

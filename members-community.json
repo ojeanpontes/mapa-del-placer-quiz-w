@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": "seed-1",
+      "name": "Camila",
+      "lessonId": "aula-1",
+      "message": "Hice el ejercicio de mirar sin pedir nada y se sintió raro al principio, pero él se quedó más tranquilo. Me sorprendió.",
+      "likes": 8,
+      "createdAt": "2026-06-04T16:20:00.000Z",
+      "comments": [
+        {
+          "id": "seed-1-comment-1",
+          "name": "Sofia",
+          "message": "Ese es el punto: presencia sin presión. Vas muy bien.",
+          "createdAt": "2026-06-04T17:10:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "seed-2",
+      "name": "Valentina",
+      "lessonId": "aula-3",
+      "message": "La pregunta '¿qué necesitas de mí hoy?' me dio miedo, pero abrió una conversación muy bonita.",
+      "likes": 5,
+      "createdAt": "2026-06-04T18:32:00.000Z",
+      "comments": []
+    }
+  ]
+}

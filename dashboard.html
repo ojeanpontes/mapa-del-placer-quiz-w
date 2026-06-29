@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Dashboard del Funnel | Estadisticas</title>
+    <title>Dashboard do Funil | Estatísticas</title>
     <meta
       name="description"
-      content="Canvas visual de estadisticas del funnel con paso, salida y lectura de retencion por etapa."
+      content="Canvas visual de estatísticas do funil com passagem, saída e leitura de retenção por etapa."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,26 +23,26 @@
     <div class="analytics-app">
       <header class="analytics-topbar">
         <div class="analytics-topbar__brand">
-          <button class="icon-button" type="button" aria-label="Volver">
+          <button class="icon-button" type="button" aria-label="Voltar">
             <span aria-hidden="true">‹</span>
           </button>
           <div>
-            <p class="analytics-topbar__eyebrow">Dashboard de estadisticas</p>
+            <p class="analytics-topbar__eyebrow">Dashboard de estatísticas</p>
             <strong class="analytics-topbar__title">Grupo Jevo</strong>
           </div>
         </div>
 
-        <nav class="analytics-tabs" aria-label="Estado del dashboard">
+        <nav class="analytics-tabs" aria-label="Status do dashboard">
           <button class="analytics-tab analytics-tab--active" type="button">
-            Estadisticas
+            Estatísticas
           </button>
         </nav>
 
         <div class="analytics-topbar__actions">
           <button class="ghost-button" type="button" id="refresh-demo">
-            Actualizar demo
+            Atualizar demo
           </button>
-          <button class="primary-button" type="button">Guardado</button>
+          <button class="primary-button" type="button">Salvo</button>
         </div>
       </header>
 
@@ -52,7 +52,7 @@
             <div class="analytics-canvas-toolbar__group">
               <span class="status-pill" id="status-primary">Preview local</span>
               <span class="status-pill status-pill--soft" id="status-secondary">
-                Datos demo
+                Dados demo
               </span>
             </div>
 
@@ -64,9 +64,9 @@
                 Vertical
               </button>
               <button class="toolbar-chip" type="button" id="layout-reset">
-                Resetear layout
+                Resetar layout
               </button>
-              <button class="toolbar-chip" type="button">Hoy</button>
+              <button class="toolbar-chip" type="button">Hoje</button>
             </div>
           </div>
 
@@ -80,7 +80,7 @@
             <div class="analytics-flow" id="analytics-flow"></div>
 
             <aside class="floating-panel floating-panel--summary">
-              <p class="floating-panel__eyebrow">Resumen general</p>
+              <p class="floating-panel__eyebrow">Resumo geral</p>
               <div class="summary-grid">
                 <article class="summary-card">
                   <span>Entrada</span>
@@ -102,62 +102,62 @@
             </aside>
 
             <aside class="floating-panel floating-panel--inspector">
-              <p class="floating-panel__eyebrow">Etapa seleccionada</p>
+              <p class="floating-panel__eyebrow">Etapa selecionada</p>
               <h2 class="floating-panel__title" id="inspector-title"></h2>
               <p class="floating-panel__subtitle" id="inspector-key"></p>
 
               <div class="inspector-metrics">
                 <div class="inspector-metric">
-                  <span>Visualizaciones</span>
+                  <span>Visualizações</span>
                   <strong id="inspector-views"></strong>
                 </div>
                 <div class="inspector-metric inspector-metric--success">
-                  <span>Paso</span>
+                  <span>Passagem</span>
                   <strong id="inspector-pass"></strong>
                 </div>
                 <div class="inspector-metric inspector-metric--danger">
-                  <span>Salida</span>
+                  <span>Saída</span>
                   <strong id="inspector-drop"></strong>
                 </div>
                 <div class="inspector-metric">
-                  <span>Base del funnel</span>
+                  <span>Base do funil</span>
                   <strong id="inspector-base"></strong>
                 </div>
               </div>
 
               <div class="inspector-next">
-                <p class="inspector-next__title">Proximos caminos</p>
+                <p class="inspector-next__title">Próximos caminhos</p>
                 <div class="inspector-next__list" id="inspector-next"></div>
               </div>
 
               <div class="inspector-actions">
                 <button class="toolbar-chip" type="button" id="focus-node">
-                  Centrar etapa
+                  Centralizar etapa
                 </button>
                 <button class="toolbar-chip" type="button" id="reset-node">
-                  Resetear posicion
+                  Resetar posição
                 </button>
               </div>
 
               <div class="inspector-insights">
                 <div class="inspector-tip inspector-tip--danger">
-                  <span>Mayor salida</span>
+                  <span>Maior saída</span>
                   <strong id="worst-step-title"></strong>
                   <p id="worst-step-copy"></p>
                 </div>
                 <div class="inspector-tip inspector-tip--success">
-                  <span>Mejor retencion</span>
+                  <span>Melhor retenção</span>
                   <strong id="best-step-title"></strong>
                   <p id="best-step-copy"></p>
                 </div>
               </div>
 
               <p class="inspector-help">
-                Arrastra las tarjetas para reorganizar el flujo sin romper las conexiones.
+                Arraste os cards para reorganizar o fluxo sem quebrar as conexões.
               </p>
             </aside>
 
-            <div class="zoom-controls" aria-label="Controles de visualizacion">
+            <div class="zoom-controls" aria-label="Controles de visualização">
               <button class="icon-button" type="button" id="zoom-in">+</button>
               <button class="icon-button" type="button" id="zoom-out">−</button>
               <button class="icon-button" type="button" id="zoom-reset">⤢</button>

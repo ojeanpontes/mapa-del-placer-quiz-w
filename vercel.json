@@ -1,0 +1,74 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/quiz",
+      "permanent": false
+    },
+    {
+      "source": "/tsl.html",
+      "destination": "/curso",
+      "permanent": false
+    },
+    {
+      "source": "/members.html",
+      "destination": "/cont",
+      "permanent": false
+    },
+    {
+      "source": "/support.html",
+      "destination": "/soporte",
+      "permanent": false
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacidad",
+      "permanent": false
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terminos",
+      "permanent": false
+    },
+    {
+      "source": "/refund.html",
+      "destination": "/reembolsos",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/quiz",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/curso",
+      "destination": "/tsl.html"
+    },
+    {
+      "source": "/area-de-miembros",
+      "destination": "/members.html"
+    },
+    {
+      "source": "/cont",
+      "destination": "/members.html"
+    },
+    {
+      "source": "/soporte",
+      "destination": "/support.html"
+    },
+    {
+      "source": "/privacidad",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terminos",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/reembolsos",
+      "destination": "/refund.html"
+    }
+  ]
+}

@@ -1,84 +1,72 @@
-const FINAL_CTA_URL = "./pv.html";
+const FINAL_CTA_URL = "./vsl.html";
 
 const imageLibrary = {
   intro: {
-    src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200",
-    alt: "Imagen generica de una mesa con cuaderno y anotaciones",
-    credit: "Foto: Thought Catalog via Unsplash",
-    position: "center 48%",
+    src: "./assets/intro-tantra-cropped.png",
+    alt: "Imagen principal del sitio Tantra BC",
+    credit: "Imagen: Tantra BC",
+    position: "center 30%",
     layout: "single",
   },
   tension: {
-    src: "https://images.unsplash.com/photo-1631609473077-67318e84b31c?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200",
-    alt: "Pareja tomada de la mano en primer plano",
-    credit: "Foto: Ozgur Avsar via Unsplash",
-    position: "center 42%",
+    src: "./assets/quiz-distant-couple-bedroom.jpeg",
+    alt: "Pareja distante en una habitación con él mirando el celular",
+    credit: "Imagen: producción propia",
+    position: "center 35%",
   },
   reflection: {
-    src: "https://images.unsplash.com/photo-1669846691725-005aac248ef4?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200",
-    alt: "Mujer mirando al frente con expresion seria",
-    credit: "Foto: Folasade Adeniran via Unsplash",
-    position: "center 30%",
+    src: "./assets/quiz-reflective-woman-bedroom.jpeg",
+    alt: "Mujer pensativa sentada en la cama mirando el celular",
+    credit: "Imagen: producción propia",
+    position: "center 24%",
   },
   promise: {
-    src: "https://images.unsplash.com/photo-1694975348833-e923366e6f1d?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200",
-    alt: "Pareja tomada de la mano con anillos en destaque",
-    credit: "Foto: Lucas Sankey via Unsplash",
-    position: "center 38%",
+    src: "./assets/quiz-red-carpet-couple.jpeg",
+    alt: "Pareja elegante caminando en una alfombra roja con flashes",
+    credit: "Imagen: producción propia",
+    position: "center 34%",
   },
   studyDesk: {
-    src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200",
-    alt: "Mesa con cuaderno, papel y anotaciones",
-    credit: "Foto: Thought Catalog via Unsplash",
-    position: "center 48%",
+    src: "./assets/quiz-investigation-board.jpeg",
+    alt: "Panel de investigación con notas, fotos y líneas rojas",
+    credit: "Imagen: producción propia",
+    position: "center 45%",
   },
   studyPaper: {
-    src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200",
-    alt: "Documento con texto y anotaciones sobre la mesa",
-    credit: "Foto: Green Chameleon via Unsplash",
-    position: "center 50%",
+    src: "./assets/quiz-confidential-writing.jpeg",
+    alt: "Mano escribiendo una nota confidencial con pluma dorada",
+    credit: "Imagen: producción propia",
+    position: "center 40%",
   },
-  viniSolo: {
-    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Vinicius%20Junior%20%282025%29.jpg",
-    alt: "Vinicius Junior en retrato publico",
-    credit: "Imagem: Wikimedia Commons",
+  malumaSolo: {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/2023-11-16%20Gala%20de%20los%20Latin%20Grammy%2C%2020%20%28Maluma%29.jpg",
+    alt: "Maluma en el Latin Grammy 2023",
+    credit: "Imagen: Wikimedia Commons",
     position: "center 18%",
   },
-  viniVirginiaGift: {
-    src: "https://s03.video.glbimg.com/x720/14352074.jpg",
-    alt: "Virginia y Vini Jr en foto publicada en redes",
-    credit: "Reproduccion/Instagram via gshow",
-    position: "center 30%",
+  susanaGomez: {
+    src: "https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1024,format=auto/sites/default/files/d8/images/canvas/2024/03/15/657cbd11-a486-49a8-b42b-cc7c875d09cb_506046b4.jpg",
+    alt: "Susana Gómez en registro público en Madrid",
+    credit: "Foto: Europa Press vía SCMP",
+    position: "center 18%",
   },
-  viniVirginiaStadium: {
-    src: "https://s01.video.glbimg.com/x720/14420768.jpg",
-    alt: "Virginia en Madrid acompanando el partido de Vini Jr",
-    credit: "Reproduccion/Instagram via gshow",
-    position: "center 35%",
+  malumaSusanaProcura: {
+    src: "./assets/maluma-procura-announcement-2023.jpg",
+    alt: "Maluma y Susana Gómez en frames del video Procura y del ultrasonido",
+    credit: "Frame: Semana / YouTube Maluma",
+    position: "center center",
   },
-  viniVirginiaKiss: {
-    src: "https://s01.video.glbimg.com/x720/14430756.jpg",
-    alt: "Virginia y Vini Jr besandose en foto publicada en redes",
-    credit: "Reproduccion/Instagram via gshow",
+  malumaSusanaRedCarpet: {
+    src: "./assets/maluma-susana-latin-grammy-2023.jpg",
+    alt: "Maluma y Susana Gómez en la alfombra roja del Latin Grammy 2023",
+    credit: "Foto: Reuters vía gshow",
     position: "center 28%",
   },
-  viniVirginiaTimeline: {
-    src: "https://s02.video.glbimg.com/x720/14018449.jpg",
-    alt: "Linea de tiempo de la relacion de Virginia y Vini Jr",
-    credit: "gshow",
-    position: "center 35%",
-  },
-  virginia: {
-    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Virginia%20Fonseca%20at%20Lady%20Night%2C%20by%20Humor%20Multishow%2C%20in%202021.png",
-    alt: "Virginia Fonseca en aparicion televisiva",
-    credit: "Imagem: Humor Multishow via Wikimedia Commons",
-    position: "center 24%",
-  },
-  zeFelipe: {
-    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Z%C3%A9%20Felipe%20Lady%20Night%202021.png",
-    alt: "Ze Felipe en aparicion televisiva",
-    credit: "Imagem: Multishow via Wikimedia Commons",
-    position: "center 24%",
+  malumaSusanaSecondBaby: {
+    src: "./assets/maluma-second-baby-announcement-2026.jpg",
+    alt: "Maluma y su hija Paris besando la barriga de Susana Gómez",
+    credit: "Foto: Instagram vía Quién",
+    position: "center 45%",
   },
 };
 
@@ -87,22 +75,22 @@ const steps = [
     type: "intro",
     mood: {
       eyebrow: "Experiencia confidencial",
-      title: "Directo al punto.",
+      title: "Sin rodeos.",
       copy:
         "Una apertura corta, fuerte y pensada para que entres al quiz sin pensarlo dos veces.",
-      visualLabel: "Test rapido",
+      visualLabel: "Test rápido",
       visualStat: "7 preguntas",
       visualCaption:
-        "Sin vueltas. Sin exposicion. Solo lo que importa.",
-      tags: ["confidencial", "rapido", "directo"],
+        "Sin vueltas. Sin exposición. Solo lo que importa.",
+      tags: ["confidencial", "rápido", "directo"],
       image: imageLibrary.intro,
     },
     kicker: "Test confidencial",
-    title: "Descubre tu mapa de intimidad",
+    title: "Activa el Punto G Masculino",
     subheadline:
-      "con mas seguridad, comunicacion y presencia en la intimidad.",
+      "con tus dedos y haz que él quede enganchado contigo en menos de 30 minutos.",
     paragraphs: [
-      "Responde el test de abajo y recibe una recomendacion educativa segun tu momento actual.",
+      "Responde el test de abajo y descubre si él puede quedar completamente conectado a ti.",
     ],
     microcopy: "Toma menos de 2 minutos. 100% confidencial.",
     cta: "INICIAR TEST PERSONALIZADO",
@@ -120,60 +108,61 @@ const steps = [
       eyebrow: "Pregunta 1",
       title: "Tu momento ahora.",
       copy:
-        "Todo queda mas claro cuando empiezas desde el punto en el que realmente estas hoy.",
-      visualLabel: "Situacion actual",
-      visualStat: "personalizacion",
+        "Todo se vuelve más claro cuando partes del punto en el que realmente estás hoy.",
+      visualLabel: "Situación actual",
+      visualStat: "personalización",
       visualCaption:
-        "Tu respuesta ayuda a que el resultado sea mas alineado con tu realidad.",
+        "Tu respuesta ayuda a que el resultado quede más alineado con tu realidad.",
       tags: ["momento actual", "claridad", "contexto"],
-      image: imageLibrary.intro,
+      image: imageLibrary.reflection,
     },
-    title: "Cual es tu situacion hoy?",
+    title: "¿Cuál es tu situación hoy?",
     subheadline: "Esto nos ayuda a personalizar tu resultado.",
-    microcopy: "Toca la opcion que mas combina contigo.",
+    media: imageLibrary.reflection,
+    microcopy: "Toca la opción que más va contigo.",
     options: [
       { value: "single", label: "Soltera" },
-      { value: "dating", label: "En una relacion" },
+      { value: "dating", label: "Estoy saliendo con alguien" },
       { value: "married", label: "Casada" },
       { value: "separated", label: "Separada / Divorciada" },
     ],
   },
   {
     type: "question",
-    key: "intimateLife",
+    key: "sexualLife",
     index: 2,
     total: 7,
     mood: {
       eyebrow: "Pregunta 2",
-      title: "Como esta eso entre ustedes.",
+      title: "Cómo está eso entre ustedes.",
       copy:
-        "Aqui no necesitas suavizar nada. Cuanto mas honesta seas, mas clara sera la lectura.",
-      visualLabel: "Vida intima",
+        "Aquí no tienes que suavizar nada. Mientras más honesta seas, más clara queda la lectura.",
+      visualLabel: "Vida sexual",
       visualStat: "sin filtro",
       visualCaption:
-        "Las respuestas van desde lo que aun late hasta lo que ya pesa demasiado.",
+        "Las respuestas van desde lo que todavía vibra hasta lo que ya pesa demasiado.",
       tags: ["intimidad", "verdad", "deseo"],
       image: imageLibrary.tension,
     },
-    title: "Como esta tu vida intima hoy?",
-    subheadline: "Se honesta. Aqui nadie te esta juzgando.",
-    microcopy: "No existe respuesta equivocada, solo tu verdad.",
+    title: "¿Cómo está tu vida sexual hoy?",
+    subheadline: "Sé honesta. Aquí nadie te está juzgando.",
+    microcopy: "No existe respuesta incorrecta, solo tu verdad.",
     options: [
       {
         value: "good",
-        label: "Esta bien... pero se que podria ser mucho mejor",
+        label: "Está bien... pero sé que podría ser mucho mejor",
       },
       {
         value: "routine",
-        label: "Se enfrio. Se volvio rutina. Siempre lo mismo.",
+        label: "Se enfrió. Se volvió rutina. Siempre lo mismo.",
       },
       {
         value: "rarely",
-        label: "El casi ya no me busca.",
+        label: "Él casi ya no me busca.",
       },
       {
         value: "stopped",
-        label: "Practicamente paro. Ya no se que hacer.",
+        label: "Prácticamente paró. Ya no sé qué hacer.",
       },
     ],
   },
@@ -184,32 +173,32 @@ const steps = [
     total: 7,
     mood: {
       eyebrow: "Pregunta 3",
-      title: "Lo que mas pesa hoy.",
+      title: "Lo que más pesa hoy.",
       copy:
-        "A veces lo que duele no es solo la distancia, es lo que esa distancia te hace sentir.",
+        "A veces lo que duele no es solo la distancia, sino lo que esa distancia te hace sentir.",
       visualLabel: "Dolor central",
-      visualStat: "lo que mas pesa",
+      visualStat: "lo que más pesa",
       visualCaption:
         "Elige el punto que sientes en el cuerpo incluso antes de poder explicarlo.",
-      tags: ["dor", "miedo", "autoestima"],
+      tags: ["dolor", "miedo", "autoestima"],
       image: imageLibrary.reflection,
     },
-    title: "Que es lo que mas te incomoda hoy?",
+    title: "¿Qué es lo que más te incomoda hoy?",
     subheadline:
-      "A veces cargamos esto solas durante tanto tiempo que ya ni sabemos como decirlo.",
-    microcopy: "Respira. No estas sola en esto.",
+      "A veces cargamos esto solas por tanto tiempo que ya ni sabemos cómo decirlo.",
+    microcopy: "Respira. No estás sola en esto.",
     options: [
       {
         value: "desire",
-        label: "Siento que el no me desea como antes, y eso duele mas de lo que admito",
+        label: "Siento que él ya no me desea como antes - y eso duele más de lo que admito",
       },
       {
         value: "replace",
-        label: "Tenho miedo de ele perder o interesse de vez... ou me trocar",
+        label: "Me da miedo que pierda el interés del todo... o que me cambie por otra",
       },
       {
         value: "surprise",
-        label: "No se como sorprenderlo de verdad, y tengo miedo de intentar y fallar",
+        label: "No sé cómo sorprenderlo de verdad - y me da miedo intentar y embarrarla",
       },
       {
         value: "insecure",
@@ -223,26 +212,26 @@ const steps = [
     progressIndex: 3,
     progressTotal: 7,
     mood: {
-      eyebrow: "Brake 1",
-      title: "Lo que sientes no es imaginacion.",
+      eyebrow: "Pausa 1",
+      title: "Lo que sientes no es imaginación.",
       copy:
-        "Hay cosas que se instalan en silencio y solo quedan claras cuando alguien finalmente las pone en palabras.",
-      visualLabel: "Dato cientifico",
-      visualStat: "senales silenciosas",
+        "Hay cosas que se instalan en silencio y solo se vuelven claras cuando alguien por fin las pone en palabras.",
+      visualLabel: "Dato científico",
+      visualStat: "señales silenciosas",
       visualCaption:
         "La distancia no siempre empieza en una pelea. Muchas veces empieza antes, mucho antes.",
-      tags: ["validacion", "alerta", "urgencia"],
+      tags: ["validación", "alerta", "urgencia"],
       image: imageLibrary.tension,
     },
-    kicker: "Dato cientifico",
+    kicker: "Dato científico",
     title: "Antes de continuar, necesitas saber algo.",
     subheadline:
-      "Lo que esta pasando entre ustedes no es aleatorio. E ignorarlo suele salir caro, poco a poco.",
+      "Lo que está pasando entre ustedes no es aleatorio. E ignorarlo suele salir caro, poquito a poquito.",
     paragraphsTop: [
-      "Muchas mujeres creen que el cambio de la nada.",
+      "Muchas mujeres creen que él cambió de la nada.",
       "Pero casi nunca es de la nada.",
-      "La mayoria de las veces, el frio empieza antes de la pelea. Empieza en el toque, en el deseo y en la forma en que el se va alejando poco a poco.",
-      "Primero desaparece el interes. Luego desaparece el clima. Despues la relacion empieza a pesar.",
+      "La mayoría de las veces, el frío empieza antes de la pelea. Empieza en el toque, en el deseo y en la forma en que él se va alejando despacio.",
+      "Primero se pierde el interés. Después se pierde el ambiente. Después la relación empieza a pesar.",
     ],
     galleryTop: [
       {
@@ -252,35 +241,35 @@ const steps = [
       },
       {
         image: imageLibrary.studyDesk,
-        label: "Investigacion y observacion",
-        caption: "Cuando miras con calma, puedes ver que existe un patron.",
+        label: "Investigación y observación",
+        caption: "Cuando miras con calma, se nota que hay un patrón.",
       },
     ],
-    calloutTitle: "Y lo mas inquietante:",
+    calloutTitle: "Y lo más inquietante:",
     quote:
-      "El hombre casi nunca lo dice todo con claridad. Solo se vuelve mas frio, mas pegado al celular, mas distante y con menos ganas.",
+      "El hombre casi nunca dice todo con claridad. Solo se va poniendo más frío, más pegado al celular, más distante, con menos ganas.",
     paragraphsBottom: [
-      "Pero el problema no eres tu.",
-      "Existe un detalle que muchas mujeres nunca aprenden.",
-      "No se trata de hacer mas. Se trata de saber como tocar lo correcto de la forma correcta.",
-      "Quando isso acontece, o clima muda rapido. O olhar muda. O jeito dele muda.",
+      "Pero el problema no eres tú.",
+      "Hay un detalle que muchas mujeres nunca aprenden.",
+      "No se trata de hacer más. Se trata de saber cómo mover algo en él de la forma correcta.",
+      "Cuando eso pasa, el ambiente cambia rápido. La mirada cambia. La forma en que él actúa cambia.",
       "Y por eso lo que viene ahora importa tanto.",
     ],
     galleryBottom: [
       {
         image: imageLibrary.reflection,
         label: "El dolor aparece primero",
-        caption: "Casi siempre quien siente esto primero es la mujer.",
+        caption: "Casi siempre quien lo siente primero es la mujer.",
       },
       {
         image: imageLibrary.studyPaper,
         label: "Hay un motivo",
-        caption: "No es magia. No es suerte. Hay algo detras de ese cambio.",
+        caption: "No es magia. No es suerte. Hay algo detrás de ese cambio.",
       },
     ],
     microcopy:
-      "No necesitas entender todo ahora. Solo necesitas no ignorarlo.",
-    cta: "Entendi. Quiero continuar ->",
+      "No necesitas entenderlo todo ahora. Solo necesitas no ignorarlo.",
+    cta: "Entendí. Quiero continuar ->",
   },
   {
     type: "question",
@@ -293,33 +282,33 @@ const steps = [
       copy:
         "Hay cosas que ya hiciste. Cosas que quisiste hacer. Y cosas que te cansaste de intentar.",
       visualLabel: "Historial",
-      visualStat: "lo que ya fue intentado",
+      visualStat: "lo que ya intentaste",
       visualCaption:
-        "Nada de eso significa que fallaste. Solo muestra cuanto te ha movido esto por dentro.",
-      tags: ["intentos", "verguenza", "frustracion"],
+        "Nada de eso significa que fallaste. Solo muestra cuánto ha tocado esto por dentro.",
+      tags: ["intentos", "pena", "frustración"],
       image: imageLibrary.reflection,
     },
-    title: "Ya intentaste hacer algo diferente para reencender las cosas?",
+    title: "¿Ya intentaste hacer algo diferente para volver a prender las cosas?",
     subheadline:
-      "No te preocupes. La mayoria de las mujeres que llegan aqui ya intento de todo.",
+      "No te preocupes. La mayoría de mujeres que llegan aquí ya intentó de todo.",
     microcopy:
       "No importa lo que ya intentaste. Lo que vas a descubrir es diferente a todo eso.",
     options: [
       {
         value: "everything",
-        label: "Ya intente de todo... lenceria, iniciativa, conversacion. Nada funciono de verdad.",
+        label: "Ya intenté de todo... lencería, iniciativa, hablarlo. Nada funcionó de verdad.",
       },
       {
         value: "shy",
-        label: "Queria tentar algo diferente, mas tenho verguenza de errar na hora.",
+        label: "Quisiera intentar algo diferente, pero me da pena equivocarme en el momento.",
       },
       {
         value: "never",
-        label: "Nunca lo intente. Sinceramente, ni se por donde empezar.",
+        label: "Nunca lo he intentado. Honestamente, ni sé por dónde empezar.",
       },
       {
         value: "readOnly",
-        label: "Ya busque cosas en internet, pero nunca tuve valor para ponerlas en practica.",
+        label: "Ya busqué cosas en internet, pero nunca tuve la seguridad para ponerlas en práctica.",
       },
     ],
   },
@@ -330,37 +319,38 @@ const steps = [
     total: 7,
     mood: {
       eyebrow: "Pregunta 5",
-      title: "Lo que mas quieres recuperar.",
+      title: "Lo que más quieres recuperar.",
       copy:
-        "Cuando dejas de pensar en el problema y piensas en lo que realmente quieres sentir, todo queda mas claro.",
+        "Cuando dejas de pensar solo en el problema y piensas en lo que de verdad quieres sentir, todo se aclara.",
       visualLabel: "Deseo central",
       visualStat: "lo que ella quiere",
       visualCaption:
-        "Elegir esto por dentro cambia la forma en que llegas a la proxima pantalla.",
-      tags: ["deseo", "proyeccion", "intensidad"],
+        "Elegir esto por dentro cambia la forma en que llegas a la siguiente pantalla.",
+      tags: ["deseo", "proyección", "intensidad"],
       image: imageLibrary.promise,
     },
-    title: "Si pudieras cambiar UNA cosa, cual seria?",
+    title: "Si pudieras cambiar UNA cosa, ¿cuál sería?",
     subheadline:
-      "Cierra los ojos por un segundo. Que quieres sentir de verdad?",
+      "Cierra los ojos por un segundo. ¿Qué quieres sentir de verdad?",
+    media: imageLibrary.promise,
     microcopy:
-      "Lo que acabas de elegir dice mucho sobre lo que falta. Y sobre lo que es posible.",
+      "Lo que acabas de elegir dice mucho sobre lo que está faltando. Y sobre lo que es posible.",
     options: [
       {
         value: "lookAgain",
-        label: "Quiero que me mire como me miraba al principio, con esas ganas.",
+        label: "Quiero que me mire como me miraba al comienzo - con esas ganas.",
       },
       {
         value: "pursueMe",
-        label: "Quiero que me busque... sin tener que pedir, insinuar o rogar.",
+        label: "Quiero que me busque... sin tener que pedirlo, insinuarlo o rogar.",
       },
       {
         value: "loseControl",
-        label: "Quiero sentir mas conexion, respuesta y presencia en la relacion.",
+        label: "Quiero verlo perdiendo el control. Por mí. Sin poder resistirse.",
       },
       {
         value: "feelDesired",
-        label: "Quiero sentirme deseada de verdad, no por obligacion, no por rutina. De verdad.",
+        label: "Quiero sentirme deseada de verdad - no por obligación, no por rutina. De verdad.",
       },
     ],
   },
@@ -370,85 +360,86 @@ const steps = [
     progressIndex: 5,
     progressTotal: 7,
     mood: {
-      eyebrow: "Brake 2",
-      title: "Hay mujeres que dejan marca.",
+      eyebrow: "Pausa 2",
+      title: "Hay mujeres que dejan huella.",
       copy:
-        "Algunas historias dejan claro que no se trata solo de belleza, suerte o timing. Hay algo mas ahi.",
-      visualLabel: "Caso publico",
+        "Algunas historias dejan claro que no se trata solo de belleza, suerte o timing. Ahí hay algo más.",
+      visualLabel: "Caso público",
       visualStat: "posible en la vida real",
       visualCaption:
-        "Cuando mucha gente no entiende por que un hombre quedo tan enganchado, es porque esta mirando al lugar equivocado.",
+        "Cuando mucha gente no entiende por qué un hombre quedó tan conectado, es porque está mirando en el lugar equivocado.",
       tags: ["caso real", "curiosidad", "creencia"],
-      image: imageLibrary.virginia,
+      image: imageLibrary.susanaGomez,
     },
     kicker: "Caso real",
     title:
-      "Que hace que un hombre que podria tener a cualquier mujer del mundo elija a una sola y se lo tome en serio",
-    subheadline: "Esta historia se hizo publica. Y ayuda a entender muchas cosas.",
+      "Qué hace que un hombre con el mundo entero mirándolo construya una vida con una sola mujer",
+    subheadline: "Esta historia se hizo pública en Colombia. Y ayuda a entender muchas cosas.",
     duo: [
       {
-        src: imageLibrary.viniSolo.src,
-        alt: imageLibrary.viniSolo.alt,
-        credit: imageLibrary.viniSolo.credit,
-        name: "Vini Jr.",
+        src: imageLibrary.malumaSolo.src,
+        alt: imageLibrary.malumaSolo.alt,
+        credit: imageLibrary.malumaSolo.credit,
+        name: "Maluma",
         role:
-          "Joven, famoso, rico y con acceso a practicamente cualquier mujer del mundo.",
+          "Paisa, famoso en el mundo entero, deseado por millones y rodeado de atención a donde llega.",
       },
       {
-        src: imageLibrary.virginia.src,
-        alt: imageLibrary.virginia.alt,
-        credit: imageLibrary.virginia.credit,
-        name: "Virginia",
+        src: imageLibrary.susanaGomez.src,
+        alt: imageLibrary.susanaGomez.alt,
+        credit: imageLibrary.susanaGomez.credit,
+        name: "Susana Gómez",
         role:
-          "Hermosa, famosa y muy fuerte en Brasil, pero aun asi compitiendo con un mundo de opciones alrededor de el.",
+          "Colombiana, discreta, elegante y mucho más reservada que el universo de fama a su alrededor.",
       },
     ],
     comments: [
-      "\"Ella es una mas.\"",
-      "\"Dou 3 meses.\"",
-      "\"El puede tener a cualquier mujer del mundo.\"",
+      "\"Ella es una más.\"",
+      "\"Eso no dura tres meses.\"",
+      "\"Él puede tener a cualquier mujer del mundo.\"",
     ],
     paragraphsTop: [
-      "Virginia es bonita? Si. Tiene un nombre fuerte en Brasil? Si.",
-      "Pero Vini Jr. es uno de los hombres mas deseados del mundo hoy.",
-      "Rico, famoso, joven y rodeado de opciones.",
-      "El podria estar con una modelo de Europa, actriz, influencer, quien quisiera.",
-      "Aun asi, fue con ella que la historia avanzo.",
-      "A finales de 2025, la relacion dejo de ser rumor y se volvio tema publico.",
-      "En febrero de 2026, llegaron regalos, flores y declaraciones para que todos las vieran.",
-      "En marzo de 2026, ella ya hablaba de pasar mas tiempo con el en Espana.",
+      "¿Susana es bonita? Sí. ¿Elegante? También.",
+      "Pero Maluma es uno de los hombres colombianos más deseados del mundo.",
+      "Fama global, giras, plata, escenario, millones de mujeres mirando.",
+      "Él podría vivir rodeado de modelos, actrices, influencers, de quien quisiera.",
+      "Aun así, fue con una mujer de perfil discreto, de Medellín, que la historia se puso seria.",
+      "En octubre de 2023, reveló en el video de Procura que los dos esperaban a su primera hija.",
+      "En noviembre de 2023, apareció con Susana en la alfombra roja del Latin Grammy.",
+      "En mayo de 2026, la familia volvió a ser noticia con el anuncio del segundo bebé.",
     ],
     galleryBottom: [
       {
-        image: imageLibrary.viniVirginiaGift,
-        label: "17/02/2026",
-        caption: "Regalo y mensaje carinoso antes de su estreno en Carnaval.",
+        image: imageLibrary.malumaSusanaProcura,
+        label: "19/10/2023",
+        caption: "El anuncio del embarazo apareció dentro del video de Procura.",
       },
       {
-        image: imageLibrary.viniVirginiaStadium,
-        label: "03/03/2026",
-        caption: "Madrid, partido y mas tiempo juntos en su rutina.",
+        image: imageLibrary.malumaSusanaRedCarpet,
+        label: "16/11/2023",
+        caption: "Latin Grammy, alfombra roja y la relación asumida frente a las cámaras.",
       },
       {
-        image: imageLibrary.viniVirginiaKiss,
-        label: "14/03/2026",
-        caption: "Beso e intercambio de 'te amo' en publico.",
+        image: imageLibrary.malumaSusanaSecondBaby,
+        label: "10/05/2026",
+        caption: "La noticia del segundo bebé reforzó que aquello no era solo una etapa.",
       },
     ],
     calloutTitle: "Entonces la pregunta es simple:",
     quote:
-      "Que hace que un hombre que puede tener a cualquier mujer del mundo elija a una sola y quiera mostrarlo?",
+      "¿Qué hace que un hombre rodeado de deseo, fama y opciones elija a una mujer y construya una vida con ella?",
     paragraphsBottom: [
       "No es solo belleza.",
       "No es solo fama.",
-      "Es lo que el siente cuando esta contigo.",
-      "Cuando una mujer acierta en el lugar correcto, deja de perseguir.",
-      "Se vuelve la mujer que se queda en su cabeza.",
-      "Estas a 2 preguntas de descubrirlo.",
+      "No es aparecer más.",
+      "Es lo que él siente cuando está contigo.",
+      "Cuando una mujer toca el punto correcto, deja de correr detrás.",
+      "Se vuelve la mujer que se queda en la cabeza de él.",
+      "Estás a 2 preguntas de descubrirlo.",
     ],
     microcopy:
-      "Las imagenes y los hechos son publicos. Lo que casi nadie entiende es lo que pasa detras de eso.",
-    cta: "Casi llegamos. Continuar ->",
+      "Las imágenes y los hechos son públicos. Lo que casi nadie entiende es lo que pasa detrás de eso.",
+    cta: "Ya casi. Continuar ->",
   },
   {
     type: "question",
@@ -459,27 +450,27 @@ const steps = [
       eyebrow: "Pregunta 6",
       title: "Algunas cosas funcionan mejor en silencio.",
       copy:
-        "Hay efectos que pierden fuerza cuando se vuelven tema de conversacion. Y hay efectos que crecen justamente porque quedan entre ustedes.",
+        "Hay efectos que pierden fuerza cuando se vuelven tema de conversación. Y hay efectos que crecen justo porque quedan entre ustedes.",
       visualLabel: "Compromiso",
       visualStat: "esto queda entre ustedes",
       visualCaption:
-        "Lo que es intimo de verdad no necesita publico.",
-      tags: ["secreto", "exclusividad", "discrecion"],
+        "Lo que es íntimo de verdad no necesita público.",
+      tags: ["secreto", "exclusividad", "discreción"],
       image: imageLibrary.promise,
     },
-    title: "Si aprendes esta tecnica, puedes guardarla para ti?",
+    title: "Si aprendes esta técnica, ¿puedes guardarla para ti?",
     subheadline:
-      "Esto es serio. Lo que estas por descubrir no es para todo el mundo.",
+      "Esto es serio. Lo que estás a punto de descubrir no es para todo el mundo.",
     microcopy:
-      "Las dos respuestas son validas. Pero ten presente: el efecto es dificil de esconder.",
+      "Las dos respuestas son válidas. Pero ten presente algo: el efecto es difícil de esconder.",
     options: [
       {
         value: "secret",
-        label: "Claro que si. Este sera mi secreto.",
+        label: "Claro que sí. Este va a ser mi secreto.",
       },
       {
         value: "notice",
-        label: "Lo voy a intentar... pero cuando el empiece a actuar diferente, todos lo van a notar.",
+        label: "Voy a intentarlo... pero cuando él empiece a actuar diferente, todo el mundo lo va a notar.",
       },
     ],
   },
@@ -490,28 +481,28 @@ const steps = [
     total: 7,
     mood: {
       eyebrow: "Pregunta 7",
-      title: "Ya llegaste hasta aqui.",
+      title: "Ya llegaste hasta aquí.",
       copy:
-        "Solo falta una respuesta para cerrar el ciclo y abrir la proxima pantalla.",
-      visualLabel: "Preparacion",
-      visualStat: "linea de llegada",
+        "Falta solo una respuesta para cerrar el ciclo y abrir la siguiente pantalla.",
+      visualLabel: "Preparación",
+      visualStat: "línea de llegada",
       visualCaption:
-        "Curiosidad y decision ya estan en el mismo lugar ahora.",
-      tags: ["preparacion", "curiosidad", "decision"],
+        "Curiosidad y decisión ya están en el mismo lugar ahora.",
+      tags: ["lista", "curiosidad", "decisión"],
       image: imageLibrary.intro,
     },
-    title: "Ultima pregunta.",
+    title: "Última pregunta.",
     subheadline:
-      "Estas lista para aprender algo que puede cambiar completamente la forma en que el te ve y te desea?",
-    microcopy: "Tu resultado se esta generando...",
+      "¿Estás lista para aprender algo que puede cambiar por completo la forma en que él te ve - y te desea?",
+    microcopy: "Tu resultado se está generando...",
     options: [
       {
         value: "ready",
-        label: "Si. Quiero que me vea de una forma en que nunca me vio.",
+        label: "Sí. Quiero que él me vea de una forma en la que nunca me ha visto.",
       },
       {
         value: "curious",
-        label: "Tengo curiosidad... quiero al menos saber que es esto.",
+        label: "Me da curiosidad... quiero al menos saber qué es esto.",
       },
     ],
   },
@@ -519,35 +510,35 @@ const steps = [
     type: "result",
     mood: {
       eyebrow: "Pantalla final",
-      title: "Tu acceso esta listo.",
+      title: "Tu acceso está listo.",
       copy:
-        "Llegaste hasta aqui. Ahora solo falta abrir lo que fue preparado para ti.",
+        "Llegaste hasta aquí. Ahora solo falta abrir lo que fue preparado para ti.",
       visualLabel: "Acceso liberado",
-      visualStat: "mira ahora",
+      visualStat: "míralo ahora",
       visualCaption:
-        "Una ultima decision entre tu y la clase.",
+        "Una última decisión entre tú y la clase.",
       tags: ["resultado", "acceso", "urgencia"],
       image: imageLibrary.reflection,
     },
     eyebrow: "Resultado analizado",
-    title: "Tu resultado esta listo.",
+    title: "Tu resultado está listo.",
     subheadline:
-      "Con base en tus respuestas, estas entre las mujeres que mas pueden beneficiarse con esta tecnica.",
+      "Con base en tus respuestas, estás entre las mujeres que más pueden beneficiarse de esta técnica.",
     intro: "Esto es lo que revela tu perfil:",
     offerIntro:
-      "Lo que vas a ver ahora es una pagina oficial con acceso al contenido educativo preparado por una terapeuta con experiencia en intimidad y relaciones.",
+      "Lo que vas a ver ahora es una clase corta y práctica grabada por una terapeuta con más de 10 años de experiencia en sexualidad femenina.",
     lessons: [
-      "Como entender mejor zonas de sensibilidad masculina",
-      "Como estudiar ritmo, presion y comunicacion con mas seguridad",
-      "Errores comunes que pueden romper el clima y aumentar la inseguridad",
-      "Como aplicar esto sin parecer forzado, raro o ensayado",
+      "Dónde queda el Punto G Masculino",
+      "Cómo tocarlo de la forma correcta usando solo las manos",
+      "El error que daña el ambiente y hace que muchas mujeres crean que el problema es con ellas",
+      "Cómo aplicarlo sin que se sienta forzado, raro o ensayado",
     ],
     warning:
-      "Aviso: este contenido es educativo, privado y pensado para personas adultas que desean estudiar intimidad con mas conciencia.",
+      "Aviso: esta clase ya fue retirada de otras plataformas. El contenido incomoda a una industria que lucra con tu inseguridad.",
     footnote:
-      "Acceso inmediato a la pagina oficial. Puedes continuar desde el celular.",
-    cta: "VER PAGINA OFICIAL ->",
-    secondary: "Rehacer el quiz",
+      "Acceso inmediato. Gratis. Puedes verlo por celular. Sin registro adicional.",
+    cta: "LIBERAR MI ACCESO ->",
+    secondary: "Volver a hacer el quiz",
   },
 ];
 
@@ -624,23 +615,6 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function buildFinalCtaUrl() {
-  try {
-    const finalUrl = new URL(FINAL_CTA_URL, window.location.href);
-    const currentParams = new URLSearchParams(window.location.search);
-
-    currentParams.forEach((value, key) => {
-      if (!finalUrl.searchParams.has(key)) {
-        finalUrl.searchParams.append(key, value);
-      }
-    });
-
-    return finalUrl.toString();
-  } catch (error) {
-    return FINAL_CTA_URL;
-  }
-}
-
 function renderParagraphs(paragraphs, className = "step__paragraph") {
   return paragraphs
     .map((paragraph) => `<p class="${className}">${escapeHtml(paragraph)}</p>`)
@@ -663,6 +637,7 @@ function renderInlineGallery(images, variant) {
                   class="inline-photo__image"
                   src="${escapeHtml(item.image.src)}"
                   alt="${escapeHtml(item.image.alt)}"
+                  style="object-position: ${escapeHtml(item.image.position || "center")};"
                 />
               </div>
               <figcaption class="inline-photo__body">
@@ -721,36 +696,54 @@ function renderIntroMedia(media) {
   `;
 }
 
+function renderQuestionMedia(media) {
+  if (!media) {
+    return "";
+  }
+
+  return `
+    <figure class="question-media">
+      <img
+        class="question-media__image"
+        src="${escapeHtml(media.src)}"
+        alt="${escapeHtml(media.alt || "")}"
+        style="object-position: ${escapeHtml(media.position || "center")};"
+      />
+      <figcaption class="question-media__credit">${escapeHtml(media.credit || "")}</figcaption>
+    </figure>
+  `;
+}
+
 function getProfileRevealBlocks() {
   const { status, effort, readiness } = state.answers;
 
   const firstText =
     status === "single" || status === "separated"
-      ? "El patron de distancia que temes no nace solo de compatibilidad o suerte. Existe una dinamica de deseo que casi nadie te enseno a ver."
-      : "El distanciamiento que sientes tiene un componente biologico, no solo emocional. Y muchas mujeres pasan anos culpandose sin darse cuenta.";
+      ? "El patrón de distancia que temes no nace solo de compatibilidad o suerte. Existe una dinámica de deseo que casi nadie te enseñó a mirar."
+      : "El distanciamiento que sientes tiene un componente biológico, no solo emocional. Y muchas mujeres pasan años culpándose sin darse cuenta de eso.";
 
   let secondText =
-    "No por falta de esfuerzo. Sino porque nadie te enseno donde esta la llave de su deseo.";
+    "No por falta de esfuerzo. Sino porque nadie te enseñó dónde está la llave del deseo de él.";
 
   if (effort === "everything") {
     secondText =
-      "Intentaste, insististe y te desgastaste. Solo estabas usando caminos que parecen logicos, pero no activan lo que realmente cambia su respuesta.";
+      "Intentaste, insististe y te desgastaste. Solo estabas usando caminos que parecen lógicos, pero no activan lo que realmente cambia su respuesta.";
   } else if (effort === "shy") {
     secondText =
-      "No fue falta de voluntad. Falto direccion, seguridad y un camino claro para actuar sin miedo a equivocarte.";
+      "No fue falta de ganas. Faltó dirección, seguridad y un camino claro para actuar sin miedo a equivocarte.";
   } else if (effort === "never") {
     secondText =
-      "No fallaste. Solo nunca te mostraron por donde empezar con claridad, seguridad y efecto real.";
+      "No fallaste. Solo nunca te mostraron por dónde empezar con claridad, seguridad y efecto real.";
   }
 
   const thirdText =
     readiness === "curious"
-      ? "Tus respuestas muestran curiosidad real y apertura suficiente para entender el mecanismo antes de decidir como usarlo."
-      : "Tus respuestas muestran una mujer que quiere un cambio de verdad, no por desesperacion, sino por determinacion.";
+      ? "Tus respuestas muestran curiosidad real y apertura suficiente para entender el mecanismo antes de decidir cómo usarlo."
+      : "Tus respuestas muestran a una mujer que quiere un cambio de verdad, no por desespero, sino por determinación.";
 
   return [
     {
-      title: "El problema no eres tu.",
+      title: "El problema no eres tú.",
       text: firstText,
     },
     {
@@ -758,7 +751,7 @@ function getProfileRevealBlocks() {
       text: secondText,
     },
     {
-      title: "Estas lista.",
+      title: "Estás lista.",
       text: thirdText,
     },
   ];
@@ -797,7 +790,7 @@ function updateProgress(step) {
   if (step.type === "brake") {
     const percentage = Math.round((step.progressIndex / step.progressTotal) * 100);
     elements.progressShell.hidden = false;
-    elements.progressLabel.textContent = `Etapa especial • ${step.progressIndex} de ${step.progressTotal}`;
+    elements.progressLabel.textContent = `Paso especial • ${step.progressIndex} de ${step.progressTotal}`;
     elements.progressValue.textContent = `${percentage}%`;
     elements.progressFill.style.width = `${percentage}%`;
     return;
@@ -808,6 +801,14 @@ function updateProgress(step) {
 
 function updateBackButton(step) {
   elements.backButton.hidden = state.currentStep === 0 || step.type === "result";
+}
+
+function finishStepRender(step) {
+  trackCurrentStepView(step);
+
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  });
 }
 
 function renderIntro(step) {
@@ -861,6 +862,7 @@ function renderQuestion(step) {
       <p class="step__emotion">${escapeHtml(step.mood.title)}</p>
       <h2 class="step__title step__title--wide">${escapeHtml(step.title)}</h2>
       <p class="step__subheadline">${escapeHtml(step.subheadline)}</p>
+      ${renderQuestionMedia(step.media)}
       <div class="choice-list">${options}</div>
       <p class="step__microcopy">${escapeHtml(step.microcopy)}</p>
     </article>
@@ -965,7 +967,6 @@ function renderBrake(step) {
 }
 
 function renderResult(step) {
-  const finalCtaUrl = buildFinalCtaUrl();
   const revealItems = getProfileRevealBlocks()
     .map(
       (item) => `
@@ -1001,7 +1002,7 @@ function renderResult(step) {
         <p class="warning-banner">${escapeHtml(step.warning)}</p>
 
         <div class="result-actions">
-          <a class="result-button" href="${escapeHtml(finalCtaUrl)}" data-action="result-cta">
+          <a class="result-button" href="${FINAL_CTA_URL}" data-action="result-cta">
             ${escapeHtml(step.cta)}
           </a>
           <p class="result-actions__hint">${escapeHtml(step.footnote)}</p>
@@ -1022,24 +1023,24 @@ function renderCurrentStep() {
 
   if (step.type === "intro") {
     elements.quizApp.innerHTML = renderIntro(step);
-    trackCurrentStepView(step);
+    finishStepRender(step);
     return;
   }
 
   if (step.type === "question") {
     elements.quizApp.innerHTML = renderQuestion(step);
-    trackCurrentStepView(step);
+    finishStepRender(step);
     return;
   }
 
   if (step.type === "brake") {
     elements.quizApp.innerHTML = renderBrake(step);
-    trackCurrentStepView(step);
+    finishStepRender(step);
     return;
   }
 
   elements.quizApp.innerHTML = renderResult(step);
-  trackCurrentStepView(step);
+  finishStepRender(step);
 }
 
 function goToNextStep() {
@@ -1103,7 +1104,7 @@ elements.quizApp.addEventListener("click", (event) => {
 
   if (action === "result-cta") {
     trackEvent("quiz_vsl_click", {
-      destination: target.href || buildFinalCtaUrl(),
+      destination: FINAL_CTA_URL,
     });
   }
 });

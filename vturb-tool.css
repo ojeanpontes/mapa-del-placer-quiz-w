@@ -1,0 +1,252 @@
+.vturb-tool-page {
+  color: var(--text);
+}
+
+.vturb-tool-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(1120px, calc(100% - 1.25rem));
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: max(1rem, env(safe-area-inset-top)) 0 calc(2rem + env(safe-area-inset-bottom));
+  gap: 1rem;
+  align-items: start;
+}
+
+.tool-panel,
+.preview-panel,
+.status-card {
+  border: 1px solid rgba(245, 220, 203, 0.12);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
+    rgba(22, 11, 18, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.tool-panel {
+  padding: 1.15rem;
+}
+
+.tool-heading {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.tool-eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tool-heading h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 11vw, 5rem);
+  line-height: 0.95;
+}
+
+.tool-heading p,
+.tool-note,
+.status-card p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.tool-heading code {
+  color: var(--gold);
+}
+
+.tool-form {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.2rem;
+}
+
+.field-group {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field-group span {
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.field-group textarea,
+.field-group input {
+  width: 100%;
+  border: 1px solid rgba(245, 220, 203, 0.16);
+  border-radius: 16px;
+  background: rgba(7, 4, 6, 0.64);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+.field-group textarea {
+  min-height: 11rem;
+  padding: 0.95rem;
+  resize: vertical;
+}
+
+.field-group input {
+  height: 3.25rem;
+  padding: 0 0.95rem;
+}
+
+.field-group textarea:focus,
+.field-group input:focus {
+  border-color: rgba(207, 171, 114, 0.58);
+  box-shadow: 0 0 0 3px rgba(207, 171, 114, 0.12);
+}
+
+.action-row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 3.4rem;
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.primary-button {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 22%),
+    linear-gradient(135deg, #b6ff87 0%, #35e06a 40%, #10903a 100%);
+  color: #07110a;
+  box-shadow: 0 16px 34px rgba(16, 144, 58, 0.32);
+}
+
+.secondary-button {
+  border: 1px solid rgba(207, 171, 114, 0.3);
+  background: rgba(207, 171, 114, 0.08);
+  color: var(--gold);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+  cursor: wait;
+  filter: grayscale(0.4);
+  opacity: 0.72;
+}
+
+.tool-note {
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(207, 171, 114, 0.18);
+  border-radius: 16px;
+  background: rgba(207, 171, 114, 0.07);
+  font-size: 0.88rem;
+}
+
+.tool-note a {
+  display: inline-flex;
+  margin-top: 0.55rem;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.preview-panel {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0.8rem;
+}
+
+.preview-box {
+  display: grid;
+  min-height: 17rem;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid rgba(245, 220, 203, 0.1);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at center, rgba(113, 50, 77, 0.38), transparent 54%),
+    #070406;
+}
+
+.preview-box video {
+  display: block;
+  width: 100%;
+  max-height: 72svh;
+  background: #000;
+}
+
+.preview-empty {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.preview-empty strong {
+  color: var(--text);
+}
+
+.status-card {
+  padding: 1rem;
+}
+
+.status-card__label {
+  color: var(--gold) !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.status-card strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.download-link {
+  display: flex;
+  min-height: 3.15rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.85rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--wine-bright), var(--gold));
+  color: var(--bg-deep);
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.download-link[hidden] {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .vturb-tool-shell {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    padding-top: max(1.4rem, env(safe-area-inset-top));
+  }
+
+  .tool-panel {
+    position: sticky;
+    top: 1rem;
+  }
+
+  .action-row {
+    grid-template-columns: 0.82fr 1fr;
+  }
+}

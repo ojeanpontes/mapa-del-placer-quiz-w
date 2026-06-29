@@ -1,4 +1,4 @@
-const MEMBERS_STORAGE_KEY = "mdpm-members-area-v6";
+const MEMBERS_STORAGE_KEY = "mdpm-members-area-black-v3";
 
 window.funnelAnalytics?.trackOnce("members_view");
 
@@ -6,455 +6,189 @@ function createVturbEmbed(playerId) {
   return `<vturb-smartplayer id="vid-${playerId}" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/078ca594-053b-427b-a22f-58f182182f25/players/${playerId}/v4/player.js", s.async=!0,document.head.appendChild(s); </script>`;
 }
 
+const explicitLessonPlayers = [
+  "6a3dc964cbea5b52000f3ca7",
+  "6a3dc93a4d2b4d3fb001bb47",
+  "6a3dc95719ad0024febe57b7",
+  "6a3dc949e172d6fc86635b14",
+  "6a3dc9cb33aff91765435422",
+  "6a3dc9e14d2b4d3fb001bcc1",
+  "6a3dc9adb0bc99b90d6fad8c",
+  "6a3dc97a69f3e258e2cf0058",
+  "6a3dc986939c8f300cf4b6ca",
+  "6a3dc9974d2b4d3fb001bbf5",
+  "6a3dc9d2939c8f300cf4b770",
+  "6a3dc9b9ab74e8fd0f270e0e",
+];
+
+function buildExplicitLessons() {
+  const themes = ["noir", "gold", "blush", "ember"];
+
+  return explicitLessonPlayers.map((playerId, index) => {
+    const lessonNumber = index + 1;
+
+    return {
+      id: `lesson-explicito-${lessonNumber}`,
+      title: `Aula ${lessonNumber}`,
+      description: `Clase ${lessonNumber} del módulo explícito, organizada para seguir la secuencia sin distracciones.`,
+      duration: "Clase grabada",
+      status: "Liberada",
+      coverLabel: `Aula ${lessonNumber}`,
+      coverTag: "Módulo explícito",
+      coverTheme: themes[index % themes.length],
+      coverImage: "",
+      videoUrl: "#",
+      materialUrl: "#",
+      embedCode: createVturbEmbed(playerId),
+    };
+  });
+}
+
 const defaultState = {
   role: "member",
   adminTab: "lessons",
   product: {
     name: "Mapa del Placer Masculino",
-    subtitle: "Metodo completo para mujeres",
+    subtitle: "Método completo para mujeres",
     description:
-      "Una biblioteca practica para mujeres que quieren estudiar el metodo completo, acceder a los entregables en orden y aplicar cada tecnica con mas claridad.",
-    welcomeTitle: "Tu entregable ya esta organizado por modulos.",
+      "Una biblioteca práctica para mujeres que quieren estudiar el método completo, acceder a los cursos y bonos en orden y aplicar cada técnica con más claridad.",
+    welcomeTitle: "Tu biblioteca ya está organizada por cursos.",
     welcomeText:
-      "Aqui encuentras el contenido separado por modulos para facilitar el consumo. Empieza por el bloque de teoria y avanza en secuencia hasta el explicito para mantener contexto, entendimiento y aplicacion alineados.",
+      "Aquí encuentras el curso principal, Sentada Fatal y los bonos en áreas separadas para consumir cada ruta sin mezclar contenidos.",
     nextStep:
-      "Empieza por el Modulo 1 · Teoria y avanza en orden por las clases numeradas. Despues sigue al Modulo 2 · Explicito para profundizar la aplicacion visual.",
+      "Empieza por el Mapa del Placer Masculino en orden. Después avanza hacia Sentada Fatal y los bonos conforme cada curso sea liberado.",
     logoSrc: "./assets/mapa-do-prazer-logo.jpeg",
     bannerSrc: "./assets/mapa-do-prazer-banner.svg",
   },
+  courses: [
+    {
+      id: "black",
+      label: "Curso",
+      title: "Black",
+      description:
+        "Módulo explícito con 12 clases organizadas para avanzar de forma intuitiva.",
+      status: "Liberado",
+      coverImage: "./assets/mapa-do-prazer-banner.svg",
+    },
+  ],
   modules: [
     {
-      id: "mod-1",
-      eyebrow: "Modulo 1",
-      title: "Teoria",
-      description:
-        "Primer bloque del entregable con la base teorica y las tecnicas en secuencia para estudiar en orden.",
-      progress: 0.64,
-      lessons: [
-        {
-          id: "lesson-1",
-          title: "Clase 1 · Tradicional",
-          description:
-            "Primera tecnica de la ruta teorica, usada como base para entender el movimiento y la logica de aplicacion.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 1 del entregable",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672b03a29b825b3ae10f2"),
-        },
-        {
-          id: "lesson-2",
-          title: "Clase 2 · Bombinha",
-          description:
-            "Segunda tecnica del modulo teorico, profundizando lectura de ritmo y continuidad de aplicacion.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 2 del entregable",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672a5a78f10ae44d2563b"),
-        },        
-        {
-          id: "lesson-3",
-          title: "Clase 3 · Tradicional Giratoria",
-          description:
-            "Variacion de la tecnica tradicional con enfasis en continuidad, angulo y mantenimiento del estimulo.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 3 del entregable",
-          coverTheme: "blush",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672cec602028f65baaecb"),
-        },
-        {
-          id: "lesson-4",
-          title: "Clase 4 · Anel",
-          description:
-            "Cuarta tecnica del modulo, enfocada en encaje, control y percepcion del movimiento.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 4 del entregable",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672b794d36cec1173be10"),
-        },        
-        {
-          id: "lesson-5",
-          title: "Clase 5 · Mano Doble",
-          description:
-            "Tecnica que trabaja coordinacion y control con las dos manos dentro de la misma secuencia.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 5 del entregable",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672696983e3eba6d455a7"),
-        },
-        {
-          id: "lesson-6",
-          title: "Clase 6 · Carnivora",
-          description:
-            "Sexta tecnica del modulo teorico, profundizando intensidad, variacion y sostenimiento del estimulo.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 6 del entregable",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672716983e3eba6d455c2"),
-        },        
-        {
-          id: "lesson-7",
-          title: "Clase 7 · Invertida",
-          description:
-            "Tecnica de inversion enfocada en adaptacion del movimiento y lectura del tiempo de respuesta.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 7 del entregable",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672795610b6167ac08b13"),
-        },
-        {
-          id: "lesson-8",
-          title: "Clase 8 · Invertida Succion",
-          description:
-            "Combinacion de variacion invertida con succion, destacando precision y continuidad de la tecnica.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 8 del entregable",
-          coverTheme: "blush",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c6729cc602028f65baae44"),
-        },
-        {
-          id: "lesson-9",
-          title: "Clase 9 · Chuveirinho",
-          description:
-            "Tecnica orientada a cadencia y constancia, con variacion de toque dentro de la misma propuesta.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 9 del entregable",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c672945493e88bf0fef577"),
-        },        
-        {
-          id: "lesson-10",
-          title: "Clase 10 · Chuveirinho Rotacion",
-          description:
-            "Variacion con rotacion para profundizar control del movimiento y consistencia de ejecucion.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 10 del entregable",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c6728dc602028f65baadf6"),
-        },
-        {
-          id: "lesson-11",
-          title: "Clase 11 · Ordenar",
-          description:
-            "Tecnica con enfasis en presion y fluidez, manteniendo lectura corporal durante toda la aplicacion.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 11 del entregable",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c6728794d36cec1173bda8"),
-        },
-        {
-          id: "lesson-12",
-          title: "Clase 12 · Conchita",
-          description:
-            "Cierre del bloque teorico con una tecnica de lectura, comodidad y continuidad del toque.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Teoria",
-          coverTag: "Tecnica 12 del entregable",
-          coverTheme: "blush",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c6727f96fd2c2d9b24f45b"),
-        },
-      ],
-    },
-    {
-      id: "mod-2",
-      eyebrow: "Modulo 2",
-      title: "Explicito",
-      description:
-        "Segundo bloque del entregable con la parte explicita, organizado en secuencia para profundizar la visualizacion practica de las tecnicas.",
-      progress: 0.72,
-      lessons: [
-        {
-          id: "lesson-13",
-          title: "Clase 1 · Tradicional",
-          description:
-            "Primera clase del bloque explicito, presentando la version visual de la tecnica tradicional en aplicacion directa.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 1 del modulo explicito",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670d33a29b825b3ae0bbd"),
-        },
-        {
-          id: "lesson-14",
-          title: "Clase 2 · Invertida",
-          description:
-            "Continuacion de la ruta explicita con foco en la ejecucion visual de la tecnica invertida.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 2 del modulo explicito",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670cf6d9878c16e72f4ee"),
-        },
-        {
-          id: "lesson-15",
-          title: "Clase 3 · Invertida con Succion",
-          description:
-            "Variacion explicita de la invertida con succion, destacando continuidad, ritmo y aplicacion visual.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 3 del modulo explicito",
-          coverTheme: "blush",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670b3c602028f65baaa10"),
-        },
-        {
-          id: "lesson-16",
-          title: "Clase 4 · EGG",
-          description:
-            "Cuarta tecnica del modulo explicito, enfocada en la demostracion practica del encaje y la conduccion.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 4 del modulo explicito",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670aa5493e88bf0fef0f4"),
-        },
-        {
-          id: "lesson-17",
-          title: "Clase 5 · Conchita",
-          description:
-            "Demostracion explicita de la tecnica conchita, destacando comodidad, continuidad y posicionamiento.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 5 del modulo explicito",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670b95610b6167ac086a0"),
-        },
-        {
-          id: "lesson-18",
-          title: "Clase 6 · Chuveirinho",
-          description:
-            "Aplicacion explicita de la tecnica chuveirinho, con lectura visual de cadencia y constancia del movimiento.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 6 del modulo explicito",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670ca6d9878c16e72f4dc"),
-        },
-        {
-          id: "lesson-19",
-          title: "Clase 7 · Chuveirinho con Rotacion",
-          description:
-            "Variacion explicita con rotacion para profundizar la percepcion visual del movimiento y del control.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 7 del modulo explicito",
-          coverTheme: "blush",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670c06983e3eba6d45173"),
-        },
-        {
-          id: "lesson-20",
-          title: "Clase 8 · Carnivora",
-          description:
-            "Octava tecnica del modulo explicito, mostrando intensidad, variacion y ritmo en aplicacion practica.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 8 del modulo explicito",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670c6a78f10ae44d2514a"),
-        },
-        {
-          id: "lesson-21",
-          title: "Clase 9 · Bombinha",
-          description:
-            "Demostracion visual de la tecnica bombinha, con atencion a repeticion, presion y consistencia.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 9 del modulo explicito",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c670bd6d9878c16e72f4bd"),
-        },
-        {
-          id: "lesson-22",
-          title: "Clase 10 · Anel Vibrador",
-          description:
-            "Aplicacion explicita de la tecnica con anillo vibrador, destacando encaje, adaptacion y ritmo.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 10 del modulo explicito",
-          coverTheme: "ember",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c66f5a94d36cec1173b5e2"),
-        },
-        {
-          id: "lesson-23",
-          title: "Clase 11 · Anel",
-          description:
-            "Variacion explicita con anillo, reforzando lectura visual del movimiento, ajuste y conduccion de la tecnica.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 11 del modulo explicito",
-          coverTheme: "blush",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c66f5296fd2c2d9b24ece7"),
-        },
-        {
-          id: "lesson-24",
-          title: "Clase 12 · Ordena",
-          description:
-            "Demostracion explicita de la tecnica ordena, con foco en fluidez, presion y lectura corporal.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 12 del modulo explicito",
-          coverTheme: "gold",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c66f553a29b825b3ae08ab"),
-        },
-        {
-          id: "lesson-25",
-          title: "Clase 13 · Mano Doble",
-          description:
-            "Cierre del modulo explicito con la tecnica mano doble en version visual, profundizando coordinacion y control.",
-          duration: "Clase gravada",
-          status: "Liberada",
-          coverLabel: "Explicito",
-          coverTag: "Tecnica 13 del modulo explicito",
-          coverTheme: "noir",
-          coverImage: "",
-          videoUrl: "#",
-          materialUrl: "#",
-          embedCode: createVturbEmbed("69c66f4e6983e3eba6d44dde"),
-        },
-      ],
+      id: "mod-explicito",
+      courseId: "black",
+      eyebrow: "Módulo 2",
+      title: "Explícito",
+      description: "Contenido explícito organizado en secuencia, sin exceso de información alrededor de la clase.",
+      progress: 1,
+      lessons: buildExplicitLessons(),
     },
   ],
-  materials: [
-    {
-      id: "material-1",
-      title: "Secuencia completa de las 12 tecnicas",
-      description:
-        "Resumen del primer modulo para revisar el orden de las clases y visualizar rapidamente las tecnicas liberadas en teoria.",
-      type: "PDF",
-      badge: "Essencial",
-      link: "#",
-    },
-    {
-      id: "material-2",
-      title: "Checklist de estudio del modulo Teoria",
-      description:
-        "Material de apoyo para seguir las clases en orden y marcar lo que ya fue estudiado dentro del primer entregable.",
-      type: "Checklist",
-      badge: "Suporte",
-      link: "#",
-    },
-    {
-      id: "material-3",
-      title: "Secuencia completa del modulo Explicito",
-      description:
-        "Resumen del segundo modulo para visualizar el orden de las 13 clases explicitas y seguir el avance en el entregable.",
-      type: "PDF",
-      badge: "Explicito",
-      link: "#",
-    },
-  ],
+  materials: [],
 };
 
 let state = loadState();
 let selectedLessonId = getAllLessons(state.modules)[0]?.id || null;
 let selectedMaterialId = state.materials[0]?.id || null;
+let selectedCourseId = state.courses[0]?.id || null;
+let activeCourseId = null;
+let lessonSearchQuery = "";
+let lessonModuleFilter = "all";
+let lessonStatusFilter = "all";
+let isAdminAuthenticated = false;
+let loginError = "";
 
 const app = document.getElementById("members-app");
+
+function isAdminEntry() {
+  return window.location.pathname.startsWith("/admin") || window.location.hash === "#admin";
+}
+
+function getContentState() {
+  return {
+    product: state.product,
+    courses: state.courses,
+    modules: state.modules,
+    materials: state.materials,
+  };
+}
+
+function mergeContentState(content) {
+  if (!content) {
+    return;
+  }
+
+  state = mergeState({
+    ...state,
+    product: content.product || state.product,
+    courses: content.courses || state.courses,
+    modules: content.modules || state.modules,
+    materials: content.materials || state.materials,
+  });
+
+  selectedLessonId = getAllLessons(state.modules)[0]?.id || null;
+  selectedMaterialId = state.materials[0]?.id || null;
+  selectedCourseId = state.courses[0]?.id || null;
+}
+
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, {
+    credentials: "same-origin",
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(options.headers || {}),
+    },
+  });
+
+  let payload = null;
+  try {
+    payload = await response.json();
+  } catch {
+    payload = null;
+  }
+
+  if (!response.ok) {
+    throw new Error(payload?.error || "La solicitud falló.");
+  }
+
+  return payload;
+}
+
+async function loadServerContent() {
+  try {
+    const payload = await fetchJson("/api/content");
+    mergeContentState(payload.content);
+  } catch {
+    // Static preview without the Node server keeps using the bundled content.
+  }
+}
+
+async function checkAdminSession() {
+  try {
+    const payload = await fetchJson("/api/admin/session");
+    isAdminAuthenticated = Boolean(payload.authenticated);
+  } catch {
+    isAdminAuthenticated = false;
+  }
+
+  if (!isAdminAuthenticated) {
+    state.role = "member";
+  }
+}
+
+async function saveContentToServer() {
+  if (!isAdminAuthenticated) {
+    return;
+  }
+
+  try {
+    await fetchJson("/api/admin/content", {
+      method: "POST",
+      body: JSON.stringify({ content: getContentState() }),
+    });
+  } catch (error) {
+    console.warn("No fue posible guardar en el servidor.", error);
+  }
+}
 
 function loadState() {
   try {
@@ -471,6 +205,12 @@ function loadState() {
 
 function mergeState(savedState) {
   const fallback = structuredClone(defaultState);
+  const rawCourses = Array.isArray(savedState?.courses) && savedState.courses.length > 0
+    ? savedState.courses
+    : fallback.courses;
+  const rawModules = Array.isArray(savedState?.modules) && savedState.modules.length > 0
+    ? savedState.modules
+    : fallback.modules;
 
   return {
     ...fallback,
@@ -479,9 +219,15 @@ function mergeState(savedState) {
       ...fallback.product,
       ...(savedState?.product || {}),
     },
-    modules: Array.isArray(savedState?.modules) && savedState.modules.length > 0
-      ? savedState.modules
-      : fallback.modules,
+    courses: rawCourses.map((course) => ({
+      ...(fallback.courses.find((item) => item.id === course.id) || {}),
+      ...course,
+    })),
+    modules: rawModules.map((module) => ({
+      ...module,
+      courseId: module.courseId || "mapa-do-prazer",
+      lessons: module.lessons || [],
+    })),
     materials: Array.isArray(savedState?.materials) && savedState.materials.length > 0
       ? savedState.materials
       : fallback.materials,
@@ -490,17 +236,83 @@ function mergeState(savedState) {
 
 function persistState() {
   localStorage.setItem(MEMBERS_STORAGE_KEY, JSON.stringify(state));
+  saveContentToServer();
 }
 
 function getAllLessons(modules) {
   return modules.flatMap((module) =>
-    module.lessons.map((lesson) => ({
+    (module.lessons || []).map((lesson) => ({
       ...lesson,
       moduleId: module.id,
       moduleTitle: module.title,
       moduleEyebrow: module.eyebrow,
+      courseId: module.courseId || "mapa-do-prazer",
     })),
   );
+}
+
+function getCourseById(courseId) {
+  return state.courses.find((course) => course.id === courseId) || null;
+}
+
+function getCourseModules(courseId) {
+  return state.modules.filter((module) => (module.courseId || "mapa-do-prazer") === courseId);
+}
+
+function getCourseLessons(courseId) {
+  return getAllLessons(getCourseModules(courseId));
+}
+
+function getCourseStats(courseId) {
+  const modules = getCourseModules(courseId);
+  const lessons = getCourseLessons(courseId);
+  const playableLessons = lessons.filter((lesson) => lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#"));
+  const progress = lessons.length > 0 ? Math.round((playableLessons.length / lessons.length) * 100) : 0;
+
+  return {
+    modules,
+    lessons,
+    playableLessons,
+    progress,
+  };
+}
+
+function normalizeFilterText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function getFilteredCourseLessons(course) {
+  const normalizedSearch = normalizeFilterText(lessonSearchQuery);
+
+  return getCourseLessons(course.id).filter((lesson) => {
+    const matchesModule = lessonModuleFilter === "all" || lesson.moduleId === lessonModuleFilter;
+    const matchesStatus = lessonStatusFilter === "all" || lesson.status === lessonStatusFilter;
+    const searchableText = normalizeFilterText([
+      lesson.title,
+      lesson.description,
+      lesson.moduleTitle,
+      lesson.moduleEyebrow,
+      lesson.coverTag,
+      lesson.status,
+    ].join(" "));
+    const matchesSearch = !normalizedSearch || searchableText.includes(normalizedSearch);
+
+    return matchesModule && matchesStatus && matchesSearch;
+  });
+}
+
+function resetLessonFilters() {
+  lessonSearchQuery = "";
+  lessonModuleFilter = "all";
+  lessonStatusFilter = "all";
+}
+
+function getModuleCourse(moduleId) {
+  const module = state.modules.find((item) => item.id === moduleId);
+  return getCourseById(module?.courseId || "mapa-do-prazer");
 }
 
 function getSelectedLesson() {
@@ -509,6 +321,14 @@ function getSelectedLesson() {
 
 function getSelectedMaterial() {
   return state.materials.find((material) => material.id === selectedMaterialId) || null;
+}
+
+function getSelectedCourse() {
+  return state.courses.find((course) => course.id === selectedCourseId) || null;
+}
+
+function getActiveCourse() {
+  return state.courses.find((course) => course.id === activeCourseId) || null;
 }
 
 function getNextLesson() {
@@ -574,8 +394,12 @@ function escapeHtml(value) {
 }
 
 function renderRoleSwitch() {
+  if (!isAdminAuthenticated) {
+    return "";
+  }
+
   return `
-    <div class="role-switch" role="tablist" aria-label="Perfiles">
+    <div class="role-switch" role="tablist" aria-label="Perfis">
       <button
         class="role-switch__button"
         type="button"
@@ -594,12 +418,20 @@ function renderRoleSwitch() {
       >
         Vista de admin
       </button>
+      <button
+        class="role-switch__button"
+        type="button"
+        data-action="logout-admin"
+      >
+        Salir
+      </button>
     </div>
   `;
 }
 
 function renderMasthead() {
   const lessons = getAllLessons(state.modules);
+  const activeCourse = getActiveCourse();
 
   return `
     <header class="members-topbar">
@@ -613,16 +445,23 @@ function renderMasthead() {
           <p class="members-topbar__eyebrow">${escapeHtml(state.product.subtitle)}</p>
           <h1 class="members-topbar__title">${escapeHtml(state.product.name)}</h1>
         </div>
-        <nav class="members-topbar__nav" aria-label="Navegacion principal">
-          <a class="members-topbar__link" href="#featured">Inicio</a>
-          <a class="members-topbar__link" href="#continuar">Continuar</a>
-          <a class="members-topbar__link" href="#modulos">Clases</a>
-          <a class="members-topbar__link" href="#materiales">Materiales</a>
+        <nav class="members-topbar__nav" aria-label="Navegación principal">
+          <a class="members-topbar__link" href="#cursos"${activeCourse ? ` data-action="close-course"` : ""}>Cursos</a>
+          ${
+            activeCourse
+              ? `
+                <a class="members-topbar__link" href="#featured">Inicio</a>
+                <a class="members-topbar__link" href="#modulos">Clases</a>
+                ${activeCourse.id === "mapa-do-prazer" ? `<a class="members-topbar__link" href="#materiales">Materiales</a>` : ""}
+              `
+              : ""
+          }
         </nav>
       </div>
       <div class="members-topbar__right">
         <div class="members-topbar__meta">
-          <span class="pill">${state.modules.length} modulos</span>
+          <span class="pill">${state.modules.length} módulos</span>
+          <span class="pill">${state.courses.length} cursos</span>
           <span class="pill">${lessons.length} clases</span>
           <span class="pill">${state.materials.length} materiales</span>
           <span class="pill pill--accent">${state.role === "admin" ? "Admin" : "Miembro"}</span>
@@ -643,11 +482,11 @@ function renderMemberHero() {
   return `
     <section class="members-billboard" id="featured" ${heroBackground}>
       <div class="members-billboard__content">
-        <p class="members-billboard__eyebrow">Serie original</p>
+        <p class="members-billboard__eyebrow">Empieza por aquí</p>
         <h2 class="members-billboard__title">${escapeHtml(state.product.welcomeTitle)}</h2>
         <p class="members-billboard__subtitle">${escapeHtml(state.product.welcomeText)}</p>
         <div class="members-billboard__meta">
-          <span class="pill">${totalLessons} clases na biblioteca</span>
+          <span class="pill">${totalLessons} clases en la biblioteca</span>
           ${
             featuredLesson
               ? `
@@ -661,12 +500,11 @@ function renderMemberHero() {
           <button class="primary-link" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(featuredLesson?.id || "")}">
             Empezar ahora
           </button>
-          <button class="ghost-link" type="button" data-action="set-role" data-role="admin">Abrir panel admin</button>
         </div>
       </div>
       <div class="members-billboard__spotlight">
         <div class="members-billboard__info">
-          <span class="members-billboard__badge">Destacado ahora</span>
+          <span class="members-billboard__badge">Próxima clase</span>
           <strong class="members-billboard__focus">${escapeHtml(featuredLesson?.title || "Primera clase de la ruta")}</strong>
           <p class="members-billboard__caption">${escapeHtml(featuredLesson?.description || state.product.nextStep)}</p>
         </div>
@@ -675,14 +513,146 @@ function renderMemberHero() {
   `;
 }
 
+function getCourseCoverStyle(course, overlay = "linear-gradient(180deg, rgba(5, 3, 4, 0.02), rgba(5, 3, 4, 0.72))") {
+  return course.coverImage
+    ? `style="background-image: ${overlay}, url('${escapeHtml(course.coverImage)}')"`
+    : "";
+}
+
 function renderQuickBand() {
   return renderShelf(
-    "Continua desde donde paraste",
+    "Continue de onde parar",
     state.product.nextStep,
     getAllLessons(state.modules).slice(0, 6),
     "shelf-row--continue",
     "continuar",
   );
+}
+
+function renderCourseCatalog() {
+  const totalLessons = getAllLessons(state.modules).length;
+  const availableCourses = state.courses.filter((course) => getCourseLessons(course.id).length > 0).length;
+
+  return `
+    <section class="course-home" id="cursos">
+      <div class="course-home__intro">
+        <div>
+          <p class="members-kicker">Área de miembros</p>
+          <h2>Elige tu curso</h2>
+          <p>Empieza por el curso principal y entra a cada bono desde una ruta separada, con módulos y clases visibles antes de abrir.</p>
+        </div>
+        <div class="course-home__summary" aria-label="Resumen de biblioteca">
+          <span><strong>${state.courses.length}</strong> cursos</span>
+          <span><strong>${availableCourses}</strong> con clases</span>
+          <span><strong>${totalLessons}</strong> clases</span>
+        </div>
+      </div>
+
+      <div class="course-poster-grid">
+        ${state.courses
+          .map((course) => {
+            const stats = getCourseStats(course.id);
+            const coverStyle = getCourseCoverStyle(course);
+            const coverClass = course.coverImage
+              ? "course-poster"
+              : `course-poster course-poster--placeholder course-poster--${escapeHtml(course.id)}`;
+            const nextLesson = stats.lessons[0];
+
+            return `
+              <button
+                class="${coverClass}"
+                type="button"
+                data-action="open-course"
+                data-course-id="${escapeHtml(course.id)}"
+                ${coverStyle}
+              >
+                <span class="course-poster__shade"></span>
+                <span class="course-poster__content">
+                  <span class="course-poster__topline">
+                    <span class="course-poster__label">${escapeHtml(course.label)}</span>
+                    <span class="course-poster__status">${escapeHtml(course.status)}</span>
+                  </span>
+                  <strong>${escapeHtml(course.title)}</strong>
+                  <span class="course-poster__description">${escapeHtml(course.description)}</span>
+                  <span class="course-poster__meta">
+                    <span>${stats.modules.length} módulo${stats.modules.length === 1 ? "" : "s"}</span>
+                    <span>${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"}</span>
+                    <span>${stats.progress}% listo</span>
+                  </span>
+                  <span class="course-progress" aria-hidden="true">
+                    <span style="width: ${stats.progress}%"></span>
+                  </span>
+                  <span class="course-poster__next">${nextLesson ? `Siguiente: ${escapeHtml(nextLesson.title)}` : "Contenido en preparación"}</span>
+                </span>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderCourseDetailHero(course) {
+  const { modules, lessons, playableLessons, progress } = getCourseStats(course.id);
+  const coverStyle = getCourseCoverStyle(
+    course,
+    "linear-gradient(90deg, rgba(5, 3, 4, 0.94) 0%, rgba(5, 3, 4, 0.76) 48%, rgba(5, 3, 4, 0.2) 100%)",
+  );
+
+  return `
+    <section class="course-detail-hero" id="featured" ${coverStyle}>
+      <button class="ghost-link course-back" type="button" data-action="close-course">
+        Volver a los cursos
+      </button>
+      <div class="course-detail-hero__content">
+        <p class="members-kicker">${escapeHtml(course.label)}</p>
+        <h2>${escapeHtml(course.title)}</h2>
+        <p>${escapeHtml(course.description)}</p>
+        <div class="members-billboard__meta">
+          <span class="pill">${modules.length} módulo${modules.length === 1 ? "" : "s"}</span>
+          <span class="pill">${lessons.length} clase${lessons.length === 1 ? "" : "s"}</span>
+          <span class="pill">${playableLessons.length} disponibles</span>
+          <span class="pill pill--accent">${escapeHtml(course.status)}</span>
+        </div>
+        <div class="course-detail-progress">
+          <span class="course-progress" aria-label="${progress}% del curso listo">
+            <span style="width: ${progress}%"></span>
+          </span>
+          <small>${progress}% listo para ver</small>
+        </div>
+        ${
+          lessons.length > 0
+            ? `<button class="primary-link" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(lessons[0].id)}">Continuar curso</button>`
+            : `<span class="pill">Las clases aún serán agregadas</span>`
+        }
+      </div>
+    </section>
+  `;
+}
+
+function renderAdminLogin() {
+  return `
+    <section class="members-main admin-login-shell">
+      <section class="members-card admin-login-card">
+        <div>
+          <p class="members-kicker">Admin</p>
+          <h2 class="content-block__title">Entrar al panel</h2>
+          <p class="content-block__subtitle">La edición de cursos y clases queda protegida por login de administrador.</p>
+        </div>
+        ${loginError ? `<p class="admin-login-card__error">${escapeHtml(loginError)}</p>` : ""}
+        <form class="admin-form" data-form="login">
+          <div class="admin-field">
+            <label for="admin-password">Contraseña</label>
+            <input id="admin-password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <div class="admin-form__actions">
+            <button type="submit">Entrar</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  `;
 }
 
 function renderLessonCard(lesson) {
@@ -711,10 +681,95 @@ function renderLessonCard(lesson) {
       </div>
       <div class="lesson-card__actions">
         <button class="primary-link" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(lesson.id)}">
-          ${isPlayable ? "Ver clase" : "Muy pronto"}
+          ${isPlayable ? "Ver clase" : "Próximamente"}
         </button>
       </div>
     </article>
+  `;
+}
+
+function renderCommentSection() {
+  return `
+    <section class="youtube-comments">
+      <div class="youtube-comments__tabs" role="tablist" aria-label="Comentarios">
+        <button class="youtube-comments__tab is-active" type="button">Comentarios</button>
+        <span class="pill">4 comentarios</span>
+      </div>
+      <div class="youtube-comments__composer">
+        <span class="youtube-comments__avatar">M</span>
+        <label class="youtube-comments__field">
+          <span>Comentar como alumna</span>
+          <textarea rows="2" placeholder="Escribe tu duda o una nota sobre esta clase..."></textarea>
+        </label>
+      </div>
+      <div class="youtube-comments__actions">
+        <button class="ghost-link" type="button">Cancelar</button>
+        <button class="primary-link" type="button">Comentar</button>
+      </div>
+      <div class="youtube-comments__list">
+        <article class="youtube-comment">
+          <span class="youtube-comments__avatar youtube-comments__avatar--soft">MP</span>
+          <div>
+            <strong>Equipo Mapa del Placer</strong>
+            <p>Mira la clase completa antes de avanzar. La secuencia fue pensada para que cada aula complemente la anterior.</p>
+          </div>
+        </article>
+        <article class="youtube-comment">
+          <span class="youtube-comments__avatar">A</span>
+          <div>
+            <strong>Alumna verificada</strong>
+            <p>Me gustó que las aulas están directas y en orden. Así es mucho más fácil seguir el módulo.</p>
+          </div>
+        </article>
+        <article class="youtube-comment">
+          <span class="youtube-comments__avatar">C</span>
+          <div>
+            <strong>Carolina</strong>
+            <p>Dejé esta clase guardada para revisar otra vez antes de avanzar.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function renderNextLessonsCarousel(course) {
+  const lessons = getCourseLessons(course.id);
+  const selectedIndex = Math.max(0, lessons.findIndex((lesson) => lesson.id === selectedLessonId));
+  const nextLessons = [...lessons.slice(selectedIndex + 1), ...lessons.slice(0, selectedIndex)].slice(0, 10);
+
+  if (nextLessons.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="youtube-next-lessons" aria-label="Próximas clases">
+      <div class="youtube-next-lessons__top">
+        <h2>Próximas clases</h2>
+      </div>
+      <div class="youtube-next-carousel">
+        ${nextLessons
+          .map((lesson) => {
+            const coverStyle = lesson.coverImage
+              ? `style="background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.08), rgba(8, 8, 8, 0.55)), url('${escapeHtml(lesson.coverImage)}')"`
+              : "";
+            const coverClass = lesson.coverImage
+              ? "youtube-next-card__thumb"
+              : `youtube-next-card__thumb lesson-cover--${escapeHtml(lesson.coverTheme || "ember")}`;
+
+            return `
+              <button class="youtube-next-card" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(lesson.id)}">
+                <span class="${coverClass}" ${coverStyle}>
+                  <span>${escapeHtml(lesson.coverLabel || "Clase")}</span>
+                </span>
+                <strong>${escapeHtml(lesson.title)}</strong>
+                <small>${escapeHtml(lesson.moduleTitle)} · ${escapeHtml(lesson.duration)}</small>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
+    </section>
   `;
 }
 
@@ -722,22 +777,13 @@ function renderLessonPlayer() {
   const lesson = getSelectedLesson() || getFeaturedLesson();
   const canRenderEmbed = Boolean(lesson?.embedCode);
   const canRenderLink = Boolean(lesson?.videoUrl && lesson.videoUrl !== "#");
-  const moduleLabel = lesson ? `${lesson.moduleEyebrow} · ${lesson.moduleTitle}` : "Biblioteca";
+  const course = lesson ? getCourseById(lesson.courseId) : null;
+  const moduleLabel = lesson
+    ? `${course?.title || "Curso"} · ${lesson.moduleEyebrow} · ${lesson.moduleTitle}`
+    : "Biblioteca";
 
   return `
     <section class="members-card lesson-player-panel" id="player">
-      <div class="lesson-player-panel__meta">
-        <div>
-          <p class="members-kicker">${escapeHtml(moduleLabel)}</p>
-          <h2 class="content-block__title">${escapeHtml(lesson?.title || "Selecciona una clase")}</h2>
-          <p class="content-block__subtitle">${escapeHtml(lesson?.description || state.product.nextStep)}</p>
-        </div>
-        <div class="lesson-player-panel__chips">
-          <span class="pill">${escapeHtml(lesson?.duration || "Biblioteca")}</span>
-          <span class="pill pill--accent">${escapeHtml(lesson?.status || "Disponible")}</span>
-        </div>
-      </div>
-
       <div class="lesson-player-panel__stage">
         ${
           canRenderEmbed
@@ -754,8 +800,8 @@ function renderLessonPlayer() {
             : canRenderLink
               ? `
                 <div class="lesson-player-empty">
-                  <strong>Esta clase esta lista para abrir por enlace.</strong>
-                  <p>El player embebido aun no fue configurado para este item, pero el acceso ya puede hacerse por el enlace de la clase.</p>
+                  <strong>Esta clase está lista para abrirse por enlace.</strong>
+                  <p>El player embebido aún no fue configurado para este ítem, pero el acceso ya puede hacerse por el enlace de la clase.</p>
                   <a class="primary-link" href="${escapeHtml(lesson.videoUrl)}" target="_blank" rel="noreferrer">
                     Abrir clase
                   </a>
@@ -763,18 +809,30 @@ function renderLessonPlayer() {
               `
               : `
                 <div class="lesson-player-empty">
-                  <strong>Player aun no configurado.</strong>
-                  <p>Esta clase ya existe en la biblioteca, pero el embed aun no fue conectado. Cuando envies el resto, lo encajo aqui.</p>
+                  <strong>Player aún no configurado.</strong>
+                  <p>Esta clase ya existe en la biblioteca, pero el embed aún no fue conectado. Cuando tengas el resto, se puede encajar aquí.</p>
                 </div>
               `
         }
+      </div>
+
+      <div class="lesson-player-panel__meta">
+        <div>
+          <p class="members-kicker">${escapeHtml(moduleLabel)}</p>
+          <h2 class="content-block__title">${escapeHtml(lesson?.title || "Selecciona una clase")}</h2>
+          <p class="content-block__subtitle">${escapeHtml(lesson?.description || state.product.nextStep)}</p>
+        </div>
+        <div class="lesson-player-panel__chips">
+          <span class="pill">${escapeHtml(lesson?.duration || "Biblioteca")}</span>
+          <span class="pill pill--accent">${escapeHtml(lesson?.status || "Disponible")}</span>
+        </div>
       </div>
 
       <div class="lesson-player-panel__footer">
         ${
           lesson?.materialUrl && lesson.materialUrl !== "#"
             ? `<a class="ghost-link" href="${escapeHtml(lesson.materialUrl)}" target="_blank" rel="noreferrer">Abrir material complementario</a>`
-            : `<span class="lesson-player-panel__hint">Usa las tarjetas de abajo para cambiar rapidamente de clase dentro de la misma area.</span>`
+            : `<span class="lesson-player-panel__hint">Usa las tarjetas de abajo para cambiar rápidamente de clase dentro de la misma área.</span>`
         }
       </div>
     </section>
@@ -797,19 +855,141 @@ function renderShelf(title, subtitle, lessons, shelfTone = "", shelfId = "") {
   `;
 }
 
-function renderModules() {
+function renderLessonFilters(course) {
+  const modules = getCourseModules(course.id);
+  const lessons = getCourseLessons(course.id);
+  const filteredLessons = getFilteredCourseLessons(course);
+
   return `
-    ${state.modules
-      .map((module, index) =>
-        renderShelf(
-          `${module.eyebrow} · ${module.title}`,
-          module.description,
-          module.lessons,
-          "shelf-row--posters",
-          index === 0 ? "modulos" : "",
-        ),
-      )
-      .join("")}
+    <section class="lesson-filter-panel" aria-label="Filtros de clases">
+      <div class="lesson-filter-panel__top">
+        <div>
+          <p class="members-kicker">Clases</p>
+          <h2 class="content-block__title">Encuentra rápido</h2>
+        </div>
+        <span class="pill pill--accent">${filteredLessons.length} de ${lessons.length} clases</span>
+      </div>
+      <div class="lesson-filters">
+        <label class="lesson-filter-field">
+          <span>Buscar</span>
+          <input
+            type="search"
+            data-filter="lesson-search"
+            value="${escapeHtml(lessonSearchQuery)}"
+            placeholder="Nombre, técnica o tema"
+            autocomplete="off"
+          />
+        </label>
+        <label class="lesson-filter-field">
+          <span>Módulo</span>
+          <select data-filter="lesson-module">
+            <option value="all"${lessonModuleFilter === "all" ? " selected" : ""}>Todos los módulos</option>
+            ${modules
+              .map(
+                (module) => `
+                  <option value="${escapeHtml(module.id)}"${lessonModuleFilter === module.id ? " selected" : ""}>
+                    ${escapeHtml(`${module.eyebrow} · ${module.title}`)}
+                  </option>
+                `,
+              )
+              .join("")}
+          </select>
+        </label>
+        <button class="ghost-link lesson-filter-reset" type="button" data-action="reset-lesson-filters">Limpiar</button>
+      </div>
+      <div class="lesson-results">
+        ${
+          filteredLessons.length > 0
+            ? filteredLessons.map(renderLessonListItem).join("")
+            : `<article class="lesson-results__empty">No encontramos clases con esos filtros.</article>`
+        }
+      </div>
+    </section>
+  `;
+}
+
+function renderLessonListItem(lesson) {
+  const isActive = lesson.id === selectedLessonId;
+  const isPlayable = Boolean(lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#"));
+
+  return `
+    <button
+      class="lesson-result${isActive ? " is-active" : ""}"
+      type="button"
+      data-action="watch-lesson"
+      data-lesson-id="${escapeHtml(lesson.id)}"
+    >
+      <span class="lesson-result__index">${escapeHtml(lesson.moduleEyebrow)}</span>
+      <span class="lesson-result__body">
+        <strong>${escapeHtml(lesson.title)}</strong>
+        <small>${escapeHtml(lesson.moduleTitle)} · ${escapeHtml(lesson.duration)}</small>
+      </span>
+      <span class="lesson-result__status">${isPlayable ? "Ver ahora" : "Próximamente"}</span>
+    </button>
+  `;
+}
+
+function renderEmptyModule(module) {
+  return `
+    <article class="course-empty">
+      <p class="course-card__label">${escapeHtml(module.eyebrow)}</p>
+      <h3>${escapeHtml(module.title)}</h3>
+      <p>${escapeHtml(module.description)}</p>
+      <span class="pill">Sin clases agregadas todavía</span>
+    </article>
+  `;
+}
+
+function renderCourseSection(course) {
+  const modules = getCourseModules(course.id);
+  const lessons = getCourseLessons(course.id);
+  const isActiveCourse = activeCourseId === course.id;
+
+  return `
+    <section class="course-section" id="course-${escapeHtml(course.id)}">
+      <div class="course-section__top">
+        <div>
+          <p class="course-card__label">${escapeHtml(course.label)}</p>
+          <h2 class="content-block__title">${escapeHtml(course.title)}</h2>
+          <p class="content-block__subtitle">${escapeHtml(course.description)}</p>
+        </div>
+        <div class="course-section__stats">
+          <span class="pill">${modules.length} módulo${modules.length === 1 ? "" : "s"}</span>
+          <span class="pill">${lessons.length} clase${lessons.length === 1 ? "" : "s"}</span>
+        </div>
+      </div>
+
+      <div class="course-section__body">
+        ${isActiveCourse && lessons.length > 0 ? renderLessonFilters(course) : ""}
+        ${
+          modules.length > 0
+            ? modules
+                .map((module) =>
+                  (module.lessons || []).length > 0
+                    ? renderShelf(
+                        `${module.eyebrow} · ${module.title}`,
+                        module.description,
+                        module.lessons,
+                        "shelf-row--posters",
+                      )
+                    : renderEmptyModule(module),
+                )
+                .join("")
+            : `<article class="course-empty"><p>Este curso aún no tiene módulos registrados.</p></article>`
+        }
+      </div>
+    </section>
+  `;
+}
+
+function renderModules() {
+  const activeCourse = getActiveCourse();
+  const courses = activeCourse ? [activeCourse] : state.courses;
+
+  return `
+    <section class="course-library" id="modulos">
+      ${courses.map(renderCourseSection).join("")}
+    </section>
   `;
 }
 
@@ -818,10 +998,10 @@ function renderMaterials() {
     <section class="members-shelf" id="materiales">
       <div class="members-shelf__top">
         <div>
-          <h2 class="content-block__title">Materiales de apoio</h2>
-          <p class="content-block__subtitle">PDFs, guias y bonus para acompanar las clases sin perder claridad en la aplicacion.</p>
+          <h2 class="content-block__title">Materiales de apoyo</h2>
+          <p class="content-block__subtitle">PDFs, guías y bonos para acompañar las clases sin perder claridad en la aplicación.</p>
         </div>
-        <span class="pill">${state.materials.length} items</span>
+        <span class="pill">${state.materials.length} materiales</span>
       </div>
 
       <div class="shelf-row shelf-row--materials">
@@ -849,14 +1029,164 @@ function renderMaterials() {
   `;
 }
 
-function renderMemberView() {
+function renderLearningSidebar(activeCourse) {
   return `
-    <section class="members-main">
-      ${renderMemberHero()}
-      ${renderLessonPlayer()}
-      ${renderQuickBand()}
-      ${renderModules()}
-      ${renderMaterials()}
+    <aside class="learning-sidebar" aria-label="Navegación de cursos">
+      <div class="learning-sidebar__brand">
+        <img src="${escapeHtml(state.product.logoSrc)}" alt="Logo del producto ${escapeHtml(state.product.name)}" />
+        <div>
+          <strong>${escapeHtml(state.product.name)}</strong>
+          <span>Área de miembros</span>
+        </div>
+      </div>
+
+      <nav class="learning-sidebar__courses" aria-label="Cursos disponibles">
+        <span class="learning-sidebar__section">Mis cursos</span>
+        ${state.courses
+          .map((course) => {
+            const stats = getCourseStats(course.id);
+            const isActive = activeCourse?.id === course.id;
+
+            return `
+              <button
+                class="learning-course-link${isActive ? " is-active" : ""}"
+                type="button"
+                data-action="open-course"
+                data-course-id="${escapeHtml(course.id)}"
+              >
+                <span class="learning-course-link__icon">${stats.progress}%</span>
+                <span>
+                  <strong>${escapeHtml(course.title)}</strong>
+                  <small>${stats.lessons.length} clase${stats.lessons.length === 1 ? "" : "s"} · ${escapeHtml(course.status)}</small>
+                </span>
+              </button>
+            `;
+          })
+          .join("")}
+      </nav>
+    </aside>
+  `;
+}
+
+function renderCourseLessonNavigation(course) {
+  const modules = getCourseModules(course.id);
+
+  return `
+    <div class="learning-outline" aria-label="Módulos y clases">
+      <div class="learning-outline__top">
+        <span class="learning-sidebar__section">Contenido</span>
+      </div>
+      ${modules
+        .map(
+          (module) => `
+            <section class="learning-module">
+              <div class="learning-module__head">
+                <strong>${escapeHtml(module.eyebrow)}</strong>
+                <span>${(module.lessons || []).length} clase${(module.lessons || []).length === 1 ? "" : "s"}</span>
+              </div>
+              <h3>${escapeHtml(module.title)}</h3>
+              <div class="learning-module__lessons">
+                ${
+                  (module.lessons || []).length > 0
+                    ? module.lessons
+                        .map(
+                          (lesson) => `
+                            <button
+                              class="learning-lesson-link${lesson.id === selectedLessonId ? " is-active" : ""}"
+                              type="button"
+                              data-action="watch-lesson"
+                              data-lesson-id="${escapeHtml(lesson.id)}"
+                            >
+                              <span class="learning-lesson-link__check">${lesson.embedCode || (lesson.videoUrl && lesson.videoUrl !== "#") ? "✓" : "•"}</span>
+                              <span>
+                                <strong>${escapeHtml(lesson.title)}</strong>
+                                <small>${escapeHtml(lesson.duration)}</small>
+                              </span>
+                            </button>
+                          `,
+                        )
+                        .join("")
+                    : `<p class="learning-module__empty">Contenido en preparación.</p>`
+                }
+              </div>
+            </section>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderLearningDashboard() {
+  return `
+    <section class="learning-dashboard learning-dashboard--simple">
+      <section class="learning-course-grid" id="cursos">
+        <div class="learning-section-title">
+          <p class="members-kicker">Biblioteca</p>
+          <h2>Cursos</h2>
+        </div>
+        <div class="learning-thumb-grid">
+          ${state.courses
+            .map((course) => {
+              const coverStyle = getCourseCoverStyle(course, "linear-gradient(180deg, rgba(4, 3, 4, 0.04), rgba(4, 3, 4, 0.62))");
+              const coverClass = course.coverImage
+                ? "learning-thumb"
+                : `learning-thumb learning-thumb--${escapeHtml(course.id)}`;
+
+              return `
+                <button class="learning-thumb-card" type="button" data-action="open-course" data-course-id="${escapeHtml(course.id)}">
+                  <span class="${coverClass}" ${coverStyle}>
+                    <span>${escapeHtml(course.label)}</span>
+                  </span>
+                  <strong>${escapeHtml(course.title)}</strong>
+                </button>
+              `;
+            })
+            .join("")}
+        </div>
+      </section>
+    </section>
+  `;
+}
+
+function renderLearningCourse(activeCourse) {
+  const { lessons } = getCourseStats(activeCourse.id);
+
+  return `
+    <section class="learning-course learning-course--watch">
+      <div class="youtube-watch-grid" id="modulos">
+        <div class="youtube-watch-main">
+          ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
+          ${renderCommentSection()}
+          ${renderNextLessonsCarousel(activeCourse)}
+        </div>
+        ${renderCourseLessonNavigation(activeCourse)}
+      </div>
+
+      ${activeCourse.id === "mapa-do-prazer" ? renderMaterials() : ""}
+    </section>
+  `;
+}
+
+function renderMemberView() {
+  const activeCourse = getActiveCourse();
+
+  if (!activeCourse) {
+    return `
+      <section class="members-main learning-shell learning-shell--home learning-shell--catalog">
+        <main class="learning-main">
+          ${renderLearningDashboard()}
+        </main>
+      </section>
+    `;
+  }
+
+  return `
+    <section class="members-main learning-shell">
+      ${renderLearningSidebar(activeCourse)}
+      <main class="learning-main">
+        ${renderLearningCourse(activeCourse)}
+      </main>
     </section>
   `;
 }
@@ -864,6 +1194,7 @@ function renderMemberView() {
 function renderAdminTabs() {
   const tabs = [
     { id: "product", label: "Producto" },
+    { id: "courses", label: "Cursos" },
     { id: "lessons", label: "Clases" },
     { id: "materials", label: "Materiales" },
   ];
@@ -893,8 +1224,8 @@ function renderProductForm() {
     <section class="members-card admin-form-card">
       <div class="admin-form-card__header">
         <div>
-          <h2 class="content-block__title">Configuracion del producto</h2>
-          <p class="content-block__subtitle">Edita nombre, subtitulo, mensaje principal y posicionamiento del area de miembros.</p>
+          <h2 class="content-block__title">Configuración del producto</h2>
+          <p class="content-block__subtitle">Edita nombre, subtítulo, mensaje principal y posicionamiento del área de miembros.</p>
         </div>
         <button class="outline-button" type="button" data-action="restore-defaults">
           Restaurar contenido original
@@ -904,20 +1235,20 @@ function renderProductForm() {
       <form class="admin-form" data-form="product">
         <div class="admin-form__row">
           <div class="admin-field">
-            <label for="product-name">Nombre del producto</label>
+            <label for="product-name">Nome do produto</label>
             <input id="product-name" name="name" value="${escapeHtml(state.product.name)}" />
           </div>
           <div class="admin-field">
-            <label for="product-subtitle">Subtitulo</label>
+            <label for="product-subtitle">Subtítulo</label>
             <input id="product-subtitle" name="subtitle" value="${escapeHtml(state.product.subtitle)}" />
           </div>
         </div>
         <div class="admin-field">
-          <label for="product-description">Descripcion</label>
+          <label for="product-description">Descripción</label>
           <textarea id="product-description" name="description">${escapeHtml(state.product.description)}</textarea>
         </div>
         <div class="admin-field">
-          <label for="product-welcome-title">Titulo de bienvenida</label>
+          <label for="product-welcome-title">Título de bienvenida</label>
           <input id="product-welcome-title" name="welcomeTitle" value="${escapeHtml(state.product.welcomeTitle)}" />
         </div>
         <div class="admin-field">
@@ -931,17 +1262,102 @@ function renderProductForm() {
         <div class="admin-field">
           <label for="product-logo-src">Logo</label>
           <input id="product-logo-src" name="logoSrc" value="${escapeHtml(state.product.logoSrc)}" />
-          <p class="admin-form__help">Puede ser una ruta local del proyecto o una URL publica.</p>
+          <p class="admin-form__help">Puede ser una ruta local del proyecto o una URL pública.</p>
         </div>
         <div class="admin-field">
           <label for="product-banner-src">Banner principal</label>
           <input id="product-banner-src" name="bannerSrc" value="${escapeHtml(state.product.bannerSrc || "")}" />
-          <p class="admin-form__help">Arte principal del area de miembros, estilo catalogo.</p>
+          <p class="admin-form__help">Arte principal del área de miembros, en estilo catálogo.</p>
         </div>
         <div class="admin-form__actions">
           <button type="submit">Guardar producto</button>
         </div>
       </form>
+    </section>
+  `;
+}
+
+function renderCourseEditor() {
+  const selectedCourse = getSelectedCourse();
+
+  return `
+    <section class="admin-grid">
+      <aside class="members-card admin-list">
+        <div class="admin-list__header">
+          <div>
+            <h2 class="content-block__title">Cursos</h2>
+            <p class="content-block__subtitle">Renombra las rutas y organiza el curso principal, Sentada Fatal y los bonos.</p>
+          </div>
+          <button class="admin-action" type="button" data-action="add-course">
+            Nuevo curso
+          </button>
+        </div>
+        <div class="admin-list__items">
+          ${state.courses
+            .map((course) => {
+              const modules = getCourseModules(course.id);
+              const lessons = getCourseLessons(course.id);
+
+              return `
+                <button
+                  class="admin-list__item${course.id === selectedCourseId ? " is-active" : ""}"
+                  type="button"
+                  data-action="select-course"
+                  data-course-id="${escapeHtml(course.id)}"
+                >
+                  <h3 class="admin-list__item-title">${escapeHtml(course.title)}</h3>
+                  <p class="admin-list__item-copy">${modules.length} módulo${modules.length === 1 ? "" : "s"} · ${lessons.length} clase${lessons.length === 1 ? "" : "s"} · ${escapeHtml(course.status)}</p>
+                </button>
+              `;
+            })
+            .join("")}
+        </div>
+      </aside>
+
+      <section class="members-card admin-form-card">
+        <div class="admin-form-card__header">
+          <div>
+            <h2 class="content-block__title">Editor de curso</h2>
+            <p class="content-block__subtitle">Actualiza el nombre que aparece en la biblioteca y en las tarjetas de curso.</p>
+          </div>
+        </div>
+
+        ${
+          selectedCourse
+            ? `
+              <form class="admin-form" data-form="course">
+                <input type="hidden" name="id" value="${escapeHtml(selectedCourse.id)}" />
+                <div class="admin-form__row">
+                  <div class="admin-field">
+                    <label for="course-label">Categoria</label>
+                    <input id="course-label" name="label" value="${escapeHtml(selectedCourse.label)}" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="course-status">Status</label>
+                    <input id="course-status" name="status" value="${escapeHtml(selectedCourse.status)}" />
+                  </div>
+                </div>
+                <div class="admin-field">
+                  <label for="course-title">Nombre del curso</label>
+                  <input id="course-title" name="title" value="${escapeHtml(selectedCourse.title)}" />
+                </div>
+                <div class="admin-field">
+                  <label for="course-description">Descripción</label>
+                  <textarea id="course-description" name="description">${escapeHtml(selectedCourse.description)}</textarea>
+                </div>
+                <div class="admin-field">
+                  <label for="course-cover-image">Foto de capa</label>
+                  <input id="course-cover-image" name="coverImage" value="${escapeHtml(selectedCourse.coverImage || "")}" />
+                  <p class="admin-form__help">Usa una ruta de imagen del proyecto o una URL pública para aparecer como portada de la tarjeta.</p>
+                </div>
+                <div class="admin-form__actions">
+                  <button type="submit">Guardar curso</button>
+                </div>
+              </form>
+            `
+            : `<p class="admin-empty">Selecciona un curso para editar.</p>`
+        }
+      </section>
     </section>
   `;
 }
@@ -956,7 +1372,7 @@ function renderLessonEditor() {
         <div class="admin-list__header">
           <div>
             <h2 class="content-block__title">Clases</h2>
-            <p class="content-block__subtitle">Selecciona una tarjeta para editar portada, titulo, descripcion y enlaces.</p>
+            <p class="content-block__subtitle">Selecciona una tarjeta para editar portada, título, descripción y enlaces.</p>
           </div>
           <button class="admin-action" type="button" data-action="add-lesson">
             Nueva clase
@@ -965,17 +1381,21 @@ function renderLessonEditor() {
         <div class="admin-list__items">
           ${lessons
             .map(
-              (lesson) => `
-                <button
-                  class="admin-list__item${lesson.id === selectedLessonId ? " is-active" : ""}"
-                  type="button"
-                  data-action="select-lesson"
-                  data-lesson-id="${escapeHtml(lesson.id)}"
-                >
-                  <h3 class="admin-list__item-title">${escapeHtml(lesson.title)}</h3>
-                  <p class="admin-list__item-copy">${escapeHtml(lesson.moduleTitle)} · ${escapeHtml(lesson.duration)} · ${escapeHtml(lesson.status)}</p>
-                </button>
-              `,
+              (lesson) => {
+                const course = getCourseById(lesson.courseId);
+
+                return `
+                  <button
+                    class="admin-list__item${lesson.id === selectedLessonId ? " is-active" : ""}"
+                    type="button"
+                    data-action="select-lesson"
+                    data-lesson-id="${escapeHtml(lesson.id)}"
+                  >
+                    <h3 class="admin-list__item-title">${escapeHtml(lesson.title)}</h3>
+                    <p class="admin-list__item-copy">${escapeHtml(course?.title || "Curso")} · ${escapeHtml(lesson.moduleTitle)} · ${escapeHtml(lesson.duration)} · ${escapeHtml(lesson.status)}</p>
+                  </button>
+                `;
+              },
             )
             .join("")}
         </div>
@@ -985,7 +1405,7 @@ function renderLessonEditor() {
         <div class="admin-form-card__header">
           <div>
             <h2 class="content-block__title">Editor de clase</h2>
-            <p class="content-block__subtitle">Mantiene el visual y la copy alineados al producto mientras organizas la biblioteca.</p>
+            <p class="content-block__subtitle">Mantén el visual y la copy alineados al producto mientras organizas la biblioteca.</p>
           </div>
           ${
             selectedLesson
@@ -1001,21 +1421,25 @@ function renderLessonEditor() {
                 <input type="hidden" name="id" value="${escapeHtml(selectedLesson.id)}" />
                 <div class="admin-form__row">
                   <div class="admin-field">
-                    <label for="lesson-module">Modulo</label>
+                    <label for="lesson-module">Módulo</label>
                     <select id="lesson-module" name="moduleId">
                       ${state.modules
                         .map(
-                          (module) => `
+                          (module) => {
+                            const course = getCourseById(module.courseId || "mapa-do-prazer");
+
+                            return `
                             <option value="${escapeHtml(module.id)}"${module.id === selectedLesson.moduleId ? " selected" : ""}>
-                              ${escapeHtml(module.eyebrow)} · ${escapeHtml(module.title)}
+                              ${escapeHtml(course?.title || "Curso")} · ${escapeHtml(module.eyebrow)} · ${escapeHtml(module.title)}
                             </option>
-                          `,
+                          `;
+                          },
                         )
                         .join("")}
                     </select>
                   </div>
                   <div class="admin-field">
-                    <label for="lesson-duration">Duracion</label>
+                    <label for="lesson-duration">Duración</label>
                     <input id="lesson-duration" name="duration" value="${escapeHtml(selectedLesson.duration)}" />
                   </div>
                 </div>
@@ -1025,7 +1449,7 @@ function renderLessonEditor() {
                     <input id="lesson-status" name="status" value="${escapeHtml(selectedLesson.status)}" />
                   </div>
                   <div class="admin-field">
-                    <label for="lesson-theme">Tema de portada</label>
+                    <label for="lesson-theme">Tema da capa</label>
                     <select id="lesson-theme" name="coverTheme">
                       ${["ember", "noir", "blush", "gold"]
                         .map(
@@ -1040,32 +1464,32 @@ function renderLessonEditor() {
                   </div>
                 </div>
                 <div class="admin-field">
-                  <label for="lesson-title">Titulo</label>
+                  <label for="lesson-title">Título</label>
                   <input id="lesson-title" name="title" value="${escapeHtml(selectedLesson.title)}" />
                 </div>
                 <div class="admin-field">
-                  <label for="lesson-description">Descripcion</label>
+                  <label for="lesson-description">Descripción</label>
                   <textarea id="lesson-description" name="description">${escapeHtml(selectedLesson.description)}</textarea>
                 </div>
                 <div class="admin-form__row">
                   <div class="admin-field">
-                    <label for="lesson-cover-label">Texto corto de portada</label>
+                    <label for="lesson-cover-label">Texto curto da capa</label>
                     <input id="lesson-cover-label" name="coverLabel" value="${escapeHtml(selectedLesson.coverLabel)}" />
                   </div>
                   <div class="admin-field">
-                    <label for="lesson-cover-tag">Apoyo de portada</label>
+                    <label for="lesson-cover-tag">Apoio da capa</label>
                     <input id="lesson-cover-tag" name="coverTag" value="${escapeHtml(selectedLesson.coverTag)}" />
                   </div>
                 </div>
                 <div class="admin-field">
-                  <label for="lesson-cover-image">Imagen de portada</label>
+                  <label for="lesson-cover-image">Imagem da capa</label>
                   <input id="lesson-cover-image" name="coverImage" value="${escapeHtml(selectedLesson.coverImage || "")}" />
-                  <p class="admin-form__help">Si lo dejas vacio, la tarjeta usa el gradiente tematico.</p>
+                  <p class="admin-form__help">Si lo dejas vacío, la tarjeta usa el degradado temático.</p>
                 </div>
                 <div class="admin-field">
                   <label for="lesson-embed-code">Embed de la clase</label>
                   <textarea id="lesson-embed-code" name="embedCode">${escapeHtml(selectedLesson.embedCode || "")}</textarea>
-                  <p class="admin-form__help">Pega aqui el embed completo de VTurb cuando quieras abrir la clase dentro del area de miembros.</p>
+                  <p class="admin-form__help">Pega aquí el embed completo de VTurb cuando quieras abrir la clase dentro del área de miembros.</p>
                 </div>
                 <div class="admin-form__row">
                   <div class="admin-field">
@@ -1073,7 +1497,7 @@ function renderLessonEditor() {
                     <input id="lesson-video-url" name="videoUrl" value="${escapeHtml(selectedLesson.videoUrl || "#")}" />
                   </div>
                   <div class="admin-field">
-                    <label for="lesson-material-url">Enlace del material</label>
+                    <label for="lesson-material-url">Link do material</label>
                     <input id="lesson-material-url" name="materialUrl" value="${escapeHtml(selectedLesson.materialUrl || "#")}" />
                   </div>
                 </div>
@@ -1098,7 +1522,7 @@ function renderMaterialEditor() {
         <div class="admin-list__header">
           <div>
             <h2 class="content-block__title">Materiales</h2>
-            <p class="content-block__subtitle">Organiza PDFs, guias, bonus y enlaces de apoyo para la alumna.</p>
+            <p class="content-block__subtitle">Organiza PDFs, guías, bonos y enlaces de apoyo para la alumna.</p>
           </div>
           <button class="admin-action" type="button" data-action="add-material">
             Nuevo material
@@ -1127,7 +1551,7 @@ function renderMaterialEditor() {
         <div class="admin-form-card__header">
           <div>
             <h2 class="content-block__title">Editor de material</h2>
-            <p class="content-block__subtitle">Actualiza nombre, descripcion, categoria y enlace de acceso.</p>
+            <p class="content-block__subtitle">Actualiza nombre, descripción, categoría y enlace de acceso.</p>
           </div>
           ${
             selectedMaterial
@@ -1152,11 +1576,11 @@ function renderMaterialEditor() {
                   </div>
                 </div>
                 <div class="admin-field">
-                  <label for="material-title">Titulo</label>
+                  <label for="material-title">Título</label>
                   <input id="material-title" name="title" value="${escapeHtml(selectedMaterial.title)}" />
                 </div>
                 <div class="admin-field">
-                  <label for="material-description">Descripcion</label>
+                  <label for="material-description">Descripción</label>
                   <textarea id="material-description" name="description">${escapeHtml(selectedMaterial.description)}</textarea>
                 </div>
                 <div class="admin-field">
@@ -1182,21 +1606,23 @@ function renderAdminView() {
         <div class="admin-shell__top">
           <div>
             <p class="members-kicker">Workspace admin</p>
-            <h2 class="members-billboard__title">Edita la biblioteca con clima de catalogo premium.</h2>
+            <h2 class="members-billboard__title">Organiza cursos, bonos y clases en un solo lugar.</h2>
             <p class="members-billboard__subtitle">
-              Esta vista fue creada para que cambies portadas, titulos, descripciones, enlaces y materiales rapidamente, manteniendo la experiencia de la alumna coherente con el producto.
+              Usa los módulos para separar cada curso, renombra los bonos cuando tengas los nombres finales y encaja los embeds en la ruta correcta.
             </p>
           </div>
           ${renderAdminTabs()}
         </div>
         <div class="admin-note">
-          <strong>Importante:</strong> esta primera version usa almacenamiento local del navegador para simular la operacion de admin y miembro sin backend. El proximo paso, si quieres, es conectarlo a autenticacion y base de datos reales.
+          <strong>Importante:</strong> esta primera versión usa almacenamiento local del navegador para simular la operación de admin y miembro sin backend. El próximo paso es conectarlo a autenticación y base de datos reales.
         </div>
       </section>
 
       ${
         state.adminTab === "product"
           ? renderProductForm()
+          : state.adminTab === "courses"
+            ? renderCourseEditor()
           : state.adminTab === "materials"
             ? renderMaterialEditor()
             : renderLessonEditor()
@@ -1209,10 +1635,25 @@ function renderAdminView() {
 }
 
 function renderApp() {
-  app.innerHTML = `${renderMasthead()}${state.role === "admin" ? renderAdminView() : renderMemberView()}`;
+  if (isAdminEntry() && !isAdminAuthenticated) {
+    app.innerHTML = `${renderMasthead()}${renderAdminLogin()}`;
+    return;
+  }
+
+  if (!isAdminAuthenticated && state.role === "admin") {
+    state.role = "member";
+  }
+
+  app.innerHTML = `${renderMasthead()}${state.role === "admin" && isAdminAuthenticated ? renderAdminView() : renderMemberView()}`;
 }
 
 function setRole(role) {
+  if (role === "admin" && !isAdminAuthenticated) {
+    window.history.pushState(null, "", "/admin");
+    renderApp();
+    return;
+  }
+
   state.role = role;
   persistState();
   renderApp();
@@ -1237,6 +1678,46 @@ function saveProduct(formData) {
     bannerSrc: formData.get("bannerSrc")?.trim() || state.product.bannerSrc,
   };
 
+  persistState();
+  renderApp();
+}
+
+function saveCourse(formData) {
+  const courseId = formData.get("id");
+  const previousCourse = getCourseById(courseId);
+  const title = formData.get("title")?.trim() || previousCourse?.title || "Nuevo curso";
+  const label = formData.get("label")?.trim() || previousCourse?.label || "Curso";
+  const description = formData.get("description")?.trim() || previousCourse?.description || "";
+  const status = formData.get("status")?.trim() || previousCourse?.status || "Por configurar";
+  const coverImage = formData.get("coverImage")?.trim() || "";
+
+  state.courses = state.courses.map((course) =>
+    course.id === courseId
+      ? {
+          ...course,
+          label,
+          title,
+          description,
+          status,
+          coverImage,
+        }
+      : course,
+  );
+
+  if (courseId !== "mapa-do-prazer") {
+    state.modules = state.modules.map((module) =>
+      module.courseId === courseId
+        ? {
+            ...module,
+            eyebrow: label,
+            title,
+            description,
+          }
+        : module,
+    );
+  }
+
+  selectedCourseId = courseId;
   persistState();
   renderApp();
 }
@@ -1289,7 +1770,7 @@ function saveMaterial(formData) {
           title: formData.get("title")?.trim() || "Nuevo material",
           description: formData.get("description")?.trim() || "",
           type: formData.get("type")?.trim() || "PDF",
-          badge: formData.get("badge")?.trim() || "Novo",
+          badge: formData.get("badge")?.trim() || "Nuevo",
           link: formData.get("link")?.trim() || "#",
         }
       : material,
@@ -1300,7 +1781,11 @@ function saveMaterial(formData) {
 }
 
 function addLesson() {
-  const firstModule = state.modules[0];
+  const selectedLesson = getSelectedLesson();
+  const firstModule =
+    state.modules.find((module) => module.courseId === selectedCourseId) ||
+    state.modules.find((module) => module.id === selectedLesson?.moduleId) ||
+    state.modules[0];
 
   if (!firstModule) {
     return;
@@ -1311,11 +1796,11 @@ function addLesson() {
     {
       id: lessonId,
       title: "Nueva clase",
-      description: "Describe aqui el objetivo de la clase.",
+      description: "Describe aquí el objetivo de la clase.",
       duration: "00 min",
-      status: "Rascunho",
-      coverLabel: "Nova capa",
-      coverTag: "Defina a promessa visual",
+      status: "Borrador",
+      coverLabel: "Nueva portada",
+      coverTag: "Define la promesa visual",
       coverTheme: "ember",
       coverImage: "",
       embedCode: "",
@@ -1330,6 +1815,43 @@ function addLesson() {
   renderApp();
 }
 
+function addCourse() {
+  const timestamp = Date.now();
+  const courseId = `course-${timestamp}`;
+  const moduleId = `mod-${timestamp}`;
+
+  state.courses = [
+    {
+      id: courseId,
+      label: "Nuevo curso",
+      title: "Nuevo curso",
+      description: "Describe la promesa y el orden de este curso.",
+      status: "Por configurar",
+      coverImage: "",
+    },
+    ...state.courses,
+  ];
+
+  state.modules = [
+    {
+      id: moduleId,
+      courseId,
+      eyebrow: "Módulo 1",
+      title: "Empieza por aquí",
+      description: "Primer módulo del nuevo curso.",
+      progress: 0,
+      lessons: [],
+    },
+    ...state.modules,
+  ];
+
+  selectedCourseId = courseId;
+  activeCourseId = courseId;
+  state.adminTab = "courses";
+  persistState();
+  renderApp();
+}
+
 function addMaterial() {
   const materialId = `material-${Date.now()}`;
 
@@ -1339,7 +1861,7 @@ function addMaterial() {
       title: "Nuevo material",
       description: "Describe el objetivo del material.",
       type: "PDF",
-      badge: "Novo",
+      badge: "Nuevo",
       link: "#",
     },
     ...state.materials,
@@ -1383,6 +1905,8 @@ function restoreDefaults() {
   state = structuredClone(defaultState);
   selectedLessonId = getAllLessons(state.modules)[0]?.id || null;
   selectedMaterialId = state.materials[0]?.id || null;
+  selectedCourseId = state.courses[0]?.id || null;
+  activeCourseId = null;
   persistState();
   renderApp();
 }
@@ -1400,6 +1924,14 @@ app.addEventListener("click", (event) => {
     setRole(target.dataset.role);
   }
 
+  if (action === "logout-admin") {
+    fetchJson("/api/admin/logout", { method: "POST", body: "{}" }).catch(() => {});
+    isAdminAuthenticated = false;
+    state.role = "member";
+    window.history.pushState(null, "", "/");
+    renderApp();
+  }
+
   if (action === "set-admin-tab") {
     setAdminTab(target.dataset.tab);
   }
@@ -1414,8 +1946,47 @@ app.addEventListener("click", (event) => {
     renderApp();
   }
 
+  if (action === "select-course") {
+    selectedCourseId = target.dataset.courseId;
+    renderApp();
+  }
+
+  if (action === "open-course") {
+    event.preventDefault();
+    activeCourseId = target.dataset.courseId;
+    resetLessonFilters();
+    const firstLesson = getCourseLessons(activeCourseId)[0];
+    selectedLessonId = firstLesson?.id || null;
+    renderApp();
+
+    window.requestAnimationFrame(() => {
+      document.getElementById("featured")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
+
+  if (action === "close-course") {
+    event.preventDefault();
+    activeCourseId = null;
+    resetLessonFilters();
+    renderApp();
+
+    window.requestAnimationFrame(() => {
+      document.getElementById("cursos")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
+
   if (action === "add-lesson") {
     addLesson();
+  }
+
+  if (action === "add-course") {
+    addCourse();
   }
 
   if (action === "add-material") {
@@ -1434,12 +2005,19 @@ app.addEventListener("click", (event) => {
     restoreDefaults();
   }
 
+  if (action === "reset-lesson-filters") {
+    resetLessonFilters();
+    renderApp();
+  }
+
   if (action === "watch-lesson") {
     if (!target.dataset.lessonId) {
       return;
     }
 
     selectedLessonId = target.dataset.lessonId;
+    const lesson = getSelectedLesson();
+    activeCourseId = lesson?.courseId || activeCourseId;
     renderApp();
 
     window.requestAnimationFrame(() => {
@@ -1451,7 +2029,42 @@ app.addEventListener("click", (event) => {
   }
 });
 
-app.addEventListener("submit", (event) => {
+app.addEventListener("input", (event) => {
+  const target = event.target.closest("[data-filter]");
+
+  if (!target) {
+    return;
+  }
+
+  if (target.dataset.filter === "lesson-search") {
+    lessonSearchQuery = target.value;
+    renderApp();
+
+    window.requestAnimationFrame(() => {
+      document.querySelector('[data-filter="lesson-search"]')?.focus();
+    });
+  }
+});
+
+app.addEventListener("change", (event) => {
+  const target = event.target.closest("[data-filter]");
+
+  if (!target) {
+    return;
+  }
+
+  if (target.dataset.filter === "lesson-module") {
+    lessonModuleFilter = target.value;
+  }
+
+  if (target.dataset.filter === "lesson-status") {
+    lessonStatusFilter = target.value;
+  }
+
+  renderApp();
+});
+
+app.addEventListener("submit", async (event) => {
   const form = event.target.closest("[data-form]");
 
   if (!form) {
@@ -1463,8 +2076,32 @@ app.addEventListener("submit", (event) => {
   const formData = new FormData(form);
   const { form: formType } = form.dataset;
 
+  if (formType === "login") {
+    loginError = "";
+
+    try {
+      await fetchJson("/api/admin/login", {
+        method: "POST",
+        body: JSON.stringify({ password: formData.get("password") || "" }),
+      });
+
+      isAdminAuthenticated = true;
+      state.role = "admin";
+      renderApp();
+    } catch (error) {
+      loginError = error.message || "No fue posible entrar.";
+      renderApp();
+    }
+
+    return;
+  }
+
   if (formType === "product") {
     saveProduct(formData);
+  }
+
+  if (formType === "course") {
+    saveCourse(formData);
   }
 
   if (formType === "lesson") {
@@ -1476,4 +2113,15 @@ app.addEventListener("submit", (event) => {
   }
 });
 
-renderApp();
+async function bootstrapApp() {
+  await loadServerContent();
+  await checkAdminSession();
+
+  if (isAdminEntry() && isAdminAuthenticated) {
+    state.role = "admin";
+  }
+
+  renderApp();
+}
+
+bootstrapApp();
