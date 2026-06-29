@@ -1142,6 +1142,70 @@ function renderLessonCard(lesson) {
   `;
 }
 
+function renderCommentSection() {
+  return `
+    <section class="youtube-comments">
+      <div class="youtube-comments__tabs" role="tablist" aria-label="Comentarios">
+        <button class="youtube-comments__tab is-active" type="button">Comentarios</button>
+      </div>
+      <div class="youtube-comments__composer">
+        <span class="youtube-comments__avatar">M</span>
+        <div>
+          <strong>Comparte tu duda</strong>
+          <p>Deja tus notas o preguntas para revisar la clase con más claridad.</p>
+        </div>
+      </div>
+      <article class="youtube-comment">
+        <span class="youtube-comments__avatar youtube-comments__avatar--soft">A</span>
+        <div>
+          <strong>Admin</strong>
+          <p>Revisa la clase completa y vuelve a esta área para anotar dudas sobre el módulo.</p>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function renderNextLessonsCarousel(course) {
+  const lessons = getCourseLessons(course.id);
+  const selectedIndex = Math.max(0, lessons.findIndex((lesson) => lesson.id === selectedLessonId));
+  const nextLessons = [...lessons.slice(selectedIndex + 1), ...lessons.slice(0, selectedIndex)].slice(0, 10);
+
+  if (nextLessons.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="youtube-next-lessons" aria-label="Próximas clases">
+      <div class="youtube-next-lessons__top">
+        <h2>Próximas clases</h2>
+      </div>
+      <div class="youtube-next-carousel">
+        ${nextLessons
+          .map((lesson) => {
+            const coverStyle = lesson.coverImage
+              ? `style="background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.08), rgba(8, 8, 8, 0.55)), url('${escapeHtml(lesson.coverImage)}')"`
+              : "";
+            const coverClass = lesson.coverImage
+              ? "youtube-next-card__thumb"
+              : `youtube-next-card__thumb lesson-cover--${escapeHtml(lesson.coverTheme || "ember")}`;
+
+            return `
+              <button class="youtube-next-card" type="button" data-action="watch-lesson" data-lesson-id="${escapeHtml(lesson.id)}">
+                <span class="${coverClass}" ${coverStyle}>
+                  <span>${escapeHtml(lesson.coverLabel || "Clase")}</span>
+                </span>
+                <strong>${escapeHtml(lesson.title)}</strong>
+                <small>${escapeHtml(lesson.moduleTitle)} · ${escapeHtml(lesson.duration)}</small>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderLessonPlayer() {
   const lesson = getSelectedLesson() || getFeaturedLesson();
   const canRenderEmbed = Boolean(lesson?.embedCode);
@@ -1527,6 +1591,8 @@ function renderLearningCourse(activeCourse) {
       <div class="youtube-watch-grid" id="modulos">
         <div class="youtube-watch-main">
           ${lessons.length > 0 ? renderLessonPlayer() : renderEmptyModule({ eyebrow: activeCourse.label, title: activeCourse.title, description: "Las clases aún serán agregadas." })}
+          ${renderCommentSection()}
+          ${renderNextLessonsCarousel(activeCourse)}
           <div class="learning-course__filters">
             ${renderLessonFilters(activeCourse)}
           </div>
